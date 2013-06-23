@@ -1,0 +1,18 @@
+pygments: true
+permalink: /blog/:categories/:year/:month/:day/:title 
+markdown: kramdown
+
+authors:
+  kartben:
+    display_name: Benjamin Cabé
+    gravatar: 6a9709b2e69ab3bb3bf786acb6323366
+    email: kartben@gmail.com
+    web: http://blog.benjamin-cabe.com/
+    twitter: kartben
+    github: kartben
+  sebz:
+    display_name: Sébastien Moran
+    gravatar: 6e0f84a522cf43154299fdf2798c659d
+    email: sebzen@gmail.com
+    twitter: sebz
+    github: sebz

@@ -1,0 +1,59 @@
+p {
+	font-size: 20px;
+	margin-bottom: 1em;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+#content {
+	margin: 0 auto;
+	position: relative;
+	clear: both;
+	padding-top: 195px; /*1024 display standard version*/
+	padding-left: 10%;
+	padding-right: 10%;
+	width: 80%;
+	padding-bottom: 100px;
+}
+
+#related_posts {
+	padding-top: 10px;
+}
+
+#content p, #content h1, #content h2, #content h3, #content h4, #content h5 {
+	float: none;
+	margin-top: 0.2em;
+	margin-bottom: 0.4em;
+	padding-left: 0px;
+}
+
+#content h1 {
+	border-bottom: 1px dotted rgb(139, 139, 139);
+}
+
+#content h2 {
+	margin-top: .5em;
+	margin-bottom: 0em;
+}
+
+#content h4 {
+	margin-top: 10px;
+	font-size: 26px;
+}
+
+ul li{
+	list-style: circle;
+	font-size: 20px;
+	margin-left: 3em;
+	color: rgb(139, 139, 139);
+	line-height: 30px;
+}
+
+#page-navigation {
+	font-size: 0.8em;
+	float: right;
+	position: relative;
+	text-align: right;
+}
