@@ -1,7 +1,9 @@
 ---
 layout: post
+categories: blog
 title: A sample blog post
 author: kartben
+comments: true
 ---
 
 *View the [source of this content](http://github.github.com/github-flavored-markdown/sample_content.html).*

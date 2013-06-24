@@ -1,0 +1,9 @@
+---
+layout: api
+categories: api
+language: PHP
+short: Ph
+github_repo: http://developer.sierrawireless.com/Resources/Resources/AirVantage/Educational_Documentation/Tutorial_AirVantage4_AWS_PHP_Sample.aspx
+---
+
+This is a __PHP__ example

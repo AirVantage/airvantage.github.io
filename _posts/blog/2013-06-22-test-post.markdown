@@ -1,7 +1,9 @@
 ---
 layout: post
+categories: blog
 title: Introducing Guirlande
 author: kartben
+comments: true
 ---
 
 ### JenkinsCI + RPi + LED strip => Fireworks !
