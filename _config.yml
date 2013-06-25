@@ -1,6 +1,8 @@
 pygments: true
 permalink: /:categories/:year/:month/:day/:title 
 markdown: kramdown
+paginate: 2
+paginate_files: ['index.html', 'blog', 'authors/kartben/index.html']
 
 authors:
   kartben:
@@ -27,7 +29,7 @@ authors:
     twitter: gmorice
     github: gaetanmorice
   vrmvrm:
-    username: gaetan
+    username: vrmvrm
     display_name: Julien Vermillard
     gravatar: cf8a296ad8ebdf41f76d75f50470ecf0
     email: jvermillard@gmail.com

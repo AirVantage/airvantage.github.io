@@ -1,8 +1,8 @@
 ---
 layout: post
 categories: blog
-title: A sample blog post
+title: A sample blog post #4
 author: kartben
 comments: true
 ---
-xxx
+www

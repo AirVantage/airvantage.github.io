@@ -34,7 +34,7 @@ module Jekyll
       @base = base
       @dir  = author_dir
       @name = 'index.html'
-      puts "author #{author} @dir #{author_dir}"
+#      puts "author #{author['username']} @dir #{author_dir}"
       self.process(@name)
       # Read the YAML data from the layout page.
       self.read_yaml(File.join(base, '_layouts'), 'author_index.html')
@@ -60,16 +60,27 @@ module Jekyll
     #  +author_dir+ is the String path to the author folder.
     #  +author+     is the author currently being processed.
     def write_author_index(author_dir, author)      
-      index = AuthorIndex.new(self, self.source, author_dir, author)
-      index.render(self.layouts, site_payload)
-      index.write(self.dest)
-      # Record the fact that this page has been added, otherwise Site::cleanup will remove it.
-      self.pages << index
+      author_posts = self.categories['blog'].select { |p| p.data['author'] == author['username']}
+      pages = Pager.calculate_pages(author_posts, self.config['paginate'].to_i)
+
+      (1..pages).each do |num_page|
+        puts "author #{author['username']}, printing page #{num_page}" 
+        pager = Pager.new(self.config, num_page, author_posts, pages)
+        index = AuthorIndex.new(self, self.source, author_dir, author)
+        index.pager = pager
+        if num_page >= 1 then
+          index.dir = "/authors/#{author['username']}/page#{num_page}"
+        end
+#        index.render(self.layouts, site_payload)
+#        index.write(self.dest)
+        # Record the fact that this page has been added, otherwise Site::cleanup will remove it.
+        self.pages << index
+      end
 
     end
 
     # Loops through the list of author pages and processes each one.
-    def write_author_indexes
+    def write_author_indexes()
       if self.layouts.key? 'author_index'
         dir = self.config['author_dir'] || 'authors'  
         self.config['authors'].each do |author|
@@ -90,7 +101,7 @@ module Jekyll
     priority :high
 
     def generate(site)
-      site.write_author_indexes
+      site.write_author_indexes()
       puts "site.authors #{site.config['authors']}"
     end
 

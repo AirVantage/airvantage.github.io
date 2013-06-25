@@ -2,20 +2,36 @@
 layout: default
 ---
 
-  <h2>Author: {{ page.author_name }}</h2>
+  <h2>Posts by {{ page.author_name }}</h2>
+
+<!-- Pagination links -->
+<div id="page-navigation">
+  {% if paginator.previous_page %}
+    <a href="../page{{ paginator.previous_page }}" class="previous">Previous</a>
+  {% endif %}
+
+  {% if paginator.previous_page or paginator.next_page %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <a href="../page{{ paginator.next_page }}" class="next">Next</a>
+  {% endif %}
+</div>
 
 <ul>
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
     {% if post.author contains page.author %}
     <li style="min-height:200px; list-style:none;">
 		
+	    <h1><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+
 		<div class="datebox">
 			<span class="month">{{post.date | date: "%b"}}</span> 
 			<span class="day">{{post.date | date: "%d"}}</span> 
 			<span class="year">{{post.date | date: "%Y"}}</span>
 		</div>
 		
-	    <h1><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
         {{ post.content | strip_html | truncatewords:50}}<br>
 		<a href="{{ post.url }}" class="link">Read more&hellip; <span class="red">►</span></a>
 		<br><br>
@@ -23,3 +39,4 @@ layout: default
     {% endif %}
     {% endfor %}
 </ul>
+
