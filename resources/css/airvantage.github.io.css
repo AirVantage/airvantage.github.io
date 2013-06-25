@@ -157,6 +157,11 @@ ul li{
 .author_vcard .name {
 	padding-top: 210px;
 	font-size: 1.2em;
+	margin-left: 10px;
+}
+
+.blog_link {
+	margin-left: 10px;
 }
 
 .social div {

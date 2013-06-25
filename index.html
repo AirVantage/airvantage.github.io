@@ -30,8 +30,8 @@
                 <nav>
                     <a href="#features" class="navlink"><i class="icon-github"></i> Repositories</a>
                     <a href="/devkit" class="navlink">Dev. kit</a>
-                    <a href="/blog" class="navlink">Blog</a>
                     <a href="#who" class="navlink">Who we are</a>
+                    <a href="/blog" class="navlink">Blog</a>
                     <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
                 </nav>
             </header>
@@ -53,7 +53,7 @@
                     Lorem ipsum
                 </div>
                 <div class="feature">
-                	<center><span class="testicon darkgrey">J</span></center>
+                	<center><a href="/api"><span class="testicon darkgrey">J</span></a></center>
                     <a href="/api"><h4>API examples</h4></a>
                     We provide examples to get you up to speed with AirVantage API in no time with your language of choice 
                 </div>
@@ -70,7 +70,7 @@
             <h3></h3>
                 {% random site.authors rauthors %}
                 {% for author in rauthors %}
-                <div class="author_vcard {% cycle 'first' ,'', '', '' %}" id="{{ author[1].email | cgi_escape }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
+                <div class="author_vcard {% cycle 'first' ,'', '', '' %}" id="{{ author[1].username }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
                     <div class="name">{{ author[1].display_name }}</div>
 
 
@@ -82,8 +82,8 @@
                     {% endfor %}
 
                     {% if has_blog %}
-                    <div class="blog_posts" style="float:left">
-                        <a href="/authors/{{ author[0]}}/page1" class="link" target="_blank">Blog <span class="red">►</span></a>
+                    <div class="blog_link" style="float:left">
+                        <a href="/authors/{{ author[0]}}/page1" class="link">Blog <span class="red">►</span></a>
                     </div>
                     {% endif %}
 
@@ -113,16 +113,6 @@
                     </div>
                 </div>                
                 {% endfor %}
-        </div>
-        <div id="contact">
-        	<div class="bullet"></div>
-        	<h2>Contact Us</h2>
-            <p>
-            	Questions? Send us a message here.
-                <div id="signUpForm">
-                	<!-- Dynamiccaly build, do not removed -->
-            	</div>
-            </p>
         </div>
     </div>
 </body>
