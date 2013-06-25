@@ -1,2 +1,4 @@
 
+.icon-twitter:before { content: '\e802'; } /* '' */
+.icon-gplus:before { content: '\e801'; } /* '' */
 .icon-github:before { content: '\e800'; } /* '' */
