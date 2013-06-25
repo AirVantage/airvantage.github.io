@@ -229,7 +229,7 @@ p {
 	font-size: 18px; /*1024 display standard version*/
 }
 
-div#introduction, div#profiles, div#features, div#developers, div#contact, div#signup {
+div#introduction, div#profiles, div#features, div#who, div#contact, div#signup {
 	margin: 0 auto;
 	position: relative;
 	clear: both;
@@ -425,7 +425,7 @@ div#features {
 }
 
 .first {
-	margin-left: 10%;
+	margin-left: 10% !important;
 }
 
 a.link {
@@ -448,10 +448,10 @@ a.link:hover {
 }
 
 /******************
- *   DEVELOPERS   *
+ *   who   *
  ******************/
  
-div#developers {
+div#who {
 	height: 640px; /*1024 display standard version*/
 }
 
@@ -550,12 +550,12 @@ button.btn {
 	#sign a {
 		font-size: 13px;
 		padding: 5px 20px 7px 20px;}
-	div#introduction, div#profiles, div#features, div#developers, div#contact {
+	div#introduction, div#profiles, div#features, div#who, div#contact {
 		padding-left: 10%;
 		padding-right: 10%;
 		width: 80%;
 		padding-bottom: 100px;}
-	div#features, div#developers, div#contact {
+	div#features, div#who, div#contact {
 		padding-top: 150px;
 		width: 80%;}
 	div#introduction {
@@ -568,7 +568,7 @@ button.btn {
 		height: 600px;}
 	div#features {
 		height: 600px;}
-	div#developers {
+	div#who {
 		height: 600px;}
 	div#contact {
 		height: 1400px;}
@@ -614,12 +614,12 @@ button.btn {
 	nav a, nav a.link-selected {
 		font-size: 13px;
 		padding: 9px 30px;}
-	div#introduction, div#profiles div#features, div#developers, div#contact {
+	div#introduction, div#profiles div#features, div#who, div#contact {
 		width: 92%;
 		padding-left: 4%;
 		padding-right: 4%;
 		padding-bottom: 80px;}
-	div#features, div#developers, div#contact {
+	div#features, div#who, div#contact {
 		padding-top: 175px;}
 	div#introduction {
 		padding-top: 140px;
@@ -629,7 +629,7 @@ button.btn {
 		height: 640px;}
 	div#features {
 		height: 640px;}
-	div#developers {
+	div#who {
 		height: 640px;}
 	div#contact {
 		height: 1120px;}

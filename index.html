@@ -1,11 +1,14 @@
+---
+---
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Sierra Wireless - AirVantage</title>
 	<meta name="description" content="Sierra Wireless - AirVantage" />
 	<meta name="robots" content="index, follow" />
     <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="resources/js/jquery-1.7.2.js" type="text/javascript"></script>
     <script src="resources/js/main.js" type="text/javascript"></script>
@@ -28,7 +31,7 @@
                     <a href="#features" class="navlink"><i class="icon-github"></i> Repositories</a>
                     <a href="/devkit" class="navlink">Dev. kit</a>
                     <a href="/blog" class="navlink">Blog</a>
-                    <a href="#" class="navlink">Who we are</a>
+                    <a href="#who" class="navlink">Who we are</a>
                     <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
                 </nav>
             </header>
@@ -37,8 +40,8 @@
 
         <div id="introduction">
         	<img src="resources/img/banner.png" class="banner" />
-            AirVantage is built by people who are passionate about open-source. <br/>
-            We use and contribute to open-source projects, and we think open-source is key to enabling the development of M2M applications.
+            AirVantage is built by people who are passionate about <strong style="font-family: 'l-rg', arial, sans;">open source</strong>. <br/>
+            We use and contribute to open-source projects, and we think open source is key to enabling the development of M2M applications.
         </div>
         <div id="features">
         	<div class="bullet"></div>
@@ -61,36 +64,55 @@
                 </div>
             </p>
         </div>
-        <div id="developers">
+        <div id="who">
         	<div class="bullet"></div>
-        	<h2>Projects</h2>
-            <h3>We are blahblah</h3>
-            <p>
-                <div class="feature first">
-                    <center><span class="testicon lightgrey" style="background:#dee8ef;">G</span></center>
-                    <h4>Developer kit</h4>
-                    We created a nice developer kit that is fully open-source and that you can use for building your first M2M applications.
-                    <br/>
-                    <br/>
-                    <a href="/devkit" class="link" target="_blank">More info &amp; order <span class="red">►</span></a>
-                </div>
-                <div class="feature">
-                	<center><span class="testicon lightgrey">M</span></center>
-                    <h4>m2m.eclipse.org</h4>
-                    Major contributor to the M2M Industry Working Group at the Eclipse Foundation. See the 2 key Eclipse projects: Koneki and Mihini.
-                </div>
-                <div class="feature">
-                	<center><span class="testicon lightgrey">k</span></center>
-                    <h4>Koneki</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-                <div class="feature">
-                    <center><span class="testicon lightgrey">m</span></center>
-                    <h4>Mihini</h4>
-                    Our comprehensive REST APIs accelerate integration of machine data into enterprise systems
-                </div>
-            </p>
+        	<h2>Who we are</h2>
+            <h3></h3>
+                {% random site.authors rauthors %}
+                {% for author in rauthors %}
+                <div class="author_vcard {% cycle 'first' ,'', '', '' %}" id="{{ author[1].email | cgi_escape }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
+                    <div class="name">{{ author[1].display_name }}</div>
+
+
+                    {% assign has_blog = false %}
+                    {% for post in site.posts %}
+                    {% if post.author contains author[1].username %}
+                      {% assign has_blog = true %}
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if has_blog %}
+                    <div class="blog_posts" style="float:left">
+                        <a href="/authors/{{ author[0]}}" class="link" target="_blank">Blog <span class="red">►</span></a>
+                    </div>
+                    {% endif %}
+
+
+                    <div class="social">
+                        {% if author[1].twitter %}
+                        <div class="twitter">
+                            <a href="https://twitter.com/{{ author[1].twitter }}" target="_blank">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if author[1].github %}
+                        <div class="github">
+                            <a href="https://github.com/{{ author[1].github }}" target="_blank">
+                                <i class="icon-github"></i>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if author[1].gplus %}
+                        <div class="gplus">
+                            <a href="https://plus.google.com/{{ author[1].gplus }}" target="_blank">
+                                <i class="icon-gplus"></i>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>                
+                {% endfor %}
         </div>
         <div id="contact">
         	<div class="bullet"></div>

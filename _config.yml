@@ -4,15 +4,43 @@ markdown: kramdown
 
 authors:
   kartben:
+    username: kartben
     display_name: Benjamin Cabé
     gravatar: 6a9709b2e69ab3bb3bf786acb6323366
     email: kartben@gmail.com
     web: http://blog.benjamin-cabe.com/
     twitter: kartben
     github: kartben
+    gplus: 112837264176638481892
   sebz:
+    username: sebz
     display_name: Sébastien Moran
     gravatar: 6e0f84a522cf43154299fdf2798c659d
     email: sebzen@gmail.com
     twitter: sebz
     github: sebz
+  gaetan:
+    username: gaetan
+    display_name: Gaétan Morice
+    gravatar: 2d6cc32e710c17a641a5c87266322438
+    email: gaetan.morice@gmail.com
+    twitter: gmorice
+    github: gaetanmorice
+  vrmvrm:
+    username: gaetan
+    display_name: Julien Vermillard
+    gravatar: cf8a296ad8ebdf41f76d75f50470ecf0
+    email: jvermillard@gmail.com
+    twitter: vrmvrm
+    github: jvermillard
+  dsciamma:
+    username: dsciamma
+    display_name: David Sciamma
+    gravatar:  14d36b6a2ea4a6e0271559aba29b9326
+    email: david.sciamma@gmail.com
+    twitter: dsciamma
+  thibs:
+    username: thibs
+    display_name: Thibault Cantegrel
+    gravatar: a9dc4900710f1892704aa76992bd2fcb
+    email: thibault.cantegrel@gmail.com

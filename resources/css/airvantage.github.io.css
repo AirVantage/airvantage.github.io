@@ -137,6 +137,30 @@ ul li{
 	writing-mode: lr-tb; 
 }
 
+.author_vcard {
+	float: left;
+	width:  200px;
+	height: 200px;
+	margin-right: 5%;
+	color: rgb(139,139,139);
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 20px;
+    -webkit-border-radius: 30px;  
+    -moz-border-radius: 30px;  
+    border-radius: 30px;
+    margin:10px;
+    background-repeat: no-repeat !important;
+    margin-bottom: 80px;
+}
 
+.author_vcard .name {
+	padding-top: 210px;
+	font-size: 1.2em;
+}
 
+.social div {
+	display: inline;
+	float: right;
+}
 
