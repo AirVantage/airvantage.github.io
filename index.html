@@ -39,15 +39,14 @@ landing: true
 	<div class="bullet"></div>
 	<h2>Who we are</h2>
     <h3></h3>
-    <div style="margin-left: 10%">
-        {% random site.authors rauthors %}
-        {% for author in rauthors %}
+    <div style="margin-left: 10%" id="authors">
+        {% for author in site.authors %}
         <div class="author_vcard" id="{{ author[1].username }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
             <div class="name">{{ author[1].display_name }}</div>
 
 
             {% assign has_blog = false %}
-            {% for post in site.posts %}
+            {% for post in site.categories.blog %}
             {% if post.author contains author[1].username %}
               {% assign has_blog = true %}
             {% endif %}
