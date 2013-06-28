@@ -1,0 +1,9 @@
+---
+category: projects
+title: M3DA server
+author: jvermillard
+comments: true
+project_img: m3da-server.png
+github_repo: https://github.com/sierrawireless/m3da-server
+---
+This __M3DA server__ written in Java allows you to manage Mihini-capable devices.
