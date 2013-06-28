@@ -2,10 +2,6 @@
 layout: default
 title : Blog | AirVantage
 ---
-
-{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}
-{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
-
 <ul>
     {% for post in site.categories.blog limit 4 %}
     <li style="min-height:200px; list-style:none;">

@@ -6,15 +6,11 @@
 	<meta name="description" content="Sierra Wireless - AirVantage" />
 	<meta name="robots" content="index, follow" />
 
-{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}
-{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
-
-
     <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
-    <script src="/resources/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="/resources/js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
 
     <!-- GA tracker -->
@@ -36,11 +32,11 @@
         <div id="top">
             <header>
                 <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
-                <nav>
+                <nav {% if page.landing %} class="navlink" {% endif %}>
                     <a href="/#features"><i class="icon-github"></i> Repositories</a>
-                    <a href="/devkit">Dev. kit</a>
+                    <a href="/devkit" {% if page.url == "/devkit/index.html" %} class="link-selected" {% endif %}>Dev. kit</a>
                     <a href="/#who">Who we are</a>
-                    <a href="/blog">Blog</a>
+                    <a href="/blog" {% if page.url == "/blog/index.html" or page.category == 'blog' %} class="link-selected" {% endif %}>Blog</a>
                     <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
                 </nav>
             </header>

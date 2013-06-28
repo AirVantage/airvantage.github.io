@@ -5,7 +5,7 @@ permalink: /devkit/index.html
 comments: true
 ---
 
-_eclo_, the M2M developer kit that you're going to love!
+<span style="font-family: 'aruallight';">eclo</span>, the M2M developer kit that you're going to love!
 ====
 
 What is it?

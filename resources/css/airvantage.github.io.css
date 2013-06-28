@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'aruallight';
+    src: url('../fonts/arual-webfont.eot');
+    src: url('../fonts/arual-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arual-webfont.woff') format('woff'),
+         url('../fonts/arual-webfont.ttf') format('truetype'),
+         url('../fonts/arual-webfont.svg#aruallight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 p {
 	font-size: 20px;
 	margin-bottom: 1em;

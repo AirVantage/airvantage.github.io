@@ -1,11 +1,16 @@
 $(function() {
-    var links = $("a.navlink");
+    var links = $("header nav.navlink a");
     var loc = window.location.href;
     links.each(function(index, item) {
         var split = item.href.split("#");
+
         if(split.length == 2) {
+            console.log('---')
             var target = $("#" + split[1]);
             if(target) {
+                if(window.location.hash == ('#' + split[1]))
+                    $(item).addClass("link-selected");
+
                 var duration = 1000;
                 $(item).click(function(e) {
                     links.each(function(index, link) {
