@@ -10,6 +10,15 @@
 
 }
 
+#introduction a {
+	font-family: 'l-bd', arial, sans;
+	color: rgb(229,59,48);
+}
+
+#introduction a:hover {
+	color: rgb(229,59,48);
+}
+
 p {
 	font-size: 20px;
 	margin-bottom: 1em;
