@@ -19,36 +19,47 @@ authors:
     gravatar: 6e0f84a522cf43154299fdf2798c659d
     twitter: sebz
     github: sebz
+    gplus: 109240335417844065572
   gaetan:
     username: gaetan
     display_name: Gaétan Morice
     gravatar: 2d6cc32e710c17a641a5c87266322438
     twitter: gmorice
     github: gaetanmorice
+    gplus: 102428174039559035920
   vrmvrm:
     username: vrmvrm
     display_name: Julien Vermillard
     gravatar: cf8a296ad8ebdf41f76d75f50470ecf0
     twitter: vrmvrm
     github: jvermillard
+    gplus: 108450532433051005595
   dsciamma:
     username: dsciamma
     display_name: David Sciamma
     gravatar:  14d36b6a2ea4a6e0271559aba29b9326
     twitter: dsciamma
+    gplus: 103703984790295374608
   thibs:
     username: thibs
     display_name: Thibault Cantegrel
     gravatar: a9dc4900710f1892704aa76992bd2fcb
+    gplus: 117950456018736297877
+    twitter: thibs
   kinfoo:
     username: kinfoo
     display_name: Kévin Kin-Foo
     gravatar: 3aba2f30d036a8e61c02f78d0a6ce083
+    gplus: 113195961024728684158
+    twitter: KevinKINFOO
+    github: KINFOO
   lbarthelemy:
     username: lbarthelemy
     display_name: Laurent Barthélémy
     gravatar: 723dac40c3f64f1cd87ef3ced1f4a9b4
-  kinfoo:
+  phtrivier:
     username: phtrivier
     display_name: Pierre-Henri Trivier
     gravatar: b8efdf0b5e92a9e758386990822f0be8
+    gplus: 116209387043423638740
+    twitter: phtrivier

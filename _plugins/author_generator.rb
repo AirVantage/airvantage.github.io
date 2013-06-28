@@ -64,7 +64,7 @@ module Jekyll
       pages = Pager.calculate_pages(author_posts, self.config['paginate'].to_i)
 
       (1..pages).each do |num_page|
-        puts "author #{author['username']}, printing page #{num_page}" 
+#        puts "author #{author['username']}, printing page #{num_page}" 
         pager = Pager.new(self.config, num_page, author_posts, pages)
         index = AuthorIndex.new(self, self.source, author_dir, author)
         index.pager = pager
@@ -102,7 +102,6 @@ module Jekyll
 
     def generate(site)
       site.write_author_indexes()
-      puts "site.authors #{site.config['authors']}"
     end
 
   end

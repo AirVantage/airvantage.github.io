@@ -1,8 +1,8 @@
 ---
 layout: post
-categories: blog
+category: blog
 title: Introducing Guirlande
-author: dsciamma
+author: kartben
 comments: true
 ---
 

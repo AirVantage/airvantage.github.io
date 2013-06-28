@@ -7,9 +7,9 @@
     <title>Sierra Wireless - AirVantage</title>
 	<meta name="description" content="Sierra Wireless - AirVantage" />
 	<meta name="robots" content="index, follow" />
+    <link href="resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="resources/js/jquery-1.7.2.js" type="text/javascript"></script>
     <script src="resources/js/main.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
@@ -47,19 +47,25 @@
         	<div class="bullet"></div>
         	<h2>Repositories</h2>
             <p>
-            	<div class="feature first">
-                	<center><span class="testicon darkgrey">I</span></center>
-                    <h4>Tutorials</h4>
-                    Lorem ipsum
+            	<div class="feature repo first">
+                    <a href="/tutorials">
+                    	<center><span class="testicon darkgrey"><i class="icon-library repo-icon"></i></span></center>
+                        <h4>Tutorials</h4>
+                    </a>
+                    Get started with AirVantage by following one of our detailed tutorials
                 </div>
-                <div class="feature">
-                	<center><a href="/api"><span class="testicon darkgrey">J</span></a></center>
-                    <a href="/api"><h4>API examples</h4></a>
+                <div class="feature repo">
+                	<a href="/api">
+                        <center><a href="/api"><span class="testicon darkgrey"><i class="icon-cog repo-icon"></i></span></center>
+                        <h4>API examples</h4>
+                    </a>
                     We provide examples to get you up to speed with AirVantage API in no time with your language of choice 
                 </div>
-            	<div class="feature">
-                	<center><span class="testicon darkgrey">☺</span></center>
-                    <h4>Fun projects</h3>
+            	<div class="feature repo">
+                	<a href="/projects">
+                        <center><span class="testicon darkgrey"><i class="icon-rocket repo-icon" style="text-indent: -6px;"></i></span></center>
+                        <h4>Featured projects</h4>
+                    </a>
                     What is cool with M2M is that one can build all sorts of fun projects. We are too, and we are sharing some of these projects with the community.
                 </div>
             </p>
@@ -68,9 +74,10 @@
         	<div class="bullet"></div>
         	<h2>Who we are</h2>
             <h3></h3>
+            <div style="margin-left: 10%">
                 {% random site.authors rauthors %}
                 {% for author in rauthors %}
-                <div class="author_vcard {% cycle 'first' ,'', '', '' %}" id="{{ author[1].username }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
+                <div class="author_vcard" id="{{ author[1].username }}" style="background: url('https://secure.gravatar.com/avatar/{{ author[1].gravatar}}?s=200')">
                     <div class="name">{{ author[1].display_name }}</div>
 
 
@@ -113,6 +120,7 @@
                     </div>
                 </div>                
                 {% endfor %}
+            </div>
         </div>
     </div>
 </body>

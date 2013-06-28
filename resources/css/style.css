@@ -56,7 +56,7 @@ html, body {
 body {
 	font-family: 'l-lt', arial, sans;
 	color: rgba(39,39,39);
-	min-width: 1000px;
+/*	min-width: 1000px; */
 }
 
 a {
@@ -115,7 +115,7 @@ header h1 a {
 	top: 22px; /*1024 display standard version*/
 	width: 216px; /*1024 display standard version*/
 	height: 51px; /*1024 display standard version*/
-	background: url("../img/sierra-wireless_airvantage_logo.png") no-repeat -270px 0px; /*1024 display standard version*/
+	background: url("../img/airvantage_love_os_logo.png") no-repeat -288px 0px; /*1024 display standard version*/
 }
 
 nav {
@@ -153,30 +153,6 @@ nav a.link-selected {
 	padding: 9px 30px; /*1024 display standard version*/
 }
 
-#sign {
-    position: absolute;
-    right: 0px;
-	top: 0px;
-	height: 25px;
-}
-
-#sign a {
-	font-size: 13px;
-	padding: 5px 15px 7px 15px;
-	margin: 0px;
-	display: inline-block;
-}
-
-#sign a.signinlink {
-	text-transform: uppercase;
-	color: rgb(255, 255, 255);
-	background-color: rgb(229,59,48);
-}
-
-#sign a.signuplink {
-	color: rgb(0, 0, 0);
-}
-
 .red {
 	color: rgb(229,59,48);
 	font-family: 'l-rg', arial, sans;
@@ -193,7 +169,6 @@ h2 {
 	display: block;
 	font-size: 40px; /*1024 display standard version*/
 }
-
 
 h3 {
 	clear: left;
@@ -229,7 +204,7 @@ p {
 	font-size: 18px; /*1024 display standard version*/
 }
 
-div#introduction, div#profiles, div#features, div#who, div#contact, div#signup {
+div#introduction, div#profiles, div#features, div#who {
 	margin: 0 auto;
 	position: relative;
 	clear: both;
@@ -267,20 +242,6 @@ ul.details {
 	float: left;
 	display: inline;
 	width: 50%;
-}
-
-
-/******************
- *     SIGNIN     *
- ******************/
-
-div#signin {
-	width: 100%;
-	height: 350px;
-	position: relative;
-	clear: both;
-	background-color: rgb(229,59,48);
-	display: none;
 }
 
 
@@ -412,12 +373,23 @@ div#features {
 .testicon {
 	position: relative;
 	font-family: 'swop_icons';
+	font-size: 64px; /*1024 display standard version*/
+	-moz-border-radius: 64px; /*1024 display standard version*/
+	-webkit-border-radius: 64px; /*1024 display standard version*/
+	border-radius: 64px; /*1024 display standard version*/
+	padding: 27px 20px 34px 28px; /*1024 display standard version*/
 }
 
 .darkgrey {
 	background: rgb(28,28,28);
 	color: rgb(255,255,255);
 }
+
+.black {
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
 
 .lightgrey {
 	background: rgb(231,231,231);
@@ -457,77 +429,6 @@ div#who {
 
 
 /******************
- *    CONTACT     *
- ******************/
- 
-div#contact {
-	background-color: rgb(28,28,28);
-	color: rgb(255,255,255);
-	height: 1120px; /*1024 display standard version*/
-}
-
-div#contact p {
-	padding-bottom: 50px;
-	color: rgb(255,255,255);
-	float: none;
-}
-
-div#contact .controls {
-	float: left;
-	width: 25%;
-}
-
-div#contact label {
-    float: left;
-    clear: left;
-    width: 20%; /*250px*/
-    padding-top: 15px;
-	padding-left: 10%;
-
-}
-
-div#contact input {
-    float: left;
-    width: 100%; /*375px*/
-	height: 40px;
-    -webkit-box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: inset 0 2px 7px rgba(0,0,0,0.2);
-	-ms-box-shadow: inset 0 2px 7px rgba(0,0,0,0.2);
-	-o-box-shadow: inset 0 2px 7px rgba(0,0,0,0.2);
-	box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.2);
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-o-border-radius: 3px;
-	border-radius: 3px;
-	border: none;
-	color: #9C9C9C;
-	padding: 10px;
-}
-
-button.btn {
-	float: left;
-	color: rgb(255,255,255);
-	text-transform: uppercase;
-	height: 60px;
-	padding-left: 5%;
-	padding-right: 5%;
-	text-align: center;
-	margin-left: 10%;
-	cursor: pointer;
-	background-color: rgb(229,59,48);
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-o-border-radius: 3px;
-	border-radius: 3px;
-	border: none;
-	font-family: 'l-lt', arial, sans;
-	font-size: 23px;
-}
-
-
-/******************
  *   RESPONSIVE   *
  ******************/
 
@@ -539,28 +440,25 @@ button.btn {
 		height: 130px;}
 	header h1 a {
 		top: 28px;
-		width: 270px;
+		width: 288px;
 		height: 64px;
-		background: url("../img/sierra-wireless_airvantage_logo.png") no-repeat 0px 0px;}
+		background: url("../img/airvantage_love_os_logo.png") no-repeat 0px 0px;}
 	nav {
 		top: 73px;}
 	nav a, nav a.link-selected {
 		font-size: 15px;
 		padding: 9px 30px;}
-	#sign a {
-		font-size: 13px;
-		padding: 5px 20px 7px 20px;}
-	div#introduction, div#profiles, div#features, div#who, div#contact {
+	div#introduction, div#profiles, div#features, div#who {
 		padding-left: 10%;
 		padding-right: 10%;
 		width: 80%;
 		padding-bottom: 100px;}
-	div#features, div#who, div#contact {
+	div#features, div#who {
 		padding-top: 150px;
 		width: 80%;}
 	div#introduction {
 		height: 600px;
-		padding-top: 90px;
+		padding-top: 160px;
 		line-height: 30px;
 		font-size: 23px;}
 	div#profiles {
@@ -570,8 +468,6 @@ button.btn {
 		height: 600px;}
 	div#who {
 		height: 600px;}
-	div#contact {
-		height: 1400px;}
 	h2 {
 		font-size: 50px;}
 	h3 {
@@ -584,7 +480,7 @@ button.btn {
 	.feature, .profile {
 		font-size: 15px;
 		line-height: 20px;
-		margin-top: 118px;
+		margin-top: 100px;
 		margin-bottom: 70px;}
 	.testicon {
 		font-size: 80px;
@@ -608,20 +504,21 @@ button.btn {
 		top: 22px;
 		width: 216px;
 		height: 51px;
-		background: url("../img/sierra-wireless_airvantage_logo.png") no-repeat -270px 0px;}
+		background: url("../img/airvantage_love_os_logo.png") no-repeat -288px 0px;}
 	nav {
 		top: 53px;}
 	nav a, nav a.link-selected {
 		font-size: 13px;
 		padding: 9px 30px;}
-	div#introduction, div#profiles div#features, div#who, div#contact {
+	div#introduction, div#profiles div#features, div#who {
 		width: 92%;
 		padding-left: 4%;
 		padding-right: 4%;
 		padding-bottom: 80px;}
-	div#features, div#who, div#contact {
+	div#features, div#who {
 		padding-top: 175px;}
 	div#introduction {
+		font-size: 21px;
 		padding-top: 140px;
 		height:485px;}
 	div#profiles {
@@ -631,8 +528,6 @@ button.btn {
 		height: 640px;}
 	div#who {
 		height: 640px;}
-	div#contact {
-		height: 1120px;}
 	h2 {
 		font-size: 40px;}
 	h3 {
@@ -652,7 +547,7 @@ button.btn {
 		-moz-border-radius: 64px;
 		-webkit-border-radius: 64px;
 		border-radius: 64px;
-		padding: 27px 32px 34px 34px;}
+		padding: 27px 20px 34px 28px}
 	.feature h4, .profile h4 {
 		padding-bottom: 28px;
 		font-size: 18px;
@@ -666,7 +561,7 @@ button.btn {
 		width: 80%;
 		height: 130px;}
 	h2 {
-		font-size: 15px;}
+		font-size: 22px;}
 	nav a, nav a.link-selected {
 		font-size: 11px;
 		padding: 9px 10px;}

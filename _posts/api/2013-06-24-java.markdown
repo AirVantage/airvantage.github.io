@@ -1,9 +1,8 @@
 ---
-layout: api
 category: api
 language: Java
 short: Ja
 github_repo: https://github.com/dsciamma/airvantage-api-java
 ---
-
-This is a __Java__ example.
+This example will help you access AirVantage API from __Java__.<br>
+It uses the [Scribe](https://github.com/fernandezpablo85/scribe-java) library for OAuth authentication.

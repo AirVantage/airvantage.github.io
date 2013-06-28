@@ -1,8 +1,0 @@
----
-layout: post
-categories: blog
-title: A sample blog post #2
-author: kartben
-comments: true
----
-yyy

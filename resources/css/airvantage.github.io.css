@@ -62,7 +62,8 @@ ul li{
 	text-align: right;
 }
 
-#api_container strong {
+#api_container strong, #projects_container strong {
+	font-size:1em;
 	color: rgb(229,59,48);
 	font-family: 'l-bd', arial, sans;
 }
@@ -76,11 +77,36 @@ ul li{
 	padding: 32px 36px 39px 40px;
 }
 
+.project {
+	background-size:200px 200px;
+	width: 200px;
+	height: 200px;
+	display: block;
+	position: relative;
+	font-size: 80px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 0px;
+}
+
+.repo {
+	margin-top: 60px;
+}
+
+.project-box {
+	margin-top: 0px;
+}
+
 #comments {
 	margin-top: 50px;
 }
 
-
+.repo-icon:before {
+	margin-left: 0em !important;
+	margin-right: 0.1em !important;
+	width: 60px;
+}
 
 /******************
 *** Date box ******
