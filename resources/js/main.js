@@ -56,3 +56,25 @@ $(function(){
      $('#authors').shuffle();
     
 });
+
+
+/*** DEVKIT ***/
+$(function() {
+    var galleryDiv = $("#devkit-gallery");
+
+    $("#devkit-buttons").children().hover(function() {
+            galleryDiv.removeClass();
+            galleryDiv.addClass( "gallery-" + $(this).attr('id') );
+    });
+    
+});
+
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    slideshow: true
+  });
+});
+
+
+

@@ -559,6 +559,8 @@ div#who {
 	header {
 		width: 80%;
 		height: 130px;}
+	h1 {
+		font-size: 26px;}
 	h2 {
 		font-size: 22px;}
 	nav a, nav a.link-selected {

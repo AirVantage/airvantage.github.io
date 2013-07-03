@@ -24,10 +24,6 @@ p {
 	margin-bottom: 1em;
 }
 
-h1 {
-	font-size: 36px;
-}
-
 #content {
 	margin: 0 auto;
 	position: relative;
@@ -120,7 +116,9 @@ ul li{
 }
 
 #comments {
-	margin-top: 50px;
+	padding-top: 50px;
+	width: 100%;
+	clear: both;
 }
 
 .repo-icon:before {
@@ -216,3 +214,173 @@ ul li{
 	float: right;
 }
 
+
+
+/*****************
+*** DEV KIT ******
+******************/
+
+#what-is-it {
+	float:left;
+	width: 40%;
+	height: 300px;
+}
+/*
+#devkit-buttons {
+	width:30%;
+	height: 240px;
+	float: left;
+	margin-left: 3%;
+}
+
+#devkit-buttons div {
+	width: 120px;
+	height: 120px;
+	text-transform: uppercase;
+	text-align: center;
+	color: rgb(139,139,139);
+}
+
+#devkit-buttons div:hover {
+	color: rgb(39,39,39);
+}
+
+#devkit-buttons div span {
+	display: table-cell; 
+	vertical-align: middle;
+	height: 120px;
+	width: 120px;
+}
+
+#devkit-buttons div.left {
+	float: left;
+}
+
+#devkit-buttons div.right {
+	margin-left: 120px;
+}
+*/
+
+#devkit-gallery {
+	float: right;
+	width: 40%;
+	margin-top: -90px;
+}
+
+#devkit-gallery ul li {
+	list-style: none;
+}
+
+/*
+#greenhouse	{ background: rgba(225,221,23,0.3); }
+#connected 		{ background: rgba(251,175,63,0.3); }
+#kit			{ background: rgba(0,167,157,0.3); }
+#customizable	{ background: rgba(140,198,62,0.3); }
+
+#greenhouse:hover	{ background: rgba(225,221,23,1); }
+#connected:hover 	{ background: rgba(251,175,63,1); }
+#kit:hover		{ background: rgba(0,167,157,1); }
+#customizable:hover	{ background: rgba(140,198,62,1); }
+
+.gallery-greenhouse		{ background: rgba(225,221,23,0.3); }
+.gallery-connected 		{ background: rgba(251,175,63,0.3); }
+.gallery-kit			{ background: rgba(0,167,157,0.3); }
+.gallery-customizable	{ 
+	background: url('/resources/img/devkit/05.jpg') no-repeat;
+	background-size: contain;
+}
+
+@media (max-width: 960px) {
+	#devkit-buttons {
+		width: 150px;
+	}
+
+	#devkit-buttons div {
+		width: 150px;
+		height: 3em;
+	}
+
+	#devkit-buttons div span {
+		width: 150px;
+		height: 3em;
+	}
+
+	#devkit-buttons div.left {
+		float: none;
+	}
+
+	#devkit-buttons div.right {
+		margin-left: 0px;
+	}
+
+	#devkit-gallery {
+		float: right;
+	}
+}
+
+*/
+#see-it-live {
+	float:left;
+	clear: left;
+	width: 30%;
+}
+
+#order-it {	
+	float: left;
+	margin-left: 3%;
+	width: 30%;
+}
+
+input[type=email] { 
+	font-size: 20px;
+	width: 150px;
+	float:left;
+}
+
+label {
+	font-size: 20px;
+	color: rgb(139,139,139);
+}
+
+input[type=submit] { 
+	margin-left: 5px;
+	font-size: 16px;
+	color: rgb(68,68,68);
+	text-transform: uppercase;
+	padding: 5px 10px;
+	background-color: rgb(231,231,231);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	border: none;
+}
+
+input[disabled="disabled"] {
+	opacity: 0.3;
+}
+
+
+#docs {
+	float: left;
+	clear: right;
+	margin-left: 3%;
+	width: 30%
+}
+
+
+
+@media (max-width: 960px) {
+	#what-is-it {
+		width: 100%;
+		height: auto;
+	}
+
+	#devkit-gallery, #see-it-live, #order-it, #docs {
+		float: none;
+		clear: both;
+		width: 100%;
+		margin-left:0px;
+	}
+}
