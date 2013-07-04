@@ -5,7 +5,6 @@ $(function() {
         var split = item.href.split("#");
 
         if(split.length == 2) {
-            console.log('---')
             var target = $("#" + split[1]);
             if(target) {
                 if(window.location.hash == ('#' + split[1]))
