@@ -1,3 +1,7 @@
+name: AirVantage Open Source Blog
+description: AirVantage Open Source Blog
+url: http://airvantage.github.io
+
 pygments: true
 permalink: /:categories/:year/:month/:day/:title 
 markdown: kramdown
