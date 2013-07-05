@@ -15,6 +15,10 @@ strong {
 	font-weight: normal;
 }
 
+li, ul {
+	margin-left: 1em;
+}
+
 #introduction a {
 	font-family: 'l-bd', arial, sans;
 	color: rgb(229,59,48);
@@ -49,6 +53,7 @@ p {
 	margin-top: 0.2em;
 	margin-bottom: 0.4em;
 	padding-left: 0px;
+	color: rgb(39,39,39);
 }
 
 #content h1 {
