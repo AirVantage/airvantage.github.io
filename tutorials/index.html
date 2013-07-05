@@ -2,18 +2,14 @@
 layout: default
 title : Tutorials
 ---
-
-{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}
-{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
-
-<span id="api_container">
+<span id="projects_container">
 <p>
     {% for post in site.categories.tutorials %}
 
-	<div class="feature {% cycle 'first' ,'', '', '' %}">
-    	<a href="{{ post.github_repo }}" target="_blank"><center><span class="api-icon darkgrey">{{ post.short }}</span></center></a>
-        <div style="margin-top: 70px;">
-        	{{ post.content | remove: '<p>' |  remove: '</p>' }}
+	<div class="feature project-box {% cycle 'first' ,'', '', '' %}">
+    	<a href="{{ post.url }}" ><center><span class="project black" style="background-image: url('/resources/img/projects/{{ post.img }}')">{{ post.short }}</span></center></a>
+        <div style="margin-top: 20px;">
+        	{{ post.title }}
     	</div>
     </div>
     {% endfor %}

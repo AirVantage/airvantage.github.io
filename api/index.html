@@ -3,9 +3,6 @@ layout: default
 title : Home
 ---
 
-{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}
-{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
-
 <span id="api_container">
 <p>
     {% for post in site.categories.api %}
