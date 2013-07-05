@@ -56,6 +56,14 @@ $(function(){
     
 });
 
+// highlight code
+$(function() {
+      // make code pritty
+       $('pre:has(code:not(.language-txt))').addClass('prettyprint');
+      window.prettyPrint && prettyPrint();
+});
+
+
 
 /*** DEVKIT ***/
 $(function() {
@@ -74,6 +82,7 @@ $(window).load(function() {
     slideshow: true
   });
 });
+
 
 
 
