@@ -10,6 +10,11 @@
 
 }
 
+strong {
+	font-family: 'l-bd', arial, sans;
+	font-weight: normal;
+}
+
 #introduction a {
 	font-family: 'l-bd', arial, sans;
 	color: rgb(229,59,48);
