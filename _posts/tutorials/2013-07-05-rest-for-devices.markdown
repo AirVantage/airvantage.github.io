@@ -4,17 +4,13 @@ title: Using REST API for devices
 author: dsciamma
 comments: true
 img: rest-for-devices.png
+layout: default
 ---
 
+Using REST API for devices
+==========================
+
 This article explains the different steps to create an application when you want to use the REST API for devices to connect your application to AirVantage. 
-If you're not familiar with the concept of application, you can read the introduction about Applications, Firmwares and Application Models.
-
-* * *
-
-* This list will contain the toc (it doesn't matter what you write here)
-{:toc}
-
-* * *
 
 
 Application Model
