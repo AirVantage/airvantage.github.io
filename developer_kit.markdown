@@ -20,6 +20,9 @@ comments: true
 <div id="devkit-gallery" class="flexslider">
   <ul class="slides">
     <li>
+      <img src="/resources/img/devkit/eclo.jpg" />
+    </li>
+    <li>
       <img src="/resources/img/devkit/01.png" />
     </li>
     <li>
