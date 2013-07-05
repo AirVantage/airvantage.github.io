@@ -223,7 +223,7 @@ ul li{
 #what-is-it {
 	float:left;
 	width: 40%;
-	height: 300px;
+	height: 310px;
 }
 /*
 #devkit-buttons {
@@ -332,9 +332,10 @@ ul li{
 }
 
 input[type=email] { 
-	font-size: 20px;
+	font-size: 14px;
 	width: 150px;
 	float:left;
+	font-family: 'l-lt', arial, sans;
 }
 
 label {
@@ -355,6 +356,8 @@ input[type=submit] {
 	-o-border-radius: 3px;
 	border-radius: 3px;
 	border: none;
+	font-size: 11px;
+	margin-top:2px;
 }
 
 input[disabled="disabled"] {
