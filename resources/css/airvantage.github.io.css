@@ -20,7 +20,7 @@ li, ul {
 }
 
 #introduction a {
-	font-family: 'l-bd', arial, sans;
+	/*font-family: 'l-bd', arial, sans;*/
 	color: rgb(229,59,48);
 }
 
@@ -53,6 +53,9 @@ p {
 	margin-top: 0.2em;
 	margin-bottom: 0.4em;
 	padding-left: 0px;
+}
+
+#content p {
 	color: rgb(39,39,39);
 }
 
@@ -65,17 +68,25 @@ p {
 	margin-bottom: 0em;
 }
 
+#content h3 {
+	margin-top: .6em;
+	margin-bottom: -.2em;
+}
+
 #content h4 {
 	margin-top: 10px;
 	font-size: 26px;
 }
 
-ul li{
-	list-style: circle;
+ul li, ol li{
 	font-size: 20px;
 	margin-left: 0em;
-	color: rgb(139, 139, 139);
+/*	color: rgb(139, 139, 139);*/
 	line-height: 30px;
+}
+
+ul li  {	
+	list-style: circle;
 }
 
 #post ul li {
@@ -233,7 +244,7 @@ ul li{
 #what-is-it {
 	float:left;
 	width: 40%;
-	height: 310px;
+	height: 290px;
 }
 /*
 #devkit-buttons {
@@ -274,7 +285,7 @@ ul li{
 #devkit-gallery {
 	float: right;
 	width: 40%;
-	margin-top: -90px;
+	margin-top: -110px;
 }
 
 #devkit-gallery ul li {
