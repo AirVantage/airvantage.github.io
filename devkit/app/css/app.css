@@ -1,0 +1,19 @@
+.tick text {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	color: #878787;
+}
+
+path {
+	fill: none; 
+	stroke: #878787; 
+	stroke-width: 1px;
+}
+
+.live-demo ul li {
+	list-style: none;
+}
+
+#content.live-demo {
+	padding-top: 150px;
+}
