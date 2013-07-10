@@ -1,4 +1,8 @@
 $(function() {
+    // make code pritty
+    $('pre:has(code:not(.language-txt))').addClass('prettyprint');
+    window.prettyPrint && prettyPrint();
+
     var links = $("header nav.navlink a");
     var loc = window.location.href;
     links.each(function(index, item) {
@@ -55,15 +59,6 @@ $(function(){
      $('#authors').shuffle();
     
 });
-
-// highlight code
-$(function() {
-      // make code pritty
-       $('pre:has(code:not(.language-txt))').addClass('prettyprint');
-      window.prettyPrint && prettyPrint();
-});
-
-
 
 /*** DEVKIT ***/
 $(function() {
