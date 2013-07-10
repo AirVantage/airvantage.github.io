@@ -43,7 +43,7 @@ comments: true
 		<p>
 			We have setup <span style="font-family: 'aruallight';">eclo</span> in our offices in Toulouse! You can visualize the health of our lil' plants and get an idea of what you'll be able to do with
 			your very own kit!<br>
-			<a href="/devkit/app" class="link" target="_blank">Live Demo <span class="red">►</span></a>
+			<a href="/devkit/app" class="link">Live Demo <span class="red">►</span></a>
 		</p>
 	</div>
 
@@ -100,5 +100,9 @@ comments: true
 
 	<div id="docs">
 		<h2>Docs</h2>
+
+		<p>When you'll have received your kit, please refer to our comprehensive tutorial to get all the instruction to assemble <span style="font-family: 'aruallight';">eclo</span> and connect it to AirVantage.</p>
+		<a href="/tutorials/eclo" class="link">Eclo Tutorial <span class="red">►</span></a>
+
 	</div>
 </div>
