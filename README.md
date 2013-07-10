@@ -37,8 +37,8 @@ Publishing your changes
 When you are happy with your changes, you can publish the new sources _and_ the new generated website
 
 * Publish the new sources
-** Commit you change(s) locally
-** `git push origin source`
+    * Commit you change(s) locally
+    * `git push origin source`
 * Generate and publish the new website in one line
-** rake publish
+    * rake publish
 
