@@ -138,6 +138,7 @@ nav span a {
 
 nav a:hover {
 	color: rgb(229,59,48);
+	text-decoration: none;
 }
 
 nav a.link-selected {
