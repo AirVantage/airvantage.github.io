@@ -23,25 +23,25 @@ __Application Model__
 ~~~ xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <app:application xmlns:app="http://www.sierrawireless.com/airvantage/application/1.0" 
-				type="com.test.myapplication" 
-				name="My Application" 
-				revision="0.0.1">
-    <capabilities>
-     
-        <communication>
-            <protocol comm-id="SERIAL" type="REST" />
-        </communication>
-          
-        <data>
-            <encoding type="REST">
-                <asset default-label="My Machine" id="machine">
-                    <variable default-label="Temperature" path="temperature" type="double"/>
-                    <setting default-label="Threshold" path="threshold" type="int"/>
-                </asset>
-            </encoding>
-        </data>    
-         
-    </capabilities>
+        type="com.test.myapplication" 
+        name="My Application" 
+        revision="0.0.1">
+ <capabilities>
+  
+  <communication>
+   <protocol comm-id="SERIAL" type="REST" />
+  </communication>
+   
+  <data>
+   <encoding type="REST">
+    <asset default-label="My Machine" id="machine">
+     <variable default-label="Temperature" path="temperature" type="double"/>
+      <setting default-label="Threshold" path="threshold" type="int"/>
+     </asset>
+   </encoding>
+  </data>  
+
+ </capabilities>
 </app:application>
 ~~~
 
@@ -81,7 +81,7 @@ So you need to specify the Authentication header for each API call. The username
 Then you need to combine the two into a string "username:password" and encode the resulted string using Base64.
 Finally, you specify the Authentication header in the API calls.
 
-	Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+  Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ### Send data to AirVantage
 
@@ -95,26 +95,26 @@ POST https://na.airvantage.net/device/messages
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 Content-Type: application/json
 [
-	{
-		"machine.temperature": [{
-			"timestamp" : 1349907137, 
-			"value" : "23.2"
-		},
-		{
-			"timestamp" : 1349908137, 
-			"value" : "24.5"
-		},
-		{
-			"timestamp" : 1349909137, 
-			"value" : "22.9"
-		}]
-	},
-	{
-		"machine.threshold": [{
-			"timestamp" : 1349907137, 
-			"value" : "30"
-		}]
-	}
+  {
+    "machine.temperature": [{
+      "timestamp" : 1349907137, 
+      "value" : "23.2"
+    },
+    {
+      "timestamp" : 1349908137, 
+      "value" : "24.5"
+    },
+    {
+      "timestamp" : 1349909137, 
+      "value" : "22.9"
+    }]
+  },
+  {
+    "machine.threshold": [{
+      "timestamp" : 1349907137, 
+      "value" : "30"
+    }]
+  }
 ]
 ~~~
 
@@ -145,16 +145,16 @@ __Response:__
 HTTP/1.1 200 OK
 Content-Type: application/json
 [
-	{
-		"uid" : "3c12547b613740adb686271bdc8f097c",
-		"timestamp" : 1348836320188,
-		"read" : ["machine.temperature"]
-	}, 
-	{
-		"uid": "8006cc58ba2141f69161a78f1bfdea1d",
-		"timestamp": 1348836320566,
-		"write" : [{"machine.threshold" : 25}}]
-    }
+  {
+    "uid" : "3c12547b613740adb686271bdc8f097c",
+    "timestamp" : 1348836320188,
+    "read" : ["machine.temperature"]
+  }, 
+  {
+    "uid": "8006cc58ba2141f69161a78f1bfdea1d",
+    "timestamp": 1348836320566,
+    "write" : [{"machine.threshold" : 25}}]
+  }
 ] 
 ~~~
 
