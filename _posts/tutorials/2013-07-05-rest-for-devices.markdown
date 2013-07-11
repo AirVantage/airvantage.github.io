@@ -16,7 +16,7 @@ This article explains the different steps to create an application when you want
 Application Model
 ------------------------------------------------
 
-__Step 1.__ The first step is to create the application model. You can create a file named model.app with the following content, you just need to change the __type__ value with a unique identifier for your application and the __name__ and __revision__ with the apprioriate value for your use case.
+__Step 1.__ The first step is to create the application model. You can create a file named `model.app` with the following content, you just need to change the __type__ value with a unique identifier for your application and the __name__ and __revision__ with the apprioriate value for your use case.
 
 __Application Model__
 
@@ -59,14 +59,15 @@ Now the application is available and in AirVantage and can be assigned to system
 Register your system
 ------------------------------------------------ 
 
-1. Go to Inventory > Systems
-1. Click on the "Create" action
-1. In the "Details" screen, create a new gateway and enter the identifier of the device in the "Serial Number" field.
-1. You don't need to create or use a subscription
-1. In the "Applications" screen, select the application you previously released
-1. In the "Credentials" screen, enter the password used to authenticate the device
-1. Click on "Create"
-1. In the grid, select the newly created system and click on the "Activate" action
+1. Go to Inventory > Systems.
+1. Click on the "Create" action.
+1. Create a new gateway and enter the identifier of the device in the "Serial Number" field.
+1. In the "Details" screen of your system, click "Edit" and match it with the gateway you just created.
+1. You don't need to create or use a subscription.
+1. In the "Applications" screen, select the application you previously released.
+1. In the "Credentials" screen, enter the password used to authenticate the device.
+1. Click on "Create".
+1. In the grid, select the newly created system and click on the "Activate" action.
 
 
 Send and Receive data
