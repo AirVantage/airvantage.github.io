@@ -25,6 +25,7 @@ Contributing content
 ====================
 
 It should be really easy for you to add your own blog post, tutorial, API example, ...
+
 The Jekyll "front-matter" (what is at the beginning at every content file) is used to set attributes that are common to all kinds of posts, plus some others that are specific.
 
 Front-matter general attributes
@@ -38,36 +39,36 @@ Blog post
 
 * Create a new file in `_posts/blog`, following the same naming pattern as existing files.
 * In addition to `category` and `comments`, you should set the following attributes in the front matter:
-** `layout`: must be set to `post`
-** `title`: title of your blog post
-** `author`: the username of the author of the blog post as per the _config.yml authors list
+    * `layout`: must be set to `post`
+    * `title`: title of your blog post
+    * `author`: the username of the author of the blog post as per the _config.yml authors list
 
 API example
 -----------
 
 * Create a new file in `_posts/api`, following the same naming pattern as existing files.
 * In addition to `category` and `comments`, you should set the following attributes in the front matter:
-** `short`: a two-letters shortcut (such as "Ja") that will be displayed in the periodic table
-** `github_repo`: the URL of the Github repo hosting the sample
+    * `short`: a two-letters shortcut (such as "Ja") that will be displayed in the periodic table
+    * `github_repo`: the URL of the Github repo hosting the sample
 
 Projects
 --------
 
 * Create a new file in `_posts/projects`, following the same naming pattern as existing files.
 * In addition to `category` and `comments`, you should set the following attributes in the front matter:
-** `title`: the title of your blog post
-** `author`: the username of the author of the project as per the _config.yml authors list
-** `img`: the name of the image to be found in `/resources/img/projects/` for representing this project
-** `github_repo`: the URL of the Github repo hosting the project
+    * `title`: the title of your blog post
+    * `author`: the username of the author of the project as per the _config.yml authors list
+    * `img`: the name of the image to be found in `/resources/img/projects/` for representing this project
+    * `github_repo`: the URL of the Github repo hosting the project
 
 Tutorials
 ---------
 
 * Create a new file in `_posts/tutorials`, following the same naming pattern as existing files.
 * In addition to `category` and `comments`, you should set the following attributes in the front matter:
-** `layout`: must be set to `default`
-** `title`: the title of the tutorial
-** `img`: the name of the image to be found in `/resources/img/tutorials/` for representing this tutorial
+    * `layout`: must be set to `default`
+    * `title`: the title of the tutorial
+    * `img`: the name of the image to be found in `/resources/img/tutorials/` for representing this tutorial
 
 
 Testing the new website
