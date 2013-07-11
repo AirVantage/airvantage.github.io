@@ -8,7 +8,7 @@ http://jekyllrb.com/
 What you need to know about our usage of Jekyll
 -----------------------------------------------
 
-* `config.yml` is where the list of contributors to the blog is maintained. It should be trivial to add an author by just duplicating an existing one.
+* `_config.yml` is where the list of contributors to the blog is maintained. It should be trivial to add an author by just duplicating an existing one.
 * The content of the website lives under `_posts`. Content is grouped in folders (`api`, `blog`, ...) for the sake of organization but the physical location of the files in the `_posts` folder is not actually important.
 * At the moment we rely on one external plugin for generating author pages. This may be removed in a later version, because it prevents to rely on the Jekyll support in Github Pages. It means that when you contribute to the website you will need to publish the new generated website (see "Publishing your changes" below).
 
