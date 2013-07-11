@@ -61,12 +61,13 @@ Register your system
 
 1. Go to Inventory > Systems.
 1. Click on the "Create" action.
-1. Create a new gateway and enter the identifier of the device in the "Serial Number" field.
-1. In the "Details" screen of your system, click "Edit" and match it with the gateway you just created.
-1. You don't need to create or use a subscription.
-1. In the "Applications" screen, select the application you previously released.
-1. In the "Credentials" screen, enter the password used to authenticate the device.
-1. Click on "Create".
+1. In the "Create System" dialog:
+    1. "System" step: Specify an optional name for your system.
+    1. "Details" step: Click "Create gateway" and enter the identifier of the device in the "Serial Number" field.
+    1. "Subscription" step: You won't create nor use any.
+    1. "Applications" step: Select the application you previously released.
+    1. "Credentials" step: Enter the password used to authenticate the device.
+    1. Click on "Create".
 1. In the grid, select the newly created system and click on the "Activate" action.
 
 
