@@ -16,7 +16,7 @@ This article explains the different steps to create an application when you want
 Application Model
 ------------------------------------------------
 
-__Step 1.__ The first step is to create the application model. You can create a file named model.app with the following content, you just need to change the __type__ value with a unique identifier for your application and the __name__ and __revision__ with the apprioriate value for your use case.
+__Step 1.__ The first step is to create the application model. You can create a file named _model.app_ with the following content, you just need to change the __type__ value with a unique identifier for your application and the __name__ and __revision__ with the apprioriate value for your use case.
 
 __Application Model__
 
