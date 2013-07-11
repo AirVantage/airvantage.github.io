@@ -1,6 +1,5 @@
 ---
 category: projects
-title: Guirlande
 author: sebz
 comments: true
 img: guirlande.png

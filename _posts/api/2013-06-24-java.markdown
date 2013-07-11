@@ -1,6 +1,5 @@
 ---
 category: api
-language: Java
 short: Ja
 github_repo: https://github.com/dsciamma/airvantage-api-java
 ---

@@ -1,6 +1,5 @@
 ---
 category: projects
-title: M3DA server
 author: jvermillard
 comments: true
 img: m3da-server.png

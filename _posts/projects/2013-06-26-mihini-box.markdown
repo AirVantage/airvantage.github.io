@@ -1,6 +1,5 @@
 ---
 category: projects
-title: Mihini Box
 author: gmorice
 comments: true
 img: mihini-box.png

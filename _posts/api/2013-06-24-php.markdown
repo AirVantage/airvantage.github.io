@@ -1,8 +1,7 @@
 ---
 category: api
-language: PHP
 short: Ph
 github_repo: http://developer.sierrawireless.com/Resources/Resources/AirVantage/Educational_Documentation/Tutorial_AirVantage4_AWS_PHP_Sample.aspx
 ---
 
-If you want to manipulate AirVantage API from __PHP__ then this example is for you!
+If you want to manipulate the AirVantage API from __PHP__ then this example is for you!
