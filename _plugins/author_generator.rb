@@ -65,7 +65,7 @@ module Jekyll
 
       (1..pages).each do |num_page|
 #        puts "author #{author['username']}, printing page #{num_page}" 
-        pager = Pager.new(self.config, num_page, author_posts, pages)
+        pager = Pager.new(self, num_page, author_posts, pages)
         index = AuthorIndex.new(self, self.source, author_dir, author)
         index.pager = pager
         if num_page >= 1 then
