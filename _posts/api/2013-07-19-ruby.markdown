@@ -1,0 +1,6 @@
+---
+category: api
+short: Rb
+github_repo: https://github.com/nbosansky/airvantage-api-ruby
+---
+This example will help you access AirVantage API from __Ruby__.<br>
