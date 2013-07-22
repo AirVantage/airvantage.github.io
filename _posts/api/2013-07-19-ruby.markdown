@@ -1,5 +1,6 @@
 ---
 category: api
+language: Ruby
 short: Rb
 github_repo: https://github.com/nbosansky/airvantage-api-ruby
 ---
