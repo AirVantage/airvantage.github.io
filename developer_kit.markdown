@@ -1,5 +1,5 @@
 ---
-title : Developer Kit
+title : Developer Kit | AirVantage
 layout: default
 permalink: /devkit/index.html
 comments: true
