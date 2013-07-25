@@ -64,8 +64,14 @@ p {
 }
 
 #content h2 {
+	font-size: 1.6em;
+	margin-left: .5em;
 	margin-top: .5em;
 	margin-bottom: 0em;
+}
+
+#content h2:before {
+	content: "▸ ";
 }
 
 #content h3 {
