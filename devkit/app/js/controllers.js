@@ -4,7 +4,7 @@
 
 function LoginCtrl($scope, $http, $cookies, config, $location) {
 		$http.get(config.serverURL+'/api/oauth/token?grant_type=password&username=eclo.demo@gmail.com&password=eclo-live2013!&client_id=eabea6f63e8346ceb8c4016f8e0f2740&client_secret=54f40d77bbe348cb9e8b274fa25625ba')
-		.success(function(data) { $cookies.avop_access_token = data.access_token ; $location.path("/data/3ce606075d5449d8b29521325e269b2a"); })
+		.success(function(data) { $cookies.avop_access_token = data.access_token ; $location.path("/data/f7d1eee04d0b4dc6af901cbdaacc83cd"); })
 		.error(function(){});	
 }
 
