@@ -83,7 +83,9 @@ So you need to specify the Authentication header for each API call. The username
 Then you need to combine the two into a string "username:password" and encode the resulted string using Base64.
 Finally, you specify the Authentication header in the API calls.
 
-  Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+~~~
+Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+~~~
 
 ### Send data to AirVantage
 
