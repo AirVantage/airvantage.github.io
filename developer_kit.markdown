@@ -11,7 +11,7 @@ comments: true
 <img src="/resources/img/greenhouse.png" style=" position:absolute; width:40%; right:0px; margin-top:-70px; z-index:-1000; opacity: 0.4;">
  -->
 <div id="what-is-it">
-	<h2></h2>
+	<br>
 	<p>
 		We have built a complete kit that contains all the hardware for building your own greenhouse that you'll be able to monitor and control remotely. 
 	</p>

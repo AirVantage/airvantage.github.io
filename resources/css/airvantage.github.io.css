@@ -29,7 +29,8 @@ li, ul {
 }
 
 p {
-	font-size: 20px;
+	font-size: 18px;
+	line-height: 24px;
 	margin-bottom: 1em;
 }
 
@@ -61,6 +62,7 @@ p {
 
 #content h1 {
 /*	border-bottom: 1px dotted rgb(139, 139, 139); */
+	margin-bottom: .7em;
 }
 
 #content h2 {
@@ -75,8 +77,14 @@ p {
 }
 
 #content h3 {
+	font-size: 1.5em;
+	margin-left: 1.5em;
 	margin-top: .6em;
 	margin-bottom: -.2em;
+}
+
+#content h3:before {
+	content: "— ";
 }
 
 #content h4 {
@@ -85,10 +93,10 @@ p {
 }
 
 ul li, ol li{
-	font-size: 20px;
+	font-size: 18px;
 	margin-left: 0em;
 /*	color: rgb(139, 139, 139);*/
-	line-height: 30px;
+	line-height: 24px;
 }
 
 ul li  {	
@@ -297,6 +305,13 @@ ul li  {
 #devkit-gallery ul li {
 	list-style: none;
 }
+
+.flexslider .slides img {
+	max-height: 290px;
+	margin: auto;
+	width: auto !important;
+}
+
 
 /*
 #greenhouse	{ background: rgba(225,221,23,0.3); }
