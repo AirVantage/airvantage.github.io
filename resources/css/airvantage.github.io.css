@@ -19,6 +19,10 @@ li, ul {
 	margin-left: 1em;
 }
 
+.prettyprint {
+	overflow-x: auto; 
+}
+
 #introduction a {
 	/*font-family: 'l-bd', arial, sans;*/
 	color: rgb(229,59,48);
@@ -444,3 +448,10 @@ input[disabled="disabled"] {
 		margin-left:0px;
 	}
 }
+
+
+
+
+
+
+
