@@ -12,7 +12,7 @@ Airvantage, since version 13.3, provides a set of REST APIs focused on systems' 
 
 The eclo devkits comes with a small web app that provides a [basic graph](http://airvantage.github.io/devkit/app/#/history/3ce606075d5449d8b29521325e269b2a) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.
 
-![graph in eclo](/resources/img/blog/2013-07-16-Airvantage-D3/graphineclo.png)
+![graph in eclo](/resources/img/blog/2013-07-31-Airvantage-D3/graphineclo.png)
 
 
 The historical aggregated datapoints API
