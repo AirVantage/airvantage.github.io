@@ -21,6 +21,17 @@ html, body {
 }
 
 @font-face {
+    font-family: 'l-bd';
+    src: url('../fonts/l-bd.eot');
+    src: url('../fonts/l-bd.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/l-bd.woff') format('woff'),
+         url('../fonts/l-bd.ttf') format('truetype'),
+         url('../fonts/l-bd.svg#l-lt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'l-rg';
     src: url('../fonts/l-rg.eot');
     src: url('../fonts/l-rg.eot?#iefix') format('embedded-opentype'),
@@ -149,6 +160,8 @@ nav a.link-selected {
 	color: black;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
 	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 	font-size: 15px; /*1024 display standard version*/
 	padding: 9px 30px; /*1024 display standard version*/
 }
@@ -198,7 +211,7 @@ p {
 	text-align: left;
 	padding-left: 10%;
 	margin: 0px;
-	clear: both;
+/*	clear: both;*/
 	color: rgb(139,139,139);
 	line-height: 24px; /*1024 display standard version*/
 	font-size: 18px; /*1024 display standard version*/
