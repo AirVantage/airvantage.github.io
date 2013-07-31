@@ -10,7 +10,7 @@ comments: true
 
 Airvantage, since version 13.3, provides a set of REST APIs focused on systems' data. Especially there is an API about aggregated data that enables the use of some consolidation functions on historical datasets.
 
-The eclo devkits comes with a small web app that provides a [basic graph](http://airvantage.github.io/devkit/app/#/history/3ce606075d5449d8b29521325e269b2a) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.
+The <span style="font-family: 'aruallight';">eclo</span> devkits comes with a small web app that provides a [basic graph](http://airvantage.github.io/devkit/app/#/history/3ce606075d5449d8b29521325e269b2a) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.
 
 ![graph in eclo](/resources/img/blog/2013-07-31-Airvantage-D3/graphineclo.png)
 
@@ -34,10 +34,10 @@ As for all the Airvantage's REST APIs, you first have to get an access token thr
 * `interval`: interval of time inside the time window on which data are consolidated (hour, day, ...)
 * `fn`: the consolidation function used (mean, min, max, standard deviation, sum, sum of square, number of datapoints)
 
-Here is an example URL that requests the mean value of temperature each hour between Jully 8th and 10th 2013 on a specific system (the live demo of eclo): 
+Here is an example URL that requests the mean value of temperature each hour between Jully 8th and 10th 2013 on a specific system (the live demo of <span style="font-family: 'aruallight';">eclo</span>): 
 
 ~~~ http
-http://edge.m2mop.net/api/v1/systems/3ce606075d5449d8b29521325e269b2a/data/greenhouse.data.temperature/aggregated?fn=mean&from=1373234400000&to=1373407200000&interval=1hour&access_token=...
+http://edge.m2mop.net/api/v1/systems/f7d1eee04d0b4dc6af901cbdaacc83cd/data/greenhouse.data.temperature/aggregated?fn=mean&from=1373234400000&to=1373407200000&interval=1hour&access_token=...
 ~~~
 
 The API will return an array of datapoints (an object with two fields: the value of the data at some point in time and the related timestamp) in JSON:
@@ -280,7 +280,7 @@ In order to get closer to a real app here it shall be good to rely on a web fram
 * Manage REST call properly (store token, use appropriate OAuth workflow, manage connection error, ...)
 * Work on user interaction (login, request of data, ...)
 
-In the eClo example we used [AngularJS](http://angularjs.org/) but many others are available.
+In the <span style="font-family: 'aruallight';">eclo</span> example we used [AngularJS](http://angularjs.org/) but many others are available.
 
 Moreother Airvantage's API is not limited to aggregated data, last value and hystorical raw datapoints are also available as long as may other ways to interact with your systems on the field. 
 
