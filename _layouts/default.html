@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>{{ page.title }}</title>
-	<meta name="description" content="Sierra Wireless - AirVantage" />
-	<meta name="robots" content="index, follow" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{{ page.title }}</title>
+    <meta name="description" content="AirVantage ♡ Open Source" />
+    <meta name="robots" content="index, follow" />
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
 
@@ -51,6 +51,21 @@
                     <a href="/#who">Who we are</a>
                     <a href="/blog" {% if page.url == "/blog/index.html" or page.category == 'blog' %} class="link-selected" {% endif %}>Blog</a>
                     <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+
+                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                    <div style="display: inline-table;margin-top: 5px;">
+                      <div class="g-plusone"></div>
+                    </div>
+                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'fr'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
                 </nav>
             </header>
         </div>
