@@ -45,6 +45,16 @@ p {
 	padding-bottom: 100px;
 }
 
+#content a, #content a:visited {
+	color: rgb(229,59,48);
+	/*border-bottom: rgb(229,59,48) 1px dotted;*/
+}
+
+/*a.link, a.link:visited {
+	color: initial !important;
+	border-bottom: none;	
+}*/
+
 #related_posts {
 	padding-top: 10px;
 }
@@ -54,10 +64,13 @@ p {
 	margin-top: 0.2em;
 	margin-bottom: 0.4em;
 	padding-left: 0px;
+	font-family: 'l-rg', arial, sans;
+	font-weight: normal;
 }
 
 #content p {
 	color: rgb(39,39,39);
+	font-family: 'l-lt', arial, sans;
 }
 
 #content h1 {
@@ -68,9 +81,10 @@ p {
 #content h2 {
 	font-size: 1.6em;
 	margin-left: .5em;
-	margin-top: .5em;
+	margin-top: .8em;
 	margin-bottom: 0em;
 }
+
 
 #content h2:before {
 	content: "▸ ";
@@ -81,6 +95,7 @@ p {
 	margin-left: 1.5em;
 	margin-top: .6em;
 	margin-bottom: -.2em;
+	color: rgb(39,39,39);
 }
 
 #content h3:before {
