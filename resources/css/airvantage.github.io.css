@@ -75,6 +75,7 @@ p {
 #content p {
 	color: rgb(39,39,39);
 	font-family: 'l-lt', arial, sans;
+	text-align: justify;
 }
 
 #content h1 {
