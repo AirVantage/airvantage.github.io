@@ -2,6 +2,6 @@
 category: api
 language: Ruby
 short: Rb
-github_repo: https://github.com/nbosansky/airvantage-api-ruby
+github_repo: https://github.com/AirVantage/airvantage-api-ruby
 ---
 This example will help you access AirVantage API from __Ruby__.<br>
