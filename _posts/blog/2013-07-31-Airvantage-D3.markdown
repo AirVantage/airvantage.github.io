@@ -10,7 +10,7 @@ comments: true
 
 AirVantage, since version 13.3, provides a set of REST APIs focused on systems' data. More specifically, it provides an API for getting aggregated data that enables the use of consolidation functions on historical datasets.
 
-The <span style="font-family: 'aruallight';">eclo</span> developer kit comes with a small web app that provides a [basic graph](http://airvantage.github.io/devkit/app/#/history/3ce606075d5449d8b29521325e269b2a) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.
+The <span style="font-family: 'aruallight';">eclo</span> developer kit comes with a small web app that provides a basic graph (click [here](http://airvantage.github.io/devkit/app/) and then go to "History") on top of these aggregated data thanks to D3. In this article we will see how this graph is built.
 
 ![graph in eclo](/resources/img/blog/2013-07-31-Airvantage-D3/graphineclo.png)
 
@@ -118,9 +118,7 @@ You can now deal with AirVantage REST API (here we use the d3 json function that
  * Then a function to call the agregated historical data API and let the calback handle the data.
 
 ~~~ javascript
-
 // Creation of the URL to request the token
-
 
 // Recover the AirVantage token and then call the callback to trigger events as soon as the token
 function getToken(clbk){
@@ -134,8 +132,6 @@ function getToken(clbk){
    
    d3.json(tokenURL, function(data){token = data.access_token; clbk()})
 }
-
-
 
 function getData(clbk){
    var dataURL = airvantage
