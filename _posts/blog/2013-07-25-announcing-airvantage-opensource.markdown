@@ -1,7 +1,7 @@
 ---
 layout: post
 category: blog
-title: “AirVantage <3 open source” goes live!
+title: “AirVantage &lt;3 open source” goes live!
 author: kartben
 comments: true
 published: true
