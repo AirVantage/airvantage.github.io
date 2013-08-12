@@ -4,13 +4,19 @@ layout: default
 
 {% assign author = site.authors[page.author] %}
 
-<div id="post">
+<div id="post" itemscope="" itemtype="http://schema.org/BlogPosting">
 	{% include blog_navigation.html %}
-	<h1 style="display:inline-block;">{{ page.title }}</h1> by 
+	<h1 style="display:inline-block;" itemprop="name headline">{{ page.title }}</h1> by 
 		<a href="/authors/{{ author.username }}/page1">
-			<span class="author">{{ author.display_name }}</span>
+			<span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+				<span itemprop="name">
+					{{ author.display_name }}
+				</span>
+			</span>
 		</a>	
-	{{ content }}
+	<div itemprop="articleBody">
+		{{ content }}
+	</div>
 	<p></p>
 	<hr>
 	<div id="related_posts">

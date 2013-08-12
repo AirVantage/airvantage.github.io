@@ -2,19 +2,26 @@
 layout: default
 title : Blog | AirVantage
 ---
-<ul>
+<ul itemscope itemtype="http://schema.org/Blog">
     {% for post in site.categories.blog limit 4 %}
-    <li style="min-height:200px; list-style:none;">
+    <li style="min-height:200px; list-style:none;" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		
-	    <h1><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+	    <h1><a itemprop="url" href="{{ BASE_PATH }}{{ post.url }}">
+	    	<span itemprop="name">
+	    		{{ post.title }}
+	    	</a>
+	    </h1>
     
     	<div class="datebox">
-			<span class="month">{{post.date | date: "%b"}}</span> 
+   			<span class="month">{{post.date | date: "%b"}}</span> 
 			<span class="day">{{post.date | date: "%d"}}</span> 
 			<span class="year">{{post.date | date: "%Y"}}</span>
+   			<meta itemprop="datePublished" content="{{post.date | date_to_xmlschema}}"/>
 		</div>
 		
-	    {{ post.content | strip_html | truncatewords:50}}<br><br>
+		<span itemprop="description">
+	    	{{ post.content | strip_html | truncatewords:50}}<br><br>
+	    </span>	
 		&nbsp;&nbsp;&nbsp;<a href="{{ post.url }}" class="link">Read more&hellip; <span class="red">►</span></a>
 		<br><br>
     </li>
