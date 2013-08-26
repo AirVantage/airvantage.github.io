@@ -1,6 +1,6 @@
 ---
 category: tutorials
-title: eclo
+title: Assembling and programming your own eclo
 author: dsciamma
 comments: true
 img: eclo.png
@@ -11,8 +11,8 @@ permalink: /tutorials/eclo
 <span style="font-family: 'aruallight';">eclo</span> Tutorial
 =============
 
-NB: this is currently a work in progress.
-A few links may work but are not intended to be definitive.
+NB: this tutorial is a work in progress.
+Some pieces are still TBC, and some of the external links are not definitive.
 
 Assembling the Greenhouse
 --------
