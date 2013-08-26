@@ -20,7 +20,21 @@ li, ul {
 }
 
 .prettyprint {
-	overflow-x: auto; 
+	overflow-x: auto;
+	max-height: 300px; 
+}
+
+pre.prettyprint, code.prettyprint {
+	background-color: #eee;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-o-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 0.5em !important;
 }
 
 #introduction a {

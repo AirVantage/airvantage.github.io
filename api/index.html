@@ -3,16 +3,18 @@ layout: default
 title : API examples | AirVantage
 ---
 
-<span id="api_container">
+<div id="api_container">
 <p>
     {% for post in site.categories.api %}
 
 	<div class="feature {% cycle 'first' ,'', '', '' %}"  itemscope itemtype="http://schema.org/Code">
-    	<a href="{{ post.github_repo }}" target="_blank" onclick="javascript: ga('send', 'pageview', '/api/{{ post.language }}');" itemprop="codeRepository"><center><span class="api-icon darkgrey">{{ post.short }}</span></center></a>
+    	<a href="{{ post.github_repo }}" target="_blank" onclick="javascript: ga('send', 'pageview', '/api/{{ post.language }}');" itemprop="codeRepository">
+    		<center><span class="api-icon darkgrey">{{ post.short }}</span></center>
+    	</a>
         <div style="margin-top: 70px;" itemprop="description">
         	{{ post.content | remove: '<p>' |  remove: '</p>' }}
     	</div>
     </div>
     {% endfor %}
 </p>
-</span>
+</div>
