@@ -1,8 +1,0 @@
----
-title : Sitemap
----
-index.html
-{% for page in site.pages %}
-{{ page.url }}{% endfor %}
-{% for post in site.posts %}
-{{ post.url }}{% endfor %}
