@@ -3,8 +3,8 @@
 /* Controllers */
 
 function LoginCtrl($scope, $http, $cookies, config, $location) {
-		$http.get(config.serverURL+'/api/oauth/token?grant_type=password&username=eclo.demo@gmail.com&password=eclo-live2013!&client_id=eabea6f63e8346ceb8c4016f8e0f2740&client_secret=54f40d77bbe348cb9e8b274fa25625ba')
-		.success(function(data) { $cookies.avop_access_token = data.access_token ; $location.path("/data/f7d1eee04d0b4dc6af901cbdaacc83cd"); })
+		$http.get(config.serverURL+'/api/oauth/token?grant_type=password&username=eclo.demo@gmail.com&password=eclo-live2013!&client_id=014ab08d3dd3436da6307b0f8ccb09a7&client_secret=185de75441ab4735a7c13e18d18369b3')
+		.success(function(data) { $cookies.avop_access_token = data.access_token ; $location.path("/data/d994c59a86e0423f92fbcef7a9a603be"); })
 		.error(function(){});	
 }
 
@@ -62,7 +62,7 @@ function SystemDataCtrl($scope, $routeParams, $timeout, AirVantage, config) {
 
 		var postData = {
 			"application" : {
-				"uid" : "cafc51c5697a46bbb1d5ad711ca6c1f8"
+				"uid" : "05ca20da1d08451db9666f1c806136b0"
 			},
 			"commandId"   : config.roofCmd,
 			"parameters" : 

@@ -2,7 +2,7 @@
 
 appmodule.factory('config', function() {
   var config = {
-    serverURL: "http://edge.m2mop.net",
+    serverURL: "https://na.airvantage.net",
     applicationName: "greenhouse",
     temperaturePath: "greenhouse.data.temperature",
     luminosityPath: "greenhouse.data.luminosity",
