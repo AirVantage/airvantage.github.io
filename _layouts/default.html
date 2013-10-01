@@ -39,12 +39,12 @@
     <!-- end GA tracker -->
 
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
      <div class="wrapper">
         <div id="top">
             <header>
                 <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
-                <nav {% if page.landing %} class="navlink" {% endif %}>
+                <nav {% if page.landing %} class="navlink" {% endif %} itemprop="breadcrumb">
                     <a href="/#features"><i class="icon-github"></i> Repositories</a>
                     <a href="/devkit" {% if page.url == "/devkit/index.html" %} class="link-selected" {% endif %}>Dev. kit</a>
                     <a href="/#who">Who we are</a>
