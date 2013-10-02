@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <meta name="description" content="AirVantage ♡ Open Source" />
+<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
     <meta name="robots" content="index, follow" />
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
@@ -19,6 +19,11 @@
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- lightbox2 -->
+    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
+    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
     <!-- highlight syntax -->
     <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
@@ -44,7 +49,7 @@
         <div id="top">
             <header>
                 <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
-                <nav {% if page.landing %} class="navlink" {% endif %} itemprop="breadcrumb">
+                <nav {% if page.landing %} class="navlink" {% endif %}>
                     <a href="/#features"><i class="icon-github"></i> Repositories</a>
                     <a href="/devkit" {% if page.url == "/devkit/index.html" %} class="link-selected" {% endif %}>Dev. kit</a>
                     <a href="/#who">Who we are</a>
