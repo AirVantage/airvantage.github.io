@@ -1,8 +1,7 @@
 ---
 category: api
-language: Java
-short: Ja
-github_repo: https://github.com/AirVantage/airvantage-api-java
+language: Go
+short: Go
+github_repo: https://github.com/AirVantage/airvantage-api-golang
 ---
-This example will help you access AirVantage API from __Java__.<br>
-It uses the [Scribe](https://github.com/fernandezpablo85/scribe-java) library for OAuth authentication.
+This example will help you access AirVantage API using the __Go__ language.
