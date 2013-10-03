@@ -16,6 +16,6 @@ When you manage applications in AirVantage, normally you would rely on a generic
 We have added **Application Views** to allow you to associate your own web view to a specific embedded application.
 Your application view will rely on OAuth to authentify against AirVantage, and will be able to use APIs for retrieving data, editing settings, etc. 
 
-Read more on [how to configure an Application View](https://doc.airvantage.net/display/PRODDOC/UI+changes+in+13.4#UIchangesin13.4-ApplicationViews.1) in the AirVantage User Guide.
+Read more on [how to configure an Application View](https://doc.airvantage.net/display/USERGUIDE/UI+changes+in+13.4#UIchangesin13.4-ApplicationViews) in the AirVantage User Guide.
 
 <br/><br/>
