@@ -60,6 +60,7 @@ module Jekyll
     #  +author_dir+ is the String path to the author folder.
     #  +author+     is the author currently being processed.
     def write_author_index(author_dir, author)      
+      require 'pathname'
       author_posts = self.categories['blog'].select { |p| p.data['author'] == author['username']}
       pages = Pager.calculate_pages(author_posts, self.config['paginate'].to_i)
 
