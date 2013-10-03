@@ -2,13 +2,13 @@
 
 appmodule.factory('config', function() {
   var config = {
-    serverURL: "https://na.airvantage.net",
+    serverURL: "https://edge.airvantage.net",
     applicationName: "greenhouse",
-    temperaturePath: "greenhouse.data.temperature",
-    luminosityPath: "greenhouse.data.luminosity",
-    humidityPath: "greenhouse.data.humidity",
-    roofPath: "greenhouse.data.open",
-    roofCmd: "greenhouse.data.toggleRoof"
+    temperaturePath: "greenhouse.temperature",
+    luminosityPath: "greenhouse.luminosity",
+    humidityPath: "greenhouse.humidity",
+    roofPath: "greenhouse.open",
+    roofCmd: "greenhouse.toggleRoof"
   };
   return config;
 });
