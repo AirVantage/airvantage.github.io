@@ -4,16 +4,27 @@ layout: default
 
 {% assign author = site.authors[page.author] %}
 
-<div id="post" itemscope="" itemtype="http://schema.org/Article">
+<div id="post" itemscope="" itemtype="http://schema.org/BlogPosting">
 	{% include blog_navigation.html %}
-	<h1 style="display:inline-block;" itemprop="name headline">{{ page.title }}</h1> by 
-		<a href="/authors/{{ author.username }}/page1">
-			<span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-				<span itemprop="name">
-					{{ author.display_name }}
+	<h1 style="display:inline-block;" itemprop="name">{{ page.title }}</h1> by 
+		<div style="display:inline;" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+			<a href="/authors/{{ author.username }}/page1">
+				<span class="author">
+					<span itemprop="name">
+						{{ author.display_name }}
+					</span>
 				</span>
-			</span>
-		</a>	
+			</a>	
+
+			{% if author.gplus %}
+	        <div class="gplus" style="display: inline;font-size: 0.6em;">
+	            [<a rel="author" href="https://plus.google.com/{{ author.gplus }}?rel=author" target="_blank">
+	                <i class="icon-gplus"></i>
+	            </a>]
+	        </div>
+	        {% endif %}
+       </div>
+
 	<div itemprop="articleBody">
 		{{ content }}
 	</div>
@@ -23,7 +34,7 @@ layout: default
 		<h2>Related Posts</h2>
 		<ul class="posts">
 
-			{% assign max = 5 %}
+			{% assign max = 3 %}
 			{% for post in site.related_posts %}
 			  {% assign match = false %}
 			  {% for category in post.categories %}
