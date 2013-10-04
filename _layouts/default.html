@@ -56,9 +56,17 @@
                     <a href="/blog" {% if page.url == "/blog/index.html" or page.category == 'blog' %} class="link-selected" {% endif %}>Blog</a>
                     <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
 
+                    <!-- Twitter follow us buton -->
+                    <div style="display : inline-table;margin-top : 6px;">
+
+                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                    </div>
+
                     <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
                     <div style="display: inline-table;margin-top: 5px;">
-                      <div class="g-plusone"></div>
+                      <div class="g-plusone" data-size="medium"></div>
                     </div>
                     <!-- Placez cette ballise après la dernière balise Bouton +1. -->
                     <script type="text/javascript">
@@ -70,6 +78,8 @@
                         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                       })();
                     </script>
+
+
                 </nav>
             </header>
         </div>
@@ -79,7 +89,7 @@
             <div id="content">
               {{ content }}
               {% if page.comments %}
-              <div id="comments"> 
+              <div id="comments">
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
