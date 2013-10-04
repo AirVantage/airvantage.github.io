@@ -3,6 +3,7 @@ layout: post
 category: blog
 title: Top AVEP features in Oct'13 release&#58; 3. Application views
 author: kartben
+date: 2013-10-03 11:00:37 +0200 
 comments: true
 published: true
 ---
