@@ -77,6 +77,10 @@ Send and Receive data
 
 Once your device is registered in AirVantage, you can start developing the embedded application that will use the MQTT protocol to communicate with AirVantage. You can use several MQTT clients to develop the embedded client: [Mosquitto](http://mosquitto.org/), [Paho](http://eclipse.org/paho/), [MQTT for node](https://github.com/adamvr/MQTT.js/). Here are the different calls to integrate in the embedded application to send and receive data with AirVantage:
 
+### Server
+
+The Airvantage MQTT broker is available throught the default MQTT standards of your favorite Airvantage server. For clarification, the protocol used is `TCP` and the port `1883` so for north-america the full url is: tcp://na.airvantage.net:1883.
+
 ### Authentication
 
 The MQTT protocol support on AirVantage uses [Username and Password](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#connect) to authenticate devices.
@@ -84,10 +88,10 @@ So you need to specify the username and the password when you connect to the cli
 
 ### Send data to AirVantage
 
-You can publish on the `/messages/json` topic to send your data to AirVantage. The data shall be encoded in JSON using the same format as the one used by the REST API for devices: a message can contains several data and several datapoints for one data. Then you can easily send a complete status or historical values in one message.
+You can publish on the `<username>/messages/json` topic to send your data to AirVantage, where the username is the is the serial number of the gateway in AirVantage. The data shall be encoded in JSON using the same format as the one used by the REST API for devices: a message can contains several data and several datapoints for one data. Then you can easily send a complete status or historical values in one message.
 
 
-__Publish on the `/messages/json` topic__
+__Publish on the `<username>/messages/json` topic__
 
 ~~~ json
 [
@@ -126,10 +130,9 @@ A __read__ task requests the device to send back to the server the current value
 
 A __write__ task requests the device to change the value of a data locally on the device. It's a way to interact with the device and change the behaviour of the embedded application. This operation is only available for settings. To create this operation from AirVantage API, you need to call the "Apply settings" API (see documentation of System API).
 
-The device needs to subscribe to the `/tasks/json` topic 
+The device needs to subscribe to the `<username>/tasks/json` topic, where the username is the is the serial number of the gateway in AirVantage.
 
-
-__Payload received from a subscription to the `/tasks/json` topic__
+__Payload received from a subscription to the `<username>/tasks/json` topic__
 
 ~~~ json
 [
