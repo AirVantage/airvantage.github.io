@@ -44,17 +44,15 @@ __Application Model__
  </capabilities>
 </app:application>
 ~~~
+__Note :__ The model refer to REST communication instead of MQTT, it's because the MQTT AirVantage MQTT communication stack use the REST one. This will be changed in a future update of AirVantage.
 
 The used encoding is currently "REST" has the format of data is the same for the REST API and the MQTT protocol.
 
-__Step 2.__ You can then customize the "data" part to define the different variables and settings used by your application.
+__Step 2.__ Feel free to customize the "data" part to define the different variables and settings used by your application.
 
-__Step 3.__ You create a zip file containing this file.
+__Step 3.__ Create a zip file containing this file.
 
-__Step 4.__ You release this zip file in your application repository in AirVantage. AirVantage > Develop > My Apps > Release
-
-Once you validated everything is working fine, you can change the state of your application to "PUBLISHED" by selecting the application in My Apps and clicking on the "Publish" button. 
-Now the application is available and in AirVantage and can be assigned to systems.
+Keep the create archive on your disk for the next step.
 
 
 Register your system
@@ -63,10 +61,10 @@ Register your system
 1. Go to Inventory > Systems.
 1. Click on the "Create" action.
 1. In the "Create System" dialog:
-    1. "System" step: Specify an optional name for your system.
-    1. "Details" step: Click "Create gateway" and enter the identifier of the device in the "Serial Number" field.
+    1. "Name" step: Specify an optional name for your system.
+    1. "Gateway" step: Click "Create gateway" and enter the identifier of the device in the "Serial Number" field.
     1. "Subscription" step: You won't create nor use any.
-    1. "Applications" step: Select the application you previously released.
+    1. "Applications" step: Click on "Release a new application" and upload the application package archive created in the previous step.
     1. "Credentials" step: Enter the password used to authenticate the device.
     1. Click on "Create".
 1. In the grid, select the newly created system and click on the "Activate" action.
@@ -79,7 +77,7 @@ Once your device is registered in AirVantage, you can start developing the embed
 
 ### Server
 
-The Airvantage MQTT broker is available throught the default MQTT standards of your favorite Airvantage server. For clarification, the protocol used is `TCP` and the port `1883` so for north-america the full url is: tcp://na.airvantage.net:1883.
+AirVantage exposes an MQTT broker on the default MQTT port (`1883`). It means that if you are connecting managing your device through `https://na.airvantage.net`, you will need to connect to the broker at the following URL: `tcp://na.airvantage.net:1883`.
 
 ### Authentication
 
