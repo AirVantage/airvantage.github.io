@@ -89,7 +89,7 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ### Send data to AirVantage
 
-You can use the API messages to send data from the device to AirVantage. A message can contains several data and several datapoints for one data. Then you can easily send a complete status or historical values in one message.
+You can use the Messages API to send data from the device to AirVantage. A message can contain several data and several datapoints per data. Then you can easily send a complete status or historical values in one message.
 
 
 __Request:__
