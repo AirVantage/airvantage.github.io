@@ -74,7 +74,26 @@ Tutorials
 Testing the new website
 -----------------------
 
-You need Ruby, RubyGems, and Jekyll. See the installation instructions at http://jekyllrb.com/docs/installation/
+You need Ruby, RubyGems, and Jekyll.
+
+### Install Jekyll
+
+#### The regular way
+
+See the Jekyll [installation instructions](http://jekyllrb.com/docs/installation/).
+
+#### The RVM way
+
+[Install RVM](https://rvm.io/rvm/install) and run:
+
+```bash
+$ rvm --create --ruby-version ruby-1.9@airvantage.github.io
+$ rvm use ruby-1.9.3-p484@airvantage.github.io
+$ bundle
+```
+
+#### Run tne new website
+
 While you are working on your modifications, you can have jekyll doing its magic in the background and rebuilding the website as you modify the posts. For this, you just need to run `jekyll serve -w` from the root folder.
 
 Publishing your changes
