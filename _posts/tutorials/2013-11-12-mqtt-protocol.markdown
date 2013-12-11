@@ -44,7 +44,7 @@ __Application Model__
  </capabilities>
 </app:application>
 ~~~
-__Note :__ The model refer to REST communication instead of MQTT, it's because the MQTT AirVantage MQTT communication stack use the REST one. This will be changed in a future update of AirVantage.
+__Note :__ The model refer to REST communication instead of MQTT. It's because the _AirVantage MQTT_ communication stack use the _REST_ one. This will be changed in a future update of AirVantage.
 
 The used encoding is currently "REST" has the format of data is the same for the REST API and the MQTT protocol.
 
@@ -52,8 +52,7 @@ __Step 2.__ Feel free to customize the "data" part to define the different varia
 
 __Step 3.__ Create a zip file containing this file.
 
-Keep the create archive on your disk for the next step.
-
+Keep the created archive on your disk for the next step.
 
 Register your system
 ------------------------------------------------ 
@@ -82,12 +81,11 @@ AirVantage exposes an MQTT broker on the default MQTT port (`1883`). It means th
 ### Authentication
 
 The MQTT protocol support on AirVantage uses [Username and Password](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#connect) to authenticate devices.
-So you need to specify the username and the password when you connect to the client to the broker (AirVantage). The username is the serial number of the gateway in AirVantage and the password is the one set during the creation of the system.
+So you need to specify the username and the password when you connect the client to the broker (AirVantage). The username is the serial number of the gateway in AirVantage and the password is the one set during the creation of the system.
 
 ### Send data to AirVantage
 
-You can publish on the `<username>/messages/json` topic to send your data to AirVantage, where the username is the is the serial number of the gateway in AirVantage. The data shall be encoded in JSON using the same format as the one used by the REST API for devices: a message can contains several data and several datapoints for one data. Then you can easily send a complete status or historical values in one message.
-
+You can publish on the `<username>/messages/json` topic to send your data to AirVantage, where the username is the is the serial number of the gateway in AirVantage. The data shall be encoded in JSON using the same format as the one used by the REST API for devices: a message can contain several data and several datapoints for one data. Then you can easily send a complete status or historical values in one message.
 
 __Publish on the `<username>/messages/json` topic__
 
@@ -118,7 +116,7 @@ __Publish on the `<username>/messages/json` topic__
 
 This message sends 3 values for the temperature with different timestamp and one value for the threshold parameter.
 
-Once AirVantage receives this message, data are stored and can be accessed by the Data API on System (Last datapoints, Historical aggregated datapoints, Historical raw datapoints, Export datapoints) 
+Once AirVantage receives this message, data is stored and can be accessed by the Data API on System (Last datapoints, Historical aggregated datapoints, Historical raw datapoints, Export datapoints).
 
 ### Receive tasks from AirVantage
 
