@@ -101,21 +101,21 @@ Content-Type: application/json
 [
   {
     "machine.temperature": [{
-      "timestamp" : 1349907137, 
+      "timestamp" : 1349907137000, 
       "value" : "23.2"
     },
     {
-      "timestamp" : 1349908137, 
+      "timestamp" : 1349908137000, 
       "value" : "24.5"
     },
     {
-      "timestamp" : 1349909137, 
+      "timestamp" : 1349909137000, 
       "value" : "22.9"
     }]
   },
   {
     "machine.threshold": [{
-      "timestamp" : 1349907137, 
+      "timestamp" : 1349907137000, 
       "value" : "30"
     }]
   }
