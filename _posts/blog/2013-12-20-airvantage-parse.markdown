@@ -12,14 +12,14 @@ Connect your objects to AirVantage
 ----------------------------------
 We assume you already connected your objects to AirVantage. If not, you can use one of the following tutorials:
 
-* [Using REST APIs on Raspberry pi](TODO)
-* [Enable BeagleBone Black connection to AirVantage using MQTT](TODO)
+* [Using REST APIs on Raspberry pi](/tutorials/raspberry-pi-rest/)
+* [Enable BeagleBone Black connection to AirVantage using MQTT](http://0.0.0.0:4000/tutorials/2013/11/15/beagleboneblack-mqtt/)
 * [ALEOS AF with AirVantage Tutorial](http://developer.sierrawireless.com/en/Resources/Resources/AirLink/ALEOS_AF/Tutorial_AAF_AirVantage_and_ALEOS_AF.aspx)
 * [AirVantage Agent plugin for Open AT Application Framework](http://developer.sierrawireless.com/en/Resources/Resources/AirVantage/Tools/Open_AT_AF_ReadyAgent_plugin.aspx)
 
-Once your objects are connected to AirVantage you operate the solution and interact the objects using AirVantage User Interface. You can create also a custom business web application using AirVantage API.
+Once your objects are connected to AirVantage, you can operate the solution and interact the objects using AirVantage User Interface. You can also create a custom business web application using AirVantage API.
 
-But perhaps one of your objectives is to __give this solution to end users__. In that case, the AirVantage User Interface will probably be too complex or you just want to create a mobile application allowing a end user to access to only its objects and a subset of data on these objects. In order to do so, you can use __Parse.com__ to manage user authentication using Facebook, the Parse Android SDK to develop your mobile application and Parse Cloud Code to connect Parse.com to AirVantage.
+But perhaps one of your objectives is to __give this solution to end users__. In that case, the AirVantage User Interface will probably be too complex. Maybe you just want to create a mobile application granting end users to access  only to their objects and a subset of these objects data. In order to do so, you can use __Parse.com__ to manage user authentication using Facebook, the _Parse Android SDK_ to develop your mobile application and _Parse Cloud Code_ to connect Parse.com to AirVantage.
 
 Parse.com
 ---------
@@ -57,19 +57,18 @@ Import the AirVantage Cloud Module [airvantage.js](https://gist.github.com/dscia
 
 * In Airvantage, go to [Develop - API Clients](https://na.airvantage.net/develop/api/clients).
 * Create a new API Client for your Parse application
-** Put a random URL as the Redirect URL, it won't be used in this example
-** Copy the client id and the secret key, we'll use it in the next step
-* As Parse.com cannot handle the OAuth Authorization Code Flow, we need to use the Resource Owner Flow. Then you need to create a user in AirVantage. This user will be used to authenticate Parse.com.
+  * Put a random URL as the Redirect URL, it won't be used in this example
+  * Copy the client id and the secret key, we'll use it in the next step
+* As Parse.com cannot handle the OAuth Authorization Code Flow, we need to use the Resource Owner Flow. Now you need to create a user in AirVantage. This user will be used to authenticate Parse.com
  * Go to [Administration - Users](https://na.airvantage.net/admin/users/users)
  * Create a new user
  * Assign or create a profile with rights required by your application
- * Copy the email and password, we'll use it in the next step
-
+ * Copy the email and password, we'll use them in the next step
 
 ### Create a simple cloud function
 
-* Create a new file "main.js" in the "cloud" folder
-* Copy the following code in this file and change the values with what you get during the previous step
+* Create a new file `main.js` in the `cloud/` folder
+* Copy the following code in this file and change the values with what you get from previous step
 
 ~~~ javascript
 var airvantage = require('cloud/airvantage.js');
@@ -92,7 +91,7 @@ Parse.Cloud.define("get", function(request, response) {
 });
 ~~~
 
-This function basically returns the details of the system matching the "uid" parameter sent in the request.
+This function basically returns the details of the system matching the `uid` parameter sent in the request.
 
 Deploy your cloud code on Parse.com and then you can call this function (after replacing the placeholders for the application id, the REST API key and the system uid):
 
@@ -118,8 +117,8 @@ Object result = ParseCloud.callFunction("get", params);
 
 You can now access Airvantage objects using cloud code and your users are managed by Parse.com. The next step is to allow Parse to associate objects with users and do minimal controls.
 
-Associate objects to the current user
--------------------------------------
+Associate objects to current user
+---------------------------------
 
 ### Create a new class on Parse.com
 To associate objects with users, we are going to create a table in Parse.com to link object uid with users.
@@ -127,10 +126,10 @@ To associate objects with users, we are going to create a table in Parse.com to 
 * Go to you application data browser in Parse.com
 * Create a new custom class called "Thing"
 * Create a new column on this class called "uid" of type "String". It will be used to store the uid of the AirVantage system.
-* Create a new column called "owner" of type "Pointer" (pointing on _User). It will be used to store the reference to the user owning the object.
+* Create a new column called "owner" of type "Pointer" (pointing on _User). It will be used to store a reference to the user owning object .
 
 ### Add a new cloud function to associate an object to a user
-Paste the following code in you main.js file:
+Paste the following code in your `main.js` file:
 
 ~~~ javascript
 Parse.Cloud.define("add", function(request, response) {
@@ -158,11 +157,11 @@ Parse.Cloud.define("add", function(request, response) {
 });
 ~~~
 
-This code will create a new entry in the "Thing" table of your Parse application with the given uid and the current user. You can add more logic to perform more validation or complex queries.
+This code will create a new entry in the "Thing" table of your Parse application with given uid and current user. You can add more logic to perform more validation or more complex queries.
 
 ### Update the "get" method
-Now objects are linked to users we can update the "get" cloud function in order to validate the user have access to this object.
-Update the "get" function in your main.js file:
+Now objects are linked to users we can update the `get` cloud function in order to validate the user have access to this object.
+Update the `get` function in your main.js file:
 
 ~~~ javascript
 Parse.Cloud.define("get", function(request, response) {
@@ -202,5 +201,3 @@ Parse.Cloud.define("get", function(request, response) {
 A complete example?
 -------------------
 A complete example of an Android application linking Facebook users to Airvantage is [available on GitHub](https://github.com/dsciamma/airvantage-universe). 
-
-
