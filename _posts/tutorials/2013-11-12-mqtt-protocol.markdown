@@ -5,6 +5,7 @@ author: gaetan
 comments: true
 img: rest-for-devices.png
 layout: default
+published: false
 ---
 
 Using MQTT protocol

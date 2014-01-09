@@ -6,6 +6,7 @@ comments: true
 img: restpi.png
 layout: default
 permalink: /tutorials/raspberry-pi-rest
+published: false
 ---
 
 # Using REST APIs on Raspberry pi

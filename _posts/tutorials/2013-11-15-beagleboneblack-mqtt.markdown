@@ -5,6 +5,7 @@ author: maubry
 comments: true
 img: bbb-mqtt.png
 layout: default
+published: false
 ---
 
 Enable BeagleBone Black connection to AirVantage using MQTT
