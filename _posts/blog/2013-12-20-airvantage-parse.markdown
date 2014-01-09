@@ -1,9 +1,10 @@
 ---
 layout: post
 category: blog
-title: Connect Facebook users to Internet of Things using AirVantage and Parse
+title: Connect Facebook to IoT using AirVantage and Parse
 author: dsciamma
 comments: true
+date:  2014-01-09 10:21:37 +0200
 ---
 
 In this article, we'll explain how __easy it is to connect Facebook users to Internet of Things (IoT) using AirVantage and Parse__.
@@ -12,8 +13,8 @@ Connect your objects to AirVantage
 ----------------------------------
 We assume you already connected your objects to AirVantage. If not, you can use one of the following tutorials:
 
-* [Using REST APIs on Raspberry pi](/tutorials/raspberry-pi-rest/)
-* [Enable BeagleBone Black connection to AirVantage using MQTT](http://0.0.0.0:4000/tutorials/2013/11/15/beagleboneblack-mqtt/)
+* Using REST APIs on Raspberry Pi (available soon) 
+* Enable BeagleBone Black connection to AirVantage using MQTT (available soon)
 * [ALEOS AF with AirVantage Tutorial](http://developer.sierrawireless.com/en/Resources/Resources/AirLink/ALEOS_AF/Tutorial_AAF_AirVantage_and_ALEOS_AF.aspx)
 * [AirVantage Agent plugin for Open AT Application Framework](http://developer.sierrawireless.com/en/Resources/Resources/AirVantage/Tools/Open_AT_AF_ReadyAgent_plugin.aspx)
 
