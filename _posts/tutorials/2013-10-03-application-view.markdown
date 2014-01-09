@@ -3,8 +3,9 @@ category: tutorials
 title: Configure an application view
 author: sebz
 comments: true
-img: rest-for-devices.png
+img: app-views.png
 layout: default
+published: true
 ---
 
 Configure an application view
@@ -32,7 +33,7 @@ Create an API Client
 3. In the **Create API Client** modal:
   * Provide a **Name**
   * A **Redirect URL**
-    * Required by the **OAuth Implicit Code Flow**
+   * Required by the **OAuth Implicit Code Flow**
     * More info here
 
 [screenshot]
@@ -53,6 +54,7 @@ Setup your application view
 OK! So now you have a running application, don't forget to deploy it on a web server that can be accessed by AirVantage. For a better integration with AirVantage, HTTPS access to your application is recommended.
 
 Now you can declare a new *application view*:
+
 1. Go to *Develop > My Apps* and open the details page of your embedded application
 2. Click on the *Add View* button
 3. Select the previously created *API Client*
@@ -65,6 +67,7 @@ Test it on a system
 ------------------------------------------------
 
 Now that your embedded application is set up, you can check the integration in your system details page:
+
 1. Go to *Monitor > Systems* and open the details of your System
 2. You should see a new button next to your application name
 3. Clicking on the button opens your application view
