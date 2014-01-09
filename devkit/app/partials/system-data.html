@@ -1,0 +1,69 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1><span style="font-family: 'aruallight';">eclo</span> <small>live</small></h1>
+	</div>
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" target="_blank" href="{{config.serverURL}}/monitor/systems/systemDetails?uid={{system.uid}}">{{system.name}}</a>
+			<ul class="nav">
+				<li class="active"><a href="#/data/{{system.uid}} ">Dashboard</a></li>
+				<li><a href="#/history/{{system.uid}}">History</a></li>
+			</ul>
+			<button class="pull-right btn" ng-click="refresh()"><i class="icon-refresh"></i></button>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="span6">
+		<ul class="thumbnails row">
+			<li class="span3">
+				<div class="thumbnail alert {{temperature.value | temperatureAlert}}" style="text-align: center" ng-click="active='temperature'">
+					<embed src="img/noun_project_2023.svg" type="image/svg+xml"/>
+					<h1>{{temperature.value | floatValue}} <small>°C</small></h1>
+					<p><small>{{temperature.timestamp | timestamp}}</small></p>
+				</div>
+			</li>
+			<li class="span3">
+				<div class="thumbnail alert {{luminosity.value | luminosityAlert}}" style="text-align: center" ng-click="active='luminosity'">
+					<embed src="img/noun_project_868.svg" type="image/svg+xml"/>
+					<h1>{{luminosity.value | floatValue}} <small>Lux</small></h1>
+					<p><small>{{luminosity.timestamp | timestamp}}</small></p>
+				</div>
+			</li>
+			<li class="span3">
+				<div class="thumbnail alert {{humidity.value | humidityAlert}}" style="text-align: center" ng-click="active='humidity'">
+					<embed src="img/noun_project_5546.svg" type="image/svg+xml"/>
+					<h1>{{humidity.value | floatValue}} <small>%</small></h1>
+					<p><small>{{humidity.timestamp | timestamp}}</small></p>
+				</div>
+			</li>
+			<li class="span3">
+				<div class="thumbnail alert alert-info" style="text-align: center" ng-click="active='roof'">
+					<img src="img/{{roof.img}}" type="image/svg+xml"/>
+					<h1><button class="btn" ng-click="toggleRoof()"><strong>{{roof.value}}</strong></button></h1>
+					<p><small>{{roof.timestamp | timestamp}}</small></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="span5">
+		<ul class="thumbnails">
+			<li>
+				<div class="thumbnail" style="text-align: center">
+					<!-- <img src="http://91.121.117.128:9999?xxx" width="640" height="480"> -->
+					<img src="http://10.41.51.148:8090/?action=stream" width="640" height="480">
+					<h1>Live stream</h1>
+					<p>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+</div>

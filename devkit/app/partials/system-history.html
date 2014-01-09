@@ -1,0 +1,92 @@
+<div class="container">
+
+	
+	<div class="page-header">
+		<h1>Greenhouse <small>monitoring</small></h1>
+	</div>
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" target="_blank" href="{{config.serverURL}}/monitor/systems/systemDetails?uid={{system.uid}}">{{system.name}}</a>
+			<ul class="nav">
+				<li><a href="#/data/{{system.uid}} ">Dashboard</a></li>
+				<li class="active"><a href="#/history/{{system.uid}}">History</a></li>
+			</ul>
+			<button class="pull-right btn" ng-click="refresh()"><i class="icon-refresh"></i></button>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
+
+		<div class="span6">
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="data">Data to display</label>
+					<div class="controls">
+						<select id="data" ng-model="selectedData" >
+							<option>Temperature</option>
+							<option>Luminosity</option>
+							<option>Humidity</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="fun">Consolidation function</label>
+					<div class="controls">
+						<select ng-model="selectedFun" id="fun" multiple="multiple">
+							<option>mean</option>
+							<option>sum</option>
+							<option>max</option>
+							<option>min</option>
+							<option>stddev</option>
+							<option>ss</option>
+							<option>cnt</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="span6">
+			<form class="form-horizontal">
+				<div class="control-group input-append">
+					<label class="control-label" for="fromDate">From Date</label>
+					<div class="controls">
+						<input type="text" id="fromDate"  ng-model="selectedFrom" data-date-format="yyyy-mm-dd" placeholder="YYYY-mm-dd" bs-datepicker>
+						<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+					</div>
+				</div>
+				<div class="control-group input-append">
+					<label class="control-label" for="toDate">To Date</label>
+					<div class="controls">
+						<input type="text" id="toDate" ng-model="selectedTo" data-date-format="yyyy-mm-dd" placeholder="YYYY-mm-dd" bs-datepicker>
+						<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="interval">Interval</label>
+					<div class="controls">
+						<select id="interval" ng-model="selectedInter">
+							<option>hour</option>
+							<option>day</option>
+							<option>month</option>
+							<option>year</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="span12" ng-switch="active">
+			<div ng-switch-when="Temperature"><graph value="temperatures" min="20" max="30"/></div>
+			<div ng-switch-when="Luminosity"><graph value="luminosities" min="0" max="150"/></div>
+			<div ng-switch-when="Humidity"><graph value="humidities" min="0" max="100"/></div>
+			<div ng-switch-default><h1>No history available</h1></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Assembling and programming your own eclo</title>
+<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/resources/js/main.js" type="text/javascript"></script>
+
+    <!-- flexslider -->
+    <link type="text/css" rel="stylesheet" href="/resources/css/flexslider.css" />
+    <script type="text/javascript" src="/resources/js/jquery.flexslider-min.js"></script>
+
+    <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- lightbox2 -->
+    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
+    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- highlight syntax -->
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- GA tracker -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-594061-16', 'airvantage.github.io');
+      ga('send', 'pageview');
+
+    </script>
+    <!-- end GA tracker -->
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+     <div class="wrapper">
+        <div id="top">
+            <header>
+                <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
+                <nav >
+                    <a href="/#features"><i class="icon-github"></i> Repositories</a>
+                    <a href="/devkit" >Dev. kit</a>
+                    <a href="/#who">Who we are</a>
+                    <a href="/blog" >Blog</a>
+                    <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+
+                    <!-- Twitter follow us buton -->
+                    <div style="display : inline-table;margin-top : 6px;">
+
+                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                    </div>
+
+                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                    <div style="display: inline-table;margin-top: 5px;">
+                      <div class="g-plusone" data-size="medium"></div>
+                    </div>
+                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'fr'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+
+
+                </nav>
+            </header>
+        </div>
+        
+            <div id="content">
+              <h1 id="span-stylefont-family-aruallighteclospan-tutorial"><span style="font-family: 'aruallight';">eclo</span> Tutorial</h1>
+
+<p>NB: this tutorial is a work in progress.
+Some pieces are still TBC, and some of the external links are not definitive.</p>
+
+<h2 id="assembling-the-greenhouse">Assembling the Greenhouse</h2>
+
+<p>TODO </p>
+
+<h2 id="arduino">Arduino</h2>
+
+<p>This program comes from <a href="https://github.com/kartben/mihini-greenhouse-demo">kartben/mihini-greenhouse-demo</a>.</p>
+
+<ul>
+  <li>Download the <a href="http://arduino.cc/en/Main/Software">arduino IDE</a> and launch it</li>
+  <li>Open the file <code>tutorial-arduino/SimpleModbusSlaveExample.ino</code></li>
+  <li>Download the <a href="https://code.google.com/p/simple-modbus/downloads/detail?name=SimpleModbusSlaveV4.zip&amp;can=2&amp;q=">SimpleModbusSlave</a> library, and <a href="http://arduino.cc/en/Guide/Libraries">install</a> it.</li>
+  <li>Connect your Arduino in USB and flash it</li>
+</ul>
+
+<h2 id="raspberry-pi">Raspberry Pi</h2>
+
+<ul>
+  <li>Follow the <a href="http://www.raspberrypi.org/quick-start-guide">Raspberry Pi’s quick start guide</a> and choose a Raspbian in the NOOBS screen</li>
+  <li>Once you are logged onto your Raspbian, download and install <a href="http://wiki.eclipse.org/Mihini/Install_Mihini#Download">Mihini</a> (choose the “armhf” architecture, and the “deb” package type)</li>
+  <li>check the airvantage server url, in <code>/opt/mihini/lua/agent/defaultconfig.lua</code>, line 27</li>
+  <li>find the deviceId:</li>
+</ul>
+
+<pre><code class="language-bash">$ grep deviceId /var/log/syslog
+</code></pre>
+
+<p>=&gt; you should find something like <code>0000000072eb5051</code></p>
+
+<h2 id="mihinis-application">Mihini’s application</h2>
+
+<p>This program cames from <a href="http://git.eclipse.org/c/mihini/org.eclipse.mihini.samples.git/">the Mihini samples from Eclipse’s git repository</a>, in <code>greenhouse-m3da/mihini-greenhouse-m3da-demo/src/</code></p>
+
+<h3 id="using-lua-development-tools">Using Lua Development Tools</h3>
+
+<ul>
+  <li>On your Desktop computer, download and launch <a href="http://www.eclipse.org/koneki/ldt/#installation">LDT</a></li>
+  <li>Install the Mihini Development Tools
+    <ul>
+      <li>Help -&gt; Install new software</li>
+      <li>Work with: <code>http://download.eclipse.org/koneki/updates-nightly</code></li>
+      <li>Select the “Mihini Development Tools for Lua”</li>
+      <li>Restart Eclipse if it’s recommended</li>
+    </ul>
+  </li>
+  <li>Configure the connection to your Raspberry Pi
+    <ul>
+      <li>Open the perspective “Remote System explorer”</li>
+      <li>“Define a connection to remote system” -&gt; “Mihini Device”</li>
+      <li>Fill the “Host name” with your Raspberry Pi’s IP address, and “Finish”</li>
+      <li>Right clic on “Applications”, then “Connect…”, and fill your credential (user: <code>pi</code> &amp; password: <code>raspberry</code>)</li>
+    </ul>
+  </li>
+  <li>Create a the Eclipse’s Project
+    <ul>
+      <li>Get back to the Lua Perspective</li>
+      <li>File -&gt; New -&gt; LUA Project</li>
+      <li>Name it, with only ASCII letters, digits and “_”</li>
+      <li>“Create project at existing location (from existing source)” -&gt; select the <code>tutorial-mihini</code> folder</li>
+    </ul>
+  </li>
+  <li>Install your Project on you Raspberry Pi
+    <ul>
+      <li>Right-click on your application Export -&gt; Mihini -&gt; Lua Application Package</li>
+      <li>give it a Version</li>
+    </ul>
+  </li>
+  <li>Checks the log on your Raspbian</li>
+</ul>
+
+<pre><code class="language-bash">$ tail -f /var/log/syslog
+</code></pre>
+
+<p>For more details, see the <a href="http://wiki.eclipse.org/Koneki/LDT/Developer_Area/User_Guides/User_Guide_1.0#Remote_session">official LDT’s User guide</a></p>
+
+<h3 id="or-using-the-telnet-lua-console">OR Using the telnet lua console</h3>
+
+<ul>
+  <li>On your Raspberry Pi, download the application:</li>
+</ul>
+
+<pre><code class="language-bash">$ cd
+$ sudo apt-get install git
+$ git clone https://github.com/nim65s/tutorial-eclo.git
+</code></pre>
+
+<ul>
+  <li>write the launcher for this app (an executable called <code>run</code>, in <code>~/tutorial-eclo/tutorial-mihini</code>):</li>
+</ul>
+
+<pre><code class="language-bash">#!/bin/sh
+lua main.lua
+</code></pre>
+
+<ul>
+  <li>Install the application</li>
+</ul>
+
+<pre><code class="language-bash">$ telnet localhost 2000
+</code></pre>
+
+<pre><code class="language-lua">&gt; appcon = require "agent.appcon"
+&gt; = appcon.install("eclo", "/home/pi/tutorial-eclo/tutorial-mihini", true)
+</code></pre>
+
+<ul>
+  <li>check the logs</li>
+</ul>
+
+<pre><code class="language-bash">$ tail -f /var/log/syslog
+</code></pre>
+
+<h2 id="airvantage">AirVantage</h2>
+
+<ul>
+  <li>Zip the <code>tutorial-airvantage/model.app</code></li>
+</ul>
+
+<pre><code class="language-bash">$ cd tutorial-airvantage
+$ zip model.app.zip model.app
+</code></pre>
+
+<ul>
+  <li>Create an AirVantage account</li>
+  <li>Once you are logged in AirVantage, create a new application and publish it
+    <ul>
+      <li>Develop -&gt; My Apps</li>
+      <li>Release -&gt; Select a File -&gt; <code>model.app.zip</code> -&gt; Start</li>
+      <li>Refresh -&gt; Select “My Application” -&gt; Publish -&gt; Publish</li>
+    </ul>
+  </li>
+  <li>Then you can add a your Raspberry Pi as a system in your AirVantage’s fleet
+    <ul>
+      <li>Inventory -&gt; Systems -&gt; Create</li>
+      <li>Give it a name</li>
+      <li>Create a gateway with the deviceId as the Serial Number</li>
+      <li>Don’t add any subscription</li>
+      <li>Add the Application you just created</li>
+      <li>Let the Password field empty</li>
+      <li>Create</li>
+    </ul>
+  </li>
+  <li>Select your new system and activate it</li>
+  <li>Check that Mihini is successfully connected to AirVantage
+    <ul>
+      <li>Monitor -&gt; Systems</li>
+      <li>Select your system -&gt; Details</li>
+      <li>History</li>
+    </ul>
+  </li>
+</ul>
+
+              
+              <div id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'airvantageopensourcecenter'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+             </div>
+             
+            </div>
+         
+    </div>
+</body>
+</html>

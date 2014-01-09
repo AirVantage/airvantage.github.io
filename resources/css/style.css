@@ -1,0 +1,583 @@
+/*******************
+ *     GLOBAL     *
+ *******************/
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    text-rendering: optimizeLegibility; 
+}
+
+@font-face {
+    font-family: 'l-lt';
+    src: url('../fonts/l-lt.eot');
+    src: url('../fonts/l-lt.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/l-lt.woff') format('woff'),
+         url('../fonts/l-lt.ttf') format('truetype'),
+         url('../fonts/l-lt.svg#l-lt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'l-bd';
+    src: url('../fonts/l-bd.eot');
+    src: url('../fonts/l-bd.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/l-bd.woff') format('woff'),
+         url('../fonts/l-bd.ttf') format('truetype'),
+         url('../fonts/l-bd.svg#l-lt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'l-rg';
+    src: url('../fonts/l-rg.eot');
+    src: url('../fonts/l-rg.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/l-rg.woff') format('woff'),
+         url('../fonts/l-rg.ttf') format('truetype'),
+         url('../fonts/l-rg.svg#l-rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'l-hl';
+    src: url('../fonts/l-hl.eot');
+    src: url('../fonts/l-hl.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/l-hl.woff') format('woff'),
+         url('../fonts/l-hl.ttf') format('truetype'),
+         url('../fonts/l-hl.svg#l-hl') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'swop_icons';
+    src: url('../fonts/swop_icons.eot');
+    src: url('../fonts/swop_icons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/swop_icons.woff') format('woff'),
+         url('../fonts/swop_icons.ttf') format('truetype'),
+         url('../fonts/swop_icons.svg#swop_icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'l-lt', arial, sans;
+	color: rgb(39,39,39);
+/*	min-width: 1000px; */
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+a img {
+    border: none;
+}
+
+table, h1, h2, h3, h4, h5, ul, li, form {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/******************
+ *     COMMON     *
+ ******************/
+
+div.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+#top {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 1000;
+	background: rgb(255, 255, 255);
+	border-top: 10px solid rgb(229,59,48);
+	height: 105px; /*1024 display standard version*/
+}
+
+header {
+	margin: auto;
+	position: relative;
+	border-bottom: 1px solid rgb(214, 215, 216);
+	width: 92%; /*1024 display standard version*/
+	height: 105px; /*1024 display standard version*/
+}
+
+header h1 a {
+    position: absolute;
+    left: 0px;
+	text-indent: -9000px;
+	top: 22px; /*1024 display standard version*/
+	width: 216px; /*1024 display standard version*/
+	height: 51px; /*1024 display standard version*/
+	background: url("../img/airvantage_love_os_logo.png") no-repeat -288px 0px; /*1024 display standard version*/
+}
+
+nav {
+    position: absolute;
+    right: 0px;
+	top: 73px; /*1024 display standard version*/
+}
+
+nav a {
+	text-transform: uppercase;
+	color: rgb(153, 153, 153);
+	font-size: 15px; /*1024 display standard version*/
+	padding: 9px 30px; /*1024 display standard version*/
+	
+}
+
+nav span a {
+	padding: 9px 5px;
+}
+
+nav a:hover {
+	color: rgb(229,59,48);
+	text-decoration: none;
+}
+
+nav a.link-selected {
+	background-color: #ebebeb;
+	-webkit-box-shadow: inset 2px 2px 4px #d5d5d5;
+	-moz-box-shadow: inset 2px 2px 4px #d5d5d5;
+	box-shadow: inset 2px 2px 4px #d5d5d5;
+	color: black;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	font-size: 15px; /*1024 display standard version*/
+	padding: 9px 30px; /*1024 display standard version*/
+}
+
+.red {
+	color: rgb(229,59,48);
+	font-family: 'l-rg', arial, sans;
+}
+
+h2 {
+	color: rgb(229,59,48);
+	font-weight: normal;
+	text-transform: capitalize;
+	float: left;
+	position: relative;
+	padding-left: 4%;
+	padding-bottom: 12px;
+	display: block;
+	font-size: 40px; /*1024 display standard version*/
+}
+
+h3 {
+	clear: left;
+	color: rgb(139,139,139);
+	font-weight: normal;
+	text-transform: capitalize;
+	position: relative;
+	padding-left: 10%;
+	padding-bottom: 12px;
+	display: block;
+	font-size: 24px; /*1024 display standard version*/
+}
+
+div.bullet {
+	min-height: 1px;
+	border-bottom: 1px solid rgb(229,59,48);
+	float: left;
+	position: relative;
+	width: 6%;
+	height: 24px; /*1024 display standard version*/
+}
+
+p {
+	font-weight: normal;
+	float: left;
+	position: relative;
+	text-align: left;
+	padding-left: 10%;
+	margin: 0px;
+/*	clear: both;*/
+	color: rgb(139,139,139);
+	line-height: 24px; /*1024 display standard version*/
+	font-size: 18px; /*1024 display standard version*/
+}
+
+div#introduction, div#profiles, div#features, div#who {
+	margin: 0 auto;
+	position: relative;
+	clear: both;
+	padding-top: 95px; /*1024 display standard version*/
+	width: 92%; /*1024 display standard version*/
+	padding-left: 4%; /*1024 display standard version*/
+	padding-right: 4%; /*1024 display standard version*/
+	padding-bottom: 100px; /*1024 display standard version*/
+}
+
+.details {
+	background-color: rgb(228,241,254);
+	width: 80%;
+	border-bottom: 10px solid rgb(204,228,253);
+	clear: both;
+	margin-left: 10%;
+	padding: 40px 5%;
+	line-height: 30px;
+	color: rgb(139,139,139);
+}
+
+.details h4 {
+	font-size: 35px;
+	color: rgba(229,59,48,1);
+	font-weight: normal;
+	text-transform: capitalize;
+	padding-bottom: 12px;
+	display: block;
+}
+
+ul.details {
+}
+
+.details li {
+	float: left;
+	display: inline;
+	width: 50%;
+}
+
+
+/******************
+ *  INTRODUCTION  *
+ ******************/
+
+div#introduction {
+	height: 485px; /*1024 display standard version*/
+	color: rgb(139,139,139);
+	padding-top: 140px;
+}
+
+img.banner {
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+iframe.video {
+	position: relative;
+	float: right;
+	margin-left: 5%;
+	margin-bottom: 5%;
+	width: 560px;
+	height: 315px;
+	-webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
+	-ms-box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
+	-o-box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+#introduction h5 {
+	clear: left;
+	color: rgb(139,139,139);
+	font-weight: normal;
+	text-transform: capitalize;
+	position: relative;
+	padding-bottom: 12px;
+	display: block;
+	font-size: 24px; /*1024 display standard version*/
+}
+
+#introduction ul {
+	margin-left: 50px;
+	margin-bottom: 70px;
+}
+
+#introduction li {
+	list-style: square;
+	padding-left: 10px;
+}
+
+/******************
+ *    PROFILES    *
+ ******************/
+ 
+div#profiles {
+	height: 640px; /*1024 display standard version*/
+}
+
+.profile {
+	float: left;
+	width: 35%;
+	margin-right: 5%;
+	color: rgb(139,139,139);
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.profile h4 {
+	color: rgb(229,59,48);
+	font-weight: normal;
+	text-transform: capitalize;
+	display: block;
+	padding-bottom: 28px;
+	font-size: 18px;
+	padding-top: 32px;
+}
+
+a.btn {
+	color: rgb(255,255,255);
+	text-transform: uppercase;
+	height: 60px;
+	padding: 15px;
+	text-align: center;
+	background-color: rgb(229,59,48);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	border: none;
+	font-family: 'l-lt', arial, sans;
+	font-size: 23px;
+}
+
+
+/******************
+ *    FEATURES    *
+ ******************/
+ 
+div#features {
+	background-color: rgb(245,245,245);
+	height: 640px; /*1024 display standard version*/
+}
+
+.feature {
+	float: left;
+	width: 17.5%;
+	margin-right: 5%;
+	color: rgb(139,139,139);
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.feature h4 {
+	color: rgb(39,39,39);
+	font-weight: normal;
+	text-transform: capitalize;
+	display: block;
+	padding-bottom: 28px;
+	font-size: 18px;
+	padding-top: 32px;
+}
+
+.testicon {
+	position: relative;
+	font-family: 'swop_icons';
+	font-size: 64px; /*1024 display standard version*/
+	-moz-border-radius: 64px; /*1024 display standard version*/
+	-webkit-border-radius: 64px; /*1024 display standard version*/
+	border-radius: 64px; /*1024 display standard version*/
+	padding: 27px 20px 34px 28px; /*1024 display standard version*/
+}
+
+.darkgrey {
+	background: rgb(28,28,28);
+	color: rgb(255,255,255);
+}
+
+.black {
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
+
+.lightgrey {
+	background: rgb(231,231,231);
+	color: rgb(68,68,68);
+}
+
+.first {
+	margin-left: 10% !important;
+}
+
+a.link {
+	color: rgb(68,68,68);
+	text-transform: uppercase;
+	padding: 5px 10px;
+	background-color: rgb(231,231,231);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	border: none;
+	font-size: 11px;
+}
+
+a.link:hover {
+	color: rgb(229,59,48);
+	background-color: rgba(231,231,231,0.5);
+}
+
+/******************
+ *   who   *
+ ******************/
+ 
+div#who {
+	height: 640px; /*1024 display standard version*/
+}
+
+
+/******************
+ *   RESPONSIVE   *
+ ******************/
+
+@media (min-width: 1240px) {
+	#top {
+		height: 130px;}
+	header {
+		width: 80%;
+		height: 130px;}
+	header h1 a {
+		top: 28px;
+		width: 288px;
+		height: 64px;
+		background: url("../img/airvantage_love_os_logo.png") no-repeat 0px 0px;}
+	nav {
+		top: 73px;}
+	nav a, nav a.link-selected {
+		font-size: 15px;
+		padding: 9px 30px;}
+	div#introduction, div#profiles, div#features, div#who {
+		padding-left: 10%;
+		padding-right: 10%;
+		width: 80%;
+		padding-bottom: 100px;}
+	div#features, div#who {
+		padding-top: 150px;
+		width: 80%;}
+	div#introduction {
+		height: 600px;
+		padding-top: 160px;
+		line-height: 30px;
+		font-size: 23px;}
+	div#profiles {
+		padding-top: 50px;
+		height: 600px;}
+	div#features {
+		height: 600px;}
+	div#who {
+		height: 900px;}
+	h2 {
+		font-size: 50px;}
+	h3 {
+		font-size: 30px;}
+	div.bullet {
+		height: 31px;}
+	p {
+		line-height: 30px;
+		font-size: 23px;}
+	.feature, .profile {
+		font-size: 15px;
+		line-height: 20px;
+		margin-top: 100px;
+		margin-bottom: 70px;}
+	.testicon {
+		font-size: 80px;
+		-moz-border-radius: 80px;
+		-webkit-border-radius: 80px;
+		border-radius: 80px;
+		padding: 32px 36px 39px 40px;}
+	.feature h4, .profile h4 {
+		padding-bottom: 35px;
+		font-size: 23px;
+		padding-top: 81px;}
+}
+
+@media (min-width: 960px) and (max-width: 1240px) {
+	#top {
+		height: 105px;}
+	header {
+		width: 92%;
+		height: 105px;}
+	header h1 a {
+		top: 22px;
+		width: 216px;
+		height: 51px;
+		background: url("../img/airvantage_love_os_logo.png") no-repeat -288px 0px;}
+	nav {
+		top: 53px;}
+	nav a, nav a.link-selected {
+		font-size: 13px;
+		padding: 9px 30px;}
+	div#introduction, div#profiles div#features, div#who {
+		width: 92%;
+		padding-left: 4%;
+		padding-right: 4%;
+		padding-bottom: 80px;}
+	div#features, div#who {
+		padding-top: 175px;}
+	div#introduction {
+		font-size: 21px;
+		padding-top: 140px;
+		height:485px;}
+	div#profiles {
+		padding-top: 30px;
+		height: 640px;}
+	div#features {
+		height: 640px;}
+	div#who {
+		height: 640px;}
+	h2 {
+		font-size: 40px;}
+	h3 {
+		font-size: 24px;}
+	div.bullet {
+		height: 24px;}
+	p {
+		line-height: 24px;
+		font-size: 18px;}
+	.feature, .profile {
+		font-size: 13px;
+		line-height: 20px;
+		margin-top: 94px;
+		margin-bottom: 56px;}
+	.testicon {
+		font-size: 64px;
+		-moz-border-radius: 64px;
+		-webkit-border-radius: 64px;
+		border-radius: 64px;
+		padding: 27px 20px 34px 28px}
+	.feature h4, .profile h4 {
+		padding-bottom: 28px;
+		font-size: 18px;
+		padding-top: 72px;}
+}
+
+@media (min-width: 480px) and (max-width: 960px) {
+	#top {
+		height: 130px;}
+	header {
+		width: 80%;
+		height: 130px;}
+	h1 {
+		font-size: 26px;}
+	h2 {
+		font-size: 22px;}
+	nav a, nav a.link-selected {
+		font-size: 11px;
+		padding: 9px 10px;}
+}

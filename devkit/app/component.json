@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap.css": "~2.1.1",
+    "angular-ui": "~0.4.0",
+    "angular-bootstrap": "~0.2.0",
+    "angular-cookies": "~1.0.5",
+    "angular-http-auth": "5638403468f751c66097b668a95c94131ed3c40c5638403468f751c66097b668a95c94131ed3c40c",
+    "angular": "~1.0.5",
+    "font-awesome": "~3.0.2",
+    "toastr": "~1.2.1",
+    "jquery": "~1.9.1",
+    "d3": "~3.0.0",
+    "jszip": "4babc171bd27a28d0c4fab132abb9f0042da91ce",
+    "angular-strap": "~0.7.4",
+    "bootstrap-datepicker": "~1.1.1"
+  }
+}

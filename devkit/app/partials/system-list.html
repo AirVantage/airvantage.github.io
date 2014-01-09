@@ -1,0 +1,27 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1>Greenhouse <small>web application</small></h1>
+	</div>
+
+	<div class="row">
+		<div class="span12">
+			<div ng-repeat="system in systems" class="row">
+				<div class="span12">
+					<div class="navbar">
+						<div class="navbar-inner">
+							<a class="brand" href="#">{{system.name}}</a>
+							<ul class="nav">
+								<li><a href="#/data/{{system.uid}}">Dashboard</a></li>
+								<li><a href="#/history/{{system.uid}}">History</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- <div class="well"><h3>{{system.name}} <small><a href="#/data/{{system.uid}}">Dashboard</a></small> <small><a href="#/history/{{system.uid}}">History</a></small></h3></div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</div>

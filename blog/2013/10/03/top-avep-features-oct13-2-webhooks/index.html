@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Top AVEP features in Oct'13 release&#58; 2. Webhooks</title>
+<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/resources/js/main.js" type="text/javascript"></script>
+
+    <!-- flexslider -->
+    <link type="text/css" rel="stylesheet" href="/resources/css/flexslider.css" />
+    <script type="text/javascript" src="/resources/js/jquery.flexslider-min.js"></script>
+
+    <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- lightbox2 -->
+    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
+    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- highlight syntax -->
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- GA tracker -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-594061-16', 'airvantage.github.io');
+      ga('send', 'pageview');
+
+    </script>
+    <!-- end GA tracker -->
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+     <div class="wrapper">
+        <div id="top">
+            <header>
+                <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
+                <nav >
+                    <a href="/#features"><i class="icon-github"></i> Repositories</a>
+                    <a href="/devkit" >Dev. kit</a>
+                    <a href="/#who">Who we are</a>
+                    <a href="/blog"  class="link-selected" >Blog</a>
+                    <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+
+                    <!-- Twitter follow us buton -->
+                    <div style="display : inline-table;margin-top : 6px;">
+
+                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                    </div>
+
+                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                    <div style="display: inline-table;margin-top: 5px;">
+                      <div class="g-plusone" data-size="medium"></div>
+                    </div>
+                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'fr'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+
+
+                </nav>
+            </header>
+        </div>
+        
+            <div id="content">
+              
+
+<div id="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+	
+
+<div id="page-navigation"> 
+        <div class="clear">&nbsp;</div> 
+        <span class="left"> 
+         
+                <a href="/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support" title="Previous Post: 
+Top AVEP features in Oct'13 release&#58; 1. MQTT support">&laquo; Top AVEP features in Oct'13 release&#58; 1. MQTT support</a> 
+         
+        </span> 
+         | 
+
+        <span class="right"> 
+         
+                <a href="/blog/2013/10/03/top-avep-features-oct13-3-application-views" title="next Post: 
+Top AVEP features in Oct'13 release&#58; 3. Application views">Top AVEP features in Oct'13 release&#58; 3. Application views &raquo; </a> 
+         
+        </span> 
+        <div class="clear">&nbsp;</div> 
+</div> 
+	<h1 style="display:inline-block;" itemprop="name">Top AVEP features in Oct'13 release&#58; 2. Webhooks</h1> by 
+		<div style="display:inline;" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+			<a href="/authors/kartben/page1">
+				<span class="author">
+					<span itemprop="name">
+						Benjamin Cabé
+					</span>
+				</span>
+			</a>	
+
+			
+	        <div class="gplus" style="display: inline;font-size: 0.6em;">
+	            [<a rel="author" href="https://plus.google.com/112837264176638481892?rel=author" target="_blank">
+	                <i class="icon-gplus"></i>
+	            </a>]
+	        </div>
+	        
+       </div>
+
+	<div itemprop="articleBody">
+		<p itemprop="description">
+<img style="float:left; margin-right:15px; margin-bottom:5px;" src="/resources/img/blog/2013-10-03-top-avep-features-oct13-2-webhooks/webhooks.png" alt="Webhooks" itemprop="image" />
+Number two in our list of top features this new AirVantage Enterprise Platform version is the added support of <strong>webhooks</strong>.
+</p>
+
+<p>Webhooks are a very simple (some would say <a href="http://blog.iron.io/2013/09/7-reasons-webhooks-are-magic.html" target="_blank">magic</a>!) way of pushing events to an external application. <br />
+In an AVEP context, it means that you can notify an external application of an event that occured in AirVantage.</p>
+
+<p>As of today, you can associate a webhook to an Alert Rule. It will be called when the condition specified in the rule is met, allowing you to notify a 3rd party app immediately for e.g. logging the alert, create an entry in a Google Calendar, etc.</p>
+
+<p>Note that this feature is provided in <strong>beta</strong>, and we are looking forward to hearing from you in order to improve it. Please use the “Feedback” button from the AirVantage UI or ping us on <a href="https://twitter.com/AirVantage" target="_blank">Twitter</a> if you have suggestions.</p>
+
+<p>See you tomorrow to talk about the #1 feature that we are very excited to unveil!</p>
+
+<p><br /><br /></p>
+
+	</div>
+	<p></p>
+	<hr>
+	<div id="related_posts">
+		<h2>Related Posts</h2>
+		<ul class="posts">
+
+			
+			
+			  
+			  
+			  
+			    <li>
+					<span>09 Jan 2014</span>
+					&raquo;
+					<a href="/blog/2014/01/09/airvantage-parse">Connect Facebook to IoT using AirVantage and Parse</a>
+				</li>
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>04 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support">Top AVEP features in Oct'13 release&#58; 1. MQTT support</a>
+				</li>
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>03 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/03/top-avep-features-oct13-3-application-views">Top AVEP features in Oct'13 release&#58; 3. Application views</a>
+				</li>
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+		</ul>
+	</div>
+
+</div>
+              
+              <div id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'airvantageopensourcecenter'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+             </div>
+             
+            </div>
+         
+    </div>
+</body>
+</html>

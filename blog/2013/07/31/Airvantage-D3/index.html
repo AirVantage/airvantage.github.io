@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>M2M data visualisation with D3 and AirVantage</title>
+<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/resources/js/main.js" type="text/javascript"></script>
+
+    <!-- flexslider -->
+    <link type="text/css" rel="stylesheet" href="/resources/css/flexslider.css" />
+    <script type="text/javascript" src="/resources/js/jquery.flexslider-min.js"></script>
+
+    <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- lightbox2 -->
+    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
+    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- highlight syntax -->
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- GA tracker -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-594061-16', 'airvantage.github.io');
+      ga('send', 'pageview');
+
+    </script>
+    <!-- end GA tracker -->
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+     <div class="wrapper">
+        <div id="top">
+            <header>
+                <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
+                <nav >
+                    <a href="/#features"><i class="icon-github"></i> Repositories</a>
+                    <a href="/devkit" >Dev. kit</a>
+                    <a href="/#who">Who we are</a>
+                    <a href="/blog"  class="link-selected" >Blog</a>
+                    <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+
+                    <!-- Twitter follow us buton -->
+                    <div style="display : inline-table;margin-top : 6px;">
+
+                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                    </div>
+
+                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                    <div style="display: inline-table;margin-top: 5px;">
+                      <div class="g-plusone" data-size="medium"></div>
+                    </div>
+                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'fr'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+
+
+                </nav>
+            </header>
+        </div>
+        
+            <div id="content">
+              
+
+<div id="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+	
+
+<div id="page-navigation"> 
+        <div class="clear">&nbsp;</div> 
+        <span class="left"> 
+         
+                <a href="/blog/2013/08/08/openhab-with-airvantage" title="Previous Post: 
+Setting up an AirVantage persistence service for openHAB">&laquo; Setting up an AirVantage persistence service for openHAB</a> 
+         
+        </span> 
+         | 
+
+        <span class="right"> 
+         
+                <a href="/blog/2013/07/25/announcing-airvantage-opensource" title="next Post: 
+“AirVantage &lt;3 open source” goes live!">“AirVantage &lt;3 open source” goes live! &raquo; </a> 
+         
+        </span> 
+        <div class="clear">&nbsp;</div> 
+</div> 
+	<h1 style="display:inline-block;" itemprop="name">M2M data visualisation with D3 and AirVantage</h1> by 
+		<div style="display:inline;" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+			<a href="/authors/gaetan/page1">
+				<span class="author">
+					<span itemprop="name">
+						Gaétan Morice
+					</span>
+				</span>
+			</a>	
+
+			
+	        <div class="gplus" style="display: inline;font-size: 0.6em;">
+	            [<a rel="author" href="https://plus.google.com/102428174039559035920?rel=author" target="_blank">
+	                <i class="icon-gplus"></i>
+	            </a>]
+	        </div>
+	        
+       </div>
+
+	<div itemprop="articleBody">
+		<p><a href="http://d3js.org/">D3.js</a> (Data Driven Document) is a JavaScript library that helps creating meaningful visuals for complex datasets. The <a href="https://github.com/mbostock/d3/wiki/Gallery">gallery</a> gives a wide overview of D3’s capabilities.</p>
+
+<p>AirVantage, since version 13.3, provides a set of REST APIs focused on systems’ data. More specifically, it provides an API for getting aggregated data that enables the use of consolidation functions on historical datasets.</p>
+
+<p>The <span style="font-family: 'aruallight';">eclo</span> developer kit comes with a small web app that provides a basic graph (click <a href="http://airvantage.github.io/devkit/app/">here</a> and then go to “History”) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.</p>
+
+<p><img src="/resources/img/blog/2013-07-31-Airvantage-D3/graphineclo.png" alt="graph in eclo" /></p>
+
+<h2 id="the-historical-aggregated-datapoints-api">The historical aggregated datapoints API</h2>
+
+<h3 id="aggregated-data">Aggregated Data</h3>
+
+<p>Among the new data API provided by AirVantage, the aggregated datapoints is especially interesting. Indeed, AirVantage now provides some pre-treatments on numerical data sent by systems: it does the heavy lifting of aggregating large datasets on specific time windows through a set of consolidation functions. Let’s take an example. </p>
+
+<p>Say we have a system on the field monitoring a greenhouse. It is sending to AirVantage the temperature measured by a probe every five minutes. The company operating this remote monitoring solution would like to work on some statistics and get the min and max for this temperature, for each day of the past month. This requires to retrieve all the data sent by the system, create a time window for each day and compute the min and max values for all these windows. </p>
+
+<p>It require some infrastructure (database, etc) and can quickly become tedius, especially if you want to setup a lightweight client (web or mobile app) or if you have to deal with large numbers of datapoints. Since these kinds of computation are really common, AirVantage now provides a dedicated API.</p>
+
+<h3 id="airvantage-api">AirVantage API</h3>
+
+<p>As for all the REST APIs of AirVantage, you first have to get an access token through one of the OAuth 2 workflow provided. Once this is done, you can use the following URL on the AirVantage domain: <code>/api/v1/systems/{uid}/data/{data}/aggregated</code> (you need to use the AirVantage uid of the system you want to request and the path of the data sent by your sytem). The query has the following parameters:</p>
+
+<ul>
+  <li><code>from</code> and <code>to</code>: timestamps of the time window</li>
+  <li><code>interval</code>: interval of time inside the time window on which data are consolidated (hour, day, …)</li>
+  <li><code>fn</code>: the consolidation function used (mean, min, max, standard deviation, sum, sum of square, number of datapoints)</li>
+</ul>
+
+<p>Here is an example URL that requests the mean value of temperature each hour between Jully 8th and 10th 2013 on a specific system (the live demo of <span style="font-family: 'aruallight';">eclo</span>): </p>
+
+<pre><code class="language-http">http://edge.m2mop.net/api/v1/systems/f7d1eee04d0b4dc6af901cbdaacc83cd/data/greenhouse.data.temperature/aggregated?fn=mean&amp;from=1373234400000&amp;to=1373407200000&amp;interval=1hour&amp;access_token=...
+</code></pre>
+
+<p>The API will return an array of datapoints (an object with two fields: the value of the data at some point in time and the related timestamp) in JSON:</p>
+
+<pre><code class="language-json">[{"value":25.591057284789755,"timestamp":1373270400000},
+ {"value":26.079035574977755,"timestamp":1373274000000},
+ {"value":26.345342803261424,"timestamp":1373277600000}, 
+ ...]
+</code></pre>
+
+<p>As this dataset is already valid javascript we can directly use it with D3 to create the corresponding graph.</p>
+
+<h2 id="basic-graph-with-d3">Basic graph with D3</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>In this example we will use the historical aggregated data API on a specific system. In order to do that, the following steps are required (please refer to the appropriate doc):</p>
+
+<ul>
+  <li>An <a href="https://na.airvantage.net" target="_blank">AirVantage account</a></li>
+  <li>Create an <a href="https://doc.airvantage.net/display/USERGUIDE/Use+AirVantage+API" target="_blank">API client</a> in order to use the REST API</li>
+  <li><a href="https://doc.airvantage.net/display/USERGUIDE/Connect+your+device" target="_blank">Register a system</a> that will send numerical value periodically</li>
+</ul>
+
+<h3 id="html">HTML</h3>
+
+<p>You first have to modify your HTML file (here index.html):</p>
+
+<ul>
+  <li>Include the D3 library in your HTML file.</li>
+  <li>And of course your own JS file (here aggregatedgraph.js next to index.html, that will contain the code to generate the graph. </li>
+  <li>Add a div with a specific class. This class will be used by your D3 code as an anchor to generate the SVG for the graph.</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+   &lt;head&gt;
+      &lt;script src="http://d3js.org/d3.v3.min.js" charset="utf-8"&gt;&lt;/script&gt;
+      &lt;script src="aggregatedgraph.js" charset="utf-8"&gt;&lt;/script&gt;
+   &lt;head/&gt;
+   &lt;body&gt;
+      &lt;div class='graph'&gt;&lt;/div&gt;     
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="javascript">Javascript</h3>
+
+<p>You can now create the aggregatedgraph.js file.</p>
+
+<p>You need first to setup global constants that will be used for the graph:</p>
+
+<pre><code class="language-javascript">var width = 940; // Width of the SVG element
+var height = 400; // Height of the SVG element
+var margin = 40; // Margin that will be used inside the SVG element
+var plotRadius = 3; // Size of plots in the graph
+var username = "eclo.demo@gmail.com"; // AirVantage user
+var password = "eclo-live2013!"; // AirVantage password
+var clientid = "eabea6f63e8346ceb8c4016f8e0f2740"; // Client id registered in AirVantage
+var clientsecret = "54f40d77bbe348cb9e8b274fa25625ba"; // Secret key associated to the client
+var systemuid = "f7d1eee04d0b4dc6af901cbdaacc83cd"; // The UID of the register system in AirVantage
+var dataname = "greenhouse.data.temperature"; // The data path of the system
+var airvantage = "http://edge.m2mop.net"; //AirVantage platform used
+</code></pre>
+
+<p>Then you can create global variables that will be shared by the various functions of your code</p>
+
+<pre><code class="language-javascript">var svg; // The variable that hold the svg element
+var grid; // The SVG group that contains the axis of the graph
+var graph; // The SVG group that contains the graph itself
+var token; // The OAuth token used by AirVantage REST API
+</code></pre>
+
+<h3 id="av-rest-api">AV REST API</h3>
+
+<p>You can now deal with AirVantage REST API (here we use the d3 json function that runs an http GET on the provided URL and handle the JSON response to the given callback).
+ * First a function to manage authenetication and token recovery. This function can execute a callback once the token has been recovered.
+ * Then a function to call the agregated historical data API and let the calback handle the data.</p>
+
+<pre><code class="language-javascript">// Creation of the URL to request the token
+
+// Recover the AirVantage token and then call the callback to trigger events as soon as the token
+function getToken(clbk){
+   var tokenURL = airvantage
+      + "/api/oauth/token"
+      + "?grant_type=password"
+      + "&amp;username=" + username
+      + "&amp;password=" + password
+      + "&amp;client_id=" + clientid
+      + "&amp;client_secret=" + clientsecret;
+   
+   d3.json(tokenURL, function(data){token = data.access_token; clbk()})
+}
+
+function getData(clbk){
+   var dataURL = airvantage
+      + "/api/v1/systems/" + systemuid
+      + "/data/" + dataname
+      + "/aggregated"
+      + "?interval=1hour"
+      + "&amp;size=500"
+      + "&amp;access_token=" + token;
+    
+   d3.json(dataURL, clbk)
+}
+</code></pre>
+
+<h3 id="d3-graph">D3 graph</h3>
+
+<p>A first function is dedicated to the creation of the static elements of the SVG graph.</p>
+
+<pre><code class="language-javascript">function init(){
+
+    // Creation of the svg element
+    svg = d3.select(".graph") // Select the HTML element of "graph" class
+        .append("svg") // Add an SVG element
+        .attr("width", width) // Set attributes
+        .attr("height", height);
+
+    // Creation of a group that will contain the axis of the graph
+    // The group is translated from the value of the margin
+    grid = svg.append("g")
+        .attr("transform", "translate("+margin+" "+margin+")")
+        
+    // Creation of a group that will contain the data of the graph
+    graph = svg.append("g")
+        .attr("transform", "translate("+margin+" "+margin+")")
+    
+}
+</code></pre>
+
+<p>It is time to tackle the core of the application: tracing and updating the graph with a new dataset.</p>
+
+<pre><code class="language-javascript">function plot(dataset){
+    
+    // Remove null value from the dataset
+    var dataset = dataset.filter(function(data){return data.value != null})
+    
+    // Creation of a scale function that will map data value to vertical position
+    // It takes as domain the min and max of the values
+    var value_scale = d3.scale.linear()
+        .domain([d3.min(dataset, function(i){return i.value}) * .8, 
+                 d3.max(dataset, function(i){return i.value}) * 1.2])
+        .range([height-2*margin, margin])
+        
+    // Creation of the vertical axis constructor based on the value scale function
+    // The axis will be automaticaly  adaped to the domain of the scale function
+    var value_axis = d3.svg.axis().scale(value_scale).orient("left");
+
+    // Extract the time domain from the timestamps dataset
+    var time_extent = d3.extent(dataset, function(d){return d.timestamp});
+    
+    // Creation of a scale function for time 
+    var time_scale = d3.time.scale().domain(time_extent).range([0, width-2*margin]);
+    
+    // Creation of the horizontal axis constructor
+    var time_axis = d3.svg.axis().scale(time_scale);
+
+    // Discard the old axis before ading the new version 
+    // (in case the time and value domains have changed)
+    grid.selectAll(".axis")
+      .remove()
+
+    // Creation the horizontal axis 
+    // (it need to be translated down as in SVG the origin is on top left corner)
+    grid.append("g")
+      .attr("transform", "translate(0," + (height-2*margin) + ")")
+      .attr("class", "axis")
+      .call(time_axis);
+
+    // Creation of the vertical axis
+    grid.append("g")
+      .attr("class", "axis")
+      .call(value_axis);
+
+    // Select all the existing elements of the plot of the graph in case of update
+    // Associate the new dataset to these elemnts
+    // The Timesamp of the element is used as an identifier
+    var g = graph.selectAll('.temperature').data(dataset, function(t){return t.timestamp})
+
+    // Use of the enter function to create plots associated to new elements of the dataset
+    // (the ones with new timestamp)
+    // The plot is positionned according to is timestamp and value thanks to the scales function
+    g.enter()
+      .append('circle')
+      .attr('class', 'temperature')
+      .attr("cx", function(d){return time_scale(d.timestamp)})
+      .attr("cy", function(d){return value_scale(d.value)})
+      .attr("r", plotRadius+margin)
+      .style("fill", "#333333")
+      .style("opacity", "0")
+
+    // Create an animation for all existing plots thanks to the transition function.
+    // For the one added through enter, it changes the opacity and the radius.
+    // For the one already in the dataset, it changes position in the newly created time and value scales.
+    g.transition()
+      .duration(500)
+      .attr("cx", function(d){return time_scale(d.timestamp)})
+      .attr("cy", function(d){return value_scale(d.value)})
+      .attr("r", plotRadius)
+      .style("opacity", "1")
+
+    // Remove the plot that are no longer in the dataset thanks to the exit function
+    g.exit()
+      .remove()
+
+}
+</code></pre>
+
+<h3 id="bootstrap">Bootstrap</h3>
+
+<p>And last but not least, the entry point of the script. This function will be executed once the page has been fully loaded, and will init the whole application.</p>
+
+<pre><code class="language-js">window.onload = function(){
+    // Call init function
+    init()
+    // Recover the access token
+    // Then the dataset and plot it
+    getToken(function(){getData(plot)})
+    // Add an action on the svg element:
+    // On a mouse click the a new dataset is recovered and plot.
+    svg.on('click', function(){getData(plot)})
+}
+</code></pre>
+
+<h2 id="going-further">Going Further</h2>
+
+<p>In order to get closer to a real app, it would be good to rely on a web framework that will enable to:</p>
+
+<ul>
+  <li>Integrate this SVG visualization in a more complex web application (including the styling of the SVG elements using CSS)</li>
+  <li>Manage REST calls properly (store auth token, use appropriate OAuth workflow, manage connection error, …)</li>
+  <li>Work on user interaction (login, request of data, …)</li>
+</ul>
+
+<p>In the <span style="font-family: 'aruallight';">eclo</span> example, we used <a href="http://angularjs.org/">AngularJS</a> but many others are available.</p>
+
+<p>Moreover, the AirVantage API is not limited to aggregated data: last value and historical raw datapoints are also available, as long as many other ways to interact with your systems on the field. </p>
+
+<p>This, combined to the almost limitless possibilities of D3, let you imagine complex visualization and interaction UI for your own solutions and customers. </p>
+
+
+	</div>
+	<p></p>
+	<hr>
+	<div id="related_posts">
+		<h2>Related Posts</h2>
+		<ul class="posts">
+
+			
+			
+			  
+			  
+			  
+			    <li>
+					<span>09 Jan 2014</span>
+					&raquo;
+					<a href="/blog/2014/01/09/airvantage-parse">Connect Facebook to IoT using AirVantage and Parse</a>
+				</li>
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>04 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support">Top AVEP features in Oct'13 release&#58; 1. MQTT support</a>
+				</li>
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>03 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/03/top-avep-features-oct13-2-webhooks">Top AVEP features in Oct'13 release&#58; 2. Webhooks</a>
+				</li>
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+		</ul>
+	</div>
+
+</div>
+              
+              <div id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'airvantageopensourcecenter'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+             </div>
+             
+            </div>
+         
+    </div>
+</body>
+</html>

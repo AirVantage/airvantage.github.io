@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Connect Facebook to IoT using AirVantage and Parse</title>
+<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/resources/js/main.js" type="text/javascript"></script>
+
+    <!-- flexslider -->
+    <link type="text/css" rel="stylesheet" href="/resources/css/flexslider.css" />
+    <script type="text/javascript" src="/resources/js/jquery.flexslider-min.js"></script>
+
+    <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- lightbox2 -->
+    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
+    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- highlight syntax -->
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- GA tracker -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-594061-16', 'airvantage.github.io');
+      ga('send', 'pageview');
+
+    </script>
+    <!-- end GA tracker -->
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+     <div class="wrapper">
+        <div id="top">
+            <header>
+                <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
+                <nav >
+                    <a href="/#features"><i class="icon-github"></i> Repositories</a>
+                    <a href="/devkit" >Dev. kit</a>
+                    <a href="/#who">Who we are</a>
+                    <a href="/blog"  class="link-selected" >Blog</a>
+                    <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+
+                    <!-- Twitter follow us buton -->
+                    <div style="display : inline-table;margin-top : 6px;">
+
+                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                    </div>
+
+                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+                    <div style="display: inline-table;margin-top: 5px;">
+                      <div class="g-plusone" data-size="medium"></div>
+                    </div>
+                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'fr'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+
+
+                </nav>
+            </header>
+        </div>
+        
+            <div id="content">
+              
+
+<div id="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+	
+
+<div id="page-navigation"> 
+        <div class="clear">&nbsp;</div> 
+        <span class="left"> 
+         
+        </span> 
+        
+
+        <span class="right"> 
+         
+                <a href="/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support" title="next Post: 
+Top AVEP features in Oct'13 release&#58; 1. MQTT support">Top AVEP features in Oct'13 release&#58; 1. MQTT support &raquo; </a> 
+         
+        </span> 
+        <div class="clear">&nbsp;</div> 
+</div> 
+	<h1 style="display:inline-block;" itemprop="name">Connect Facebook to IoT using AirVantage and Parse</h1> by 
+		<div style="display:inline;" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+			<a href="/authors/dsciamma/page1">
+				<span class="author">
+					<span itemprop="name">
+						David Sciamma
+					</span>
+				</span>
+			</a>	
+
+			
+	        <div class="gplus" style="display: inline;font-size: 0.6em;">
+	            [<a rel="author" href="https://plus.google.com/103703984790295374608?rel=author" target="_blank">
+	                <i class="icon-gplus"></i>
+	            </a>]
+	        </div>
+	        
+       </div>
+
+	<div itemprop="articleBody">
+		<p>In this article, we’ll explain how <strong>easy it is to connect Facebook users to Internet of Things (IoT) using AirVantage and Parse</strong>.</p>
+
+<h2 id="connect-your-objects-to-airvantage">Connect your objects to AirVantage</h2>
+<p>We assume you already connected your objects to AirVantage. If not, you can use one of the following tutorials:</p>
+
+<ul>
+  <li>Using REST APIs on Raspberry Pi (available soon) </li>
+  <li>Enable BeagleBone Black connection to AirVantage using MQTT (available soon)</li>
+  <li><a href="http://developer.sierrawireless.com/en/Resources/Resources/AirLink/ALEOS_AF/Tutorial_AAF_AirVantage_and_ALEOS_AF.aspx">ALEOS AF with AirVantage Tutorial</a></li>
+  <li><a href="http://developer.sierrawireless.com/en/Resources/Resources/AirVantage/Tools/Open_AT_AF_ReadyAgent_plugin.aspx">AirVantage Agent plugin for Open AT Application Framework</a></li>
+</ul>
+
+<p>Once your objects are connected to AirVantage, you can operate the solution and interact the objects using AirVantage User Interface. You can also create a custom business web application using AirVantage API.</p>
+
+<p>But perhaps one of your objectives is to <strong>give this solution to end users</strong>. In that case, the AirVantage User Interface will probably be too complex. Maybe you just want to create a mobile application granting end users to access  only to their objects and a subset of these objects data. In order to do so, you can use <strong>Parse.com</strong> to manage user authentication using Facebook, the <em>Parse Android SDK</em> to develop your mobile application and <em>Parse Cloud Code</em> to connect Parse.com to AirVantage.</p>
+
+<h2 id="parsecom">Parse.com</h2>
+<p><a href="https://parse.com">Parse.com</a> is a Backend-As-A-Service (BAAS) providing user management, data storage, social network integration, push notifications, cloud code hosting and several SDK for Android, iOS, .NET, Javascript, Unity, etc. </p>
+
+<p>We also assume you have a valid Parse.com account. If not, you can create one <a href="https://parse.com/#signup">here</a>.</p>
+
+<h2 id="initialize-an-application-on-parsecom">Initialize an application on Parse.com</h2>
+<ol>
+  <li>Go to your dashboard on Parse.com</li>
+  <li>Create a new application</li>
+</ol>
+
+<h2 id="connect-users-using-facebook">Connect users using Facebook</h2>
+<p>In this example, we’ll rely completely on Parse.com for user management. It offers all you need to manage users and connect them to their Facebook account. Each SDK have convenient methods to initialize an account connected to Facebook. </p>
+
+<p>Follow the different steps described in the <a href="https://www.parse.com/docs/">Parse.com documentation</a> to learn how to connect Parse.com users with Facebook using one of the SDKs.</p>
+
+<p>Now you have users in Parse.com and objects in AirVantage. The next step is to allow Parse.com to access to AirVantage API.</p>
+
+<h2 id="connect-parsecom-to-airvantage-api-using-cloud-code">Connect Parse.com to AirVantage API using Cloud code</h2>
+
+<h3 id="initialize-cloud-code">Initialize cloud code</h3>
+
+<p>Parse.com offers to host Javascript code in order to define custom methods available through a simple API. Please <a href="https://www.parse.com/docs/cloud_code_guide">read the documentation</a> to initialize Cloud code for your application.</p>
+
+<h3 id="import-airvantage-module">Import AirVantage module</h3>
+
+<p>Import the AirVantage Cloud Module <a href="https://gist.github.com/dsciamma/8023516">airvantage.js</a> in the “cloud” folder initialized during the previous step. This module implements a subset of methods available in AirVantage API.</p>
+
+<h3 id="create-an-api-client-for-parse">Create an API Client for Parse</h3>
+
+<ul>
+  <li>In Airvantage, go to <a href="https://na.airvantage.net/develop/api/clients">Develop - API Clients</a>.</li>
+  <li>Create a new API Client for your Parse application
+    <ul>
+      <li>Put a random URL as the Redirect URL, it won’t be used in this example</li>
+      <li>Copy the client id and the secret key, we’ll use it in the next step</li>
+    </ul>
+  </li>
+  <li>As Parse.com cannot handle the OAuth Authorization Code Flow, we need to use the Resource Owner Flow. Now you need to create a user in AirVantage. This user will be used to authenticate Parse.com</li>
+  <li>Go to <a href="https://na.airvantage.net/admin/users/users">Administration - Users</a></li>
+  <li>Create a new user</li>
+  <li>Assign or create a profile with rights required by your application</li>
+  <li>Copy the email and password, we’ll use them in the next step</li>
+</ul>
+
+<h3 id="create-a-simple-cloud-function">Create a simple cloud function</h3>
+
+<ul>
+  <li>Create a new file <code>main.js</code> in the <code>cloud/</code> folder</li>
+  <li>Copy the following code in this file and change the values with what you get from previous step</li>
+</ul>
+
+<pre><code class="language-javascript">var airvantage = require('cloud/airvantage.js');
+airvantage.initialize('{client_id}', '{secret_key}', '{user_email}', '{user_password}');
+
+Parse.Cloud.define("get", function(request, response) {
+    if (!request.params.uid) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        airvantage.system({
+            uid: request.params.uid
+        },
+        {
+            success: function(system) {
+                response.success(system);
+            }
+        });
+    }
+});
+</code></pre>
+
+<p>This function basically returns the details of the system matching the <code>uid</code> parameter sent in the request.</p>
+
+<p>Deploy your cloud code on Parse.com and then you can call this function (after replacing the placeholders for the application id, the REST API key and the system uid):</p>
+
+<p>Using command line:</p>
+
+<pre><code>curl -X POST \
+  -H "X-Parse-Application-Id: {parse_application_id}" \
+  -H "X-Parse-REST-API-Key: {parse_rest_api_key}" \
+  -H "Content-Type: application/json" \
+  -d '{"uid":"{system_uid}"}' \
+  https://api.parse.com/1/functions/get
+</code></pre>
+
+<p>Using the Android SDK:</p>
+
+<pre><code class="language-java">Parse.initialize(this, {parse_application_id}, {parse_client_key});
+Map&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();
+params.put("uid", "{system_uid}");
+Object result = ParseCloud.callFunction("get", params);
+</code></pre>
+
+<p>You can now access Airvantage objects using cloud code and your users are managed by Parse.com. The next step is to allow Parse to associate objects with users and do minimal controls.</p>
+
+<h2 id="associate-objects-to-current-user">Associate objects to current user</h2>
+
+<h3 id="create-a-new-class-on-parsecom">Create a new class on Parse.com</h3>
+<p>To associate objects with users, we are going to create a table in Parse.com to link object uid with users.</p>
+
+<ul>
+  <li>Go to you application data browser in Parse.com</li>
+  <li>Create a new custom class called “Thing”</li>
+  <li>Create a new column on this class called “uid” of type “String”. It will be used to store the uid of the AirVantage system.</li>
+  <li>Create a new column called “owner” of type “Pointer” (pointing on _User). It will be used to store a reference to the user owning object .</li>
+</ul>
+
+<h3 id="add-a-new-cloud-function-to-associate-an-object-to-a-user">Add a new cloud function to associate an object to a user</h3>
+<p>Paste the following code in your <code>main.js</code> file:</p>
+
+<pre><code class="language-javascript">Parse.Cloud.define("add", function(request, response) {
+    if (!request.params.uid || !request.user) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        var currentUser = Parse.User.current();
+
+        var Thing = Parse.Object.extend("Thing");
+        var newThing = new Thing();
+         
+        newThing.set("uid", system.uid);
+        newThing.set("owner", currentUser);
+         
+        newThing.save(null, {
+          success: function(thing) {
+            response.success("Thing '" + system.uid + "' added to the current user");
+          },
+          error: function(thing, error) {
+            response.error("Failed to add Thing '" + system.uid + "' to the current user");
+          }
+        });
+    }
+});
+</code></pre>
+
+<p>This code will create a new entry in the “Thing” table of your Parse application with given uid and current user. You can add more logic to perform more validation or more complex queries.</p>
+
+<h3 id="update-the-get-method">Update the “get” method</h3>
+<p>Now objects are linked to users we can update the <code>get</code> cloud function in order to validate the user have access to this object.
+Update the <code>get</code> function in your main.js file:</p>
+
+<pre><code class="language-javascript">Parse.Cloud.define("get", function(request, response) {
+    if (!request.params.uid || !request.user) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        var currentUser = Parse.User.current();
+
+        var Thing = Parse.Object.extend("Thing");
+        var query = new Parse.Query(Thing);
+        query.equalTo("owner", currentUser);
+        query.first({
+          success: function(object) {
+            if (!object) {
+                response.error("The current user doesn't have access to the thing '" + request.params.uid + "'");
+            }
+            else {
+                airvantage.system({
+                    uid: request.params.uid
+                },
+                {
+                    success: function(system) {
+                        response.success(system);
+                    }
+                });
+            }
+          },
+          error: function(error) {
+            response.error("Unable to retrieve things for the current user.");
+          }
+        });
+    }
+});
+</code></pre>
+
+<h2 id="a-complete-example">A complete example?</h2>
+<p>A complete example of an Android application linking Facebook users to Airvantage is <a href="https://github.com/dsciamma/airvantage-universe">available on GitHub</a>. </p>
+
+	</div>
+	<p></p>
+	<hr>
+	<div id="related_posts">
+		<h2>Related Posts</h2>
+		<ul class="posts">
+
+			
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>04 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support">Top AVEP features in Oct'13 release&#58; 1. MQTT support</a>
+				</li>
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>03 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/03/top-avep-features-oct13-2-webhooks">Top AVEP features in Oct'13 release&#58; 2. Webhooks</a>
+				</li>
+			                         
+			
+			  
+			  
+			  
+			    <li>
+					<span>03 Oct 2013</span>
+					&raquo;
+					<a href="/blog/2013/10/03/top-avep-features-oct13-3-application-views">Top AVEP features in Oct'13 release&#58; 3. Application views</a>
+				</li>
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+			  
+			  
+			                         
+			
+		</ul>
+	</div>
+
+</div>
+              
+              <div id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'airvantageopensourcecenter'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+             </div>
+             
+            </div>
+         
+    </div>
+</body>
+</html>

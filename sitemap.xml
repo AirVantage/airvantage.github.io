@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2014/01/09/airvantage-parse</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/12/01/nodejs</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-2-webhooks</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-3-application-views</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/tutorials/2013/10/03/application-view</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/10/02/top-avep-features-oct13-4-troubleshooting</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/10/01/top-avep-features-oct13-5-alerts</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/08/26/clojure</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/08/14/golang</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/08/08/openhab-with-airvantage</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/07/31/Airvantage-D3</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/2013/07/25/announcing-airvantage-opensource</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/07/19/ruby</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/tutorials/2013/07/05/rest-for-devices</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/tutorials/eclo</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/projects/2013/06/26/mihini-box</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/projects/2013/06/26/m3da-server</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/projects/2013/06/26/guirlande</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/06/24/php</loc>
+    </url>
+    
+    <url>
+        <loc>http://airvantage.github.io/api/2013/06/24/java</loc>
+    </url>
+    
+
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/api/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/feed.category.xml</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/feed.xml</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/blog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/devkit/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/projects/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/tutorials/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/kartben/page1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/kartben/page2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/kartben/page3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/kartben/page4/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/gaetan/page1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/authors/dsciamma/page1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page4/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page5/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page6/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page7/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page8/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page9/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page10/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://airvantage.github.io/page11/</loc>
+    </url>
+    
+    
+    
+</urlset>

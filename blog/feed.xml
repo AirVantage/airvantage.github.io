@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>AirVantage Open Source Blog</title>
+		<description>AirVantage Open Source Blog</description>
+		<link>http://airvantage.github.io</link>
+		<atom:link href="http://airvantage.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Connect Facebook to IoT using AirVantage and Parse</title>
+				<description>&lt;p&gt;In this article, we’ll explain how &lt;strong&gt;easy it is to connect Facebook users to Internet of Things (IoT) using AirVantage and Parse&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;connect-your-objects-to-airvantage&quot;&gt;Connect your objects to AirVantage&lt;/h2&gt;
+&lt;p&gt;We assume you already connected your objects to AirVantage. If not, you can use one of the following tutorials:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Using REST APIs on Raspberry Pi (available soon) &lt;/li&gt;
+  &lt;li&gt;Enable BeagleBone Black connection to AirVantage using MQTT (available soon)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.sierrawireless.com/en/Resources/Resources/AirLink/ALEOS_AF/Tutorial_AAF_AirVantage_and_ALEOS_AF.aspx&quot;&gt;ALEOS AF with AirVantage Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.sierrawireless.com/en/Resources/Resources/AirVantage/Tools/Open_AT_AF_ReadyAgent_plugin.aspx&quot;&gt;AirVantage Agent plugin for Open AT Application Framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once your objects are connected to AirVantage, you can operate the solution and interact the objects using AirVantage User Interface. You can also create a custom business web application using AirVantage API.&lt;/p&gt;
+
+&lt;p&gt;But perhaps one of your objectives is to &lt;strong&gt;give this solution to end users&lt;/strong&gt;. In that case, the AirVantage User Interface will probably be too complex. Maybe you just want to create a mobile application granting end users to access  only to their objects and a subset of these objects data. In order to do so, you can use &lt;strong&gt;Parse.com&lt;/strong&gt; to manage user authentication using Facebook, the &lt;em&gt;Parse Android SDK&lt;/em&gt; to develop your mobile application and &lt;em&gt;Parse Cloud Code&lt;/em&gt; to connect Parse.com to AirVantage.&lt;/p&gt;
+
+&lt;h2 id=&quot;parsecom&quot;&gt;Parse.com&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://parse.com&quot;&gt;Parse.com&lt;/a&gt; is a Backend-As-A-Service (BAAS) providing user management, data storage, social network integration, push notifications, cloud code hosting and several SDK for Android, iOS, .NET, Javascript, Unity, etc. &lt;/p&gt;
+
+&lt;p&gt;We also assume you have a valid Parse.com account. If not, you can create one &lt;a href=&quot;https://parse.com/#signup&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;initialize-an-application-on-parsecom&quot;&gt;Initialize an application on Parse.com&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Go to your dashboard on Parse.com&lt;/li&gt;
+  &lt;li&gt;Create a new application&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;connect-users-using-facebook&quot;&gt;Connect users using Facebook&lt;/h2&gt;
+&lt;p&gt;In this example, we’ll rely completely on Parse.com for user management. It offers all you need to manage users and connect them to their Facebook account. Each SDK have convenient methods to initialize an account connected to Facebook. &lt;/p&gt;
+
+&lt;p&gt;Follow the different steps described in the &lt;a href=&quot;https://www.parse.com/docs/&quot;&gt;Parse.com documentation&lt;/a&gt; to learn how to connect Parse.com users with Facebook using one of the SDKs.&lt;/p&gt;
+
+&lt;p&gt;Now you have users in Parse.com and objects in AirVantage. The next step is to allow Parse.com to access to AirVantage API.&lt;/p&gt;
+
+&lt;h2 id=&quot;connect-parsecom-to-airvantage-api-using-cloud-code&quot;&gt;Connect Parse.com to AirVantage API using Cloud code&lt;/h2&gt;
+
+&lt;h3 id=&quot;initialize-cloud-code&quot;&gt;Initialize cloud code&lt;/h3&gt;
+
+&lt;p&gt;Parse.com offers to host Javascript code in order to define custom methods available through a simple API. Please &lt;a href=&quot;https://www.parse.com/docs/cloud_code_guide&quot;&gt;read the documentation&lt;/a&gt; to initialize Cloud code for your application.&lt;/p&gt;
+
+&lt;h3 id=&quot;import-airvantage-module&quot;&gt;Import AirVantage module&lt;/h3&gt;
+
+&lt;p&gt;Import the AirVantage Cloud Module &lt;a href=&quot;https://gist.github.com/dsciamma/8023516&quot;&gt;airvantage.js&lt;/a&gt; in the “cloud” folder initialized during the previous step. This module implements a subset of methods available in AirVantage API.&lt;/p&gt;
+
+&lt;h3 id=&quot;create-an-api-client-for-parse&quot;&gt;Create an API Client for Parse&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In Airvantage, go to &lt;a href=&quot;https://na.airvantage.net/develop/api/clients&quot;&gt;Develop - API Clients&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Create a new API Client for your Parse application
+    &lt;ul&gt;
+      &lt;li&gt;Put a random URL as the Redirect URL, it won’t be used in this example&lt;/li&gt;
+      &lt;li&gt;Copy the client id and the secret key, we’ll use it in the next step&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;As Parse.com cannot handle the OAuth Authorization Code Flow, we need to use the Resource Owner Flow. Now you need to create a user in AirVantage. This user will be used to authenticate Parse.com&lt;/li&gt;
+  &lt;li&gt;Go to &lt;a href=&quot;https://na.airvantage.net/admin/users/users&quot;&gt;Administration - Users&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Create a new user&lt;/li&gt;
+  &lt;li&gt;Assign or create a profile with rights required by your application&lt;/li&gt;
+  &lt;li&gt;Copy the email and password, we’ll use them in the next step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;create-a-simple-cloud-function&quot;&gt;Create a simple cloud function&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a new file &lt;code&gt;main.js&lt;/code&gt; in the &lt;code&gt;cloud/&lt;/code&gt; folder&lt;/li&gt;
+  &lt;li&gt;Copy the following code in this file and change the values with what you get from previous step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var airvantage = require('cloud/airvantage.js');
+airvantage.initialize('{client_id}', '{secret_key}', '{user_email}', '{user_password}');
+
+Parse.Cloud.define(&quot;get&quot;, function(request, response) {
+    if (!request.params.uid) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        airvantage.system({
+            uid: request.params.uid
+        },
+        {
+            success: function(system) {
+                response.success(system);
+            }
+        });
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This function basically returns the details of the system matching the &lt;code&gt;uid&lt;/code&gt; parameter sent in the request.&lt;/p&gt;
+
+&lt;p&gt;Deploy your cloud code on Parse.com and then you can call this function (after replacing the placeholders for the application id, the REST API key and the system uid):&lt;/p&gt;
+
+&lt;p&gt;Using command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST \
+  -H &quot;X-Parse-Application-Id: {parse_application_id}&quot; \
+  -H &quot;X-Parse-REST-API-Key: {parse_rest_api_key}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;uid&quot;:&quot;{system_uid}&quot;}' \
+  https://api.parse.com/1/functions/get
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using the Android SDK:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;Parse.initialize(this, {parse_application_id}, {parse_client_key});
+Map&amp;lt;String, String&amp;gt; params = new HashMap&amp;lt;String, String&amp;gt;();
+params.put(&quot;uid&quot;, &quot;{system_uid}&quot;);
+Object result = ParseCloud.callFunction(&quot;get&quot;, params);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can now access Airvantage objects using cloud code and your users are managed by Parse.com. The next step is to allow Parse to associate objects with users and do minimal controls.&lt;/p&gt;
+
+&lt;h2 id=&quot;associate-objects-to-current-user&quot;&gt;Associate objects to current user&lt;/h2&gt;
+
+&lt;h3 id=&quot;create-a-new-class-on-parsecom&quot;&gt;Create a new class on Parse.com&lt;/h3&gt;
+&lt;p&gt;To associate objects with users, we are going to create a table in Parse.com to link object uid with users.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Go to you application data browser in Parse.com&lt;/li&gt;
+  &lt;li&gt;Create a new custom class called “Thing”&lt;/li&gt;
+  &lt;li&gt;Create a new column on this class called “uid” of type “String”. It will be used to store the uid of the AirVantage system.&lt;/li&gt;
+  &lt;li&gt;Create a new column called “owner” of type “Pointer” (pointing on _User). It will be used to store a reference to the user owning object .&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;add-a-new-cloud-function-to-associate-an-object-to-a-user&quot;&gt;Add a new cloud function to associate an object to a user&lt;/h3&gt;
+&lt;p&gt;Paste the following code in your &lt;code&gt;main.js&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;Parse.Cloud.define(&quot;add&quot;, function(request, response) {
+    if (!request.params.uid || !request.user) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        var currentUser = Parse.User.current();
+
+        var Thing = Parse.Object.extend(&quot;Thing&quot;);
+        var newThing = new Thing();
+         
+        newThing.set(&quot;uid&quot;, system.uid);
+        newThing.set(&quot;owner&quot;, currentUser);
+         
+        newThing.save(null, {
+          success: function(thing) {
+            response.success(&quot;Thing '&quot; + system.uid + &quot;' added to the current user&quot;);
+          },
+          error: function(thing, error) {
+            response.error(&quot;Failed to add Thing '&quot; + system.uid + &quot;' to the current user&quot;);
+          }
+        });
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code will create a new entry in the “Thing” table of your Parse application with given uid and current user. You can add more logic to perform more validation or more complex queries.&lt;/p&gt;
+
+&lt;h3 id=&quot;update-the-get-method&quot;&gt;Update the “get” method&lt;/h3&gt;
+&lt;p&gt;Now objects are linked to users we can update the &lt;code&gt;get&lt;/code&gt; cloud function in order to validate the user have access to this object.
+Update the &lt;code&gt;get&lt;/code&gt; function in your main.js file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;Parse.Cloud.define(&quot;get&quot;, function(request, response) {
+    if (!request.params.uid || !request.user) {
+        throw 'Missing initialization parameter';
+    }
+    else {
+        var currentUser = Parse.User.current();
+
+        var Thing = Parse.Object.extend(&quot;Thing&quot;);
+        var query = new Parse.Query(Thing);
+        query.equalTo(&quot;owner&quot;, currentUser);
+        query.first({
+          success: function(object) {
+            if (!object) {
+                response.error(&quot;The current user doesn't have access to the thing '&quot; + request.params.uid + &quot;'&quot;);
+            }
+            else {
+                airvantage.system({
+                    uid: request.params.uid
+                },
+                {
+                    success: function(system) {
+                        response.success(system);
+                    }
+                });
+            }
+          },
+          error: function(error) {
+            response.error(&quot;Unable to retrieve things for the current user.&quot;);
+          }
+        });
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;a-complete-example&quot;&gt;A complete example?&lt;/h2&gt;
+&lt;p&gt;A complete example of an Android application linking Facebook users to Airvantage is &lt;a href=&quot;https://github.com/dsciamma/airvantage-universe&quot;&gt;available on GitHub&lt;/a&gt;. &lt;/p&gt;
+</description>
+				<pubDate>Thu, 09 Jan 2014 09:21:37 +0100</pubDate>
+				<link>http://airvantage.github.io/blog/2014/01/09/airvantage-parse</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2014/01/09/airvantage-parse</guid>
+			</item>
+		
+			<item>
+				<title>Top AVEP features in Oct'13 release&#58; 1. MQTT support</title>
+				<description>&lt;p itemprop=&quot;description&quot;&gt;
+&lt;img style=&quot;float:left; margin-right:15px; margin-bottom:5px;&quot; src=&quot;/resources/img/blog/2013-10-04-top-avep-features-oct13-1-mqtt/mqtt.png&quot; alt=&quot;MQTT&quot; itemprop=&quot;image&quot; /&gt;
+It is high time to unveil the feature we are the most excited about! In order to facilitate the connection of your devices to AirVantage M2M Cloud, and after having provided a new &lt;a href=&quot;http://airvantage.github.io/tutorials/2013/07/05/rest-for-devices/&quot;&gt;REST API&lt;/a&gt; in the last release, we've added support for the very popular, lightweight, messaging protocol &lt;strong&gt;MQTT&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;h3 id=&quot;what-does-this-mean&quot;&gt;What does this mean?&lt;/h3&gt;
+
+&lt;p&gt;You can now connect your embedded applications to AirVantage using MQTT. We have picked a very simple model for the message topics: &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can &lt;strong&gt;send data&lt;/strong&gt; by publishing messages to the &lt;code&gt;{YourSystemCommunicationId}/messages/json&lt;/code&gt; topic,&lt;/li&gt;
+  &lt;li&gt;You can &lt;strong&gt;listen for commands&lt;/strong&gt; by subscribing to the &lt;code&gt;{YourSystemCommunicationId}/tasks/json&lt;/code&gt; topic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The JSON messages in your payloads follow the same format than for the REST communication API (see an example &lt;a href=&quot;/tutorials/2013/07/05/rest-for-devices/#send-data-to-airvantage&quot;&gt;here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;In order to enforce a secured communication, you must specify a password for you application, that will need to be used when opening a connection to the broker (username is your system comm. id, password is the secret you entered in AirVantage when installing the app).&lt;/p&gt;
+
+&lt;p&gt;We really think this is a nice addition to the list of protocols we were already supporting (OMA DM, MSCI, M3DA, HTTP) in that it makes it really simple to connect to AirVantage virtually any device that can run an MQTT client, even a small microcontroller! A good starting point for obtaining such MQTT clients implementations is the &lt;a href=&quot;http://eclipse.org/paho&quot; target=&quot;_blank&quot;&gt;Eclipse Paho&lt;/a&gt; open-source project.&lt;/p&gt;
+
+&lt;p&gt;It only takes a few seconds to create a new account on &lt;a href=&quot;http://airvantage.net&quot; target=&quot;_blank&quot;&gt;AirVantage&lt;/a&gt; and try out &lt;a href=&quot;/blog/2013/10/01/top-avep-features-oct13-5-alerts&quot;&gt;all&lt;/a&gt; &lt;a href=&quot;/blog/2013/10/02/top-avep-features-oct13-4-troubleshooting/&quot;&gt;the&lt;/a&gt; &lt;a href=&quot;/blog/2013/10/03/top-avep-features-oct13-3-application-views&quot;&gt;new&lt;/a&gt; &lt;a href=&quot;/blog/2013/10/03/top-avep-features-oct13-2-webhooks&quot;&gt;features&lt;/a&gt; we’ve talked about this week, as well as many others!&lt;br /&gt;
+&lt;strong&gt;Don’t wait any longer&lt;/strong&gt; and &lt;strong&gt;&lt;a href=&quot;https://signup.airvantage.net/public/avep/&quot; target=&quot;_blank&quot;&gt;sign up&lt;/a&gt;&lt;/strong&gt; now!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 04 Oct 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/10/04/top-avep-features-oct13-1-mqtt-support</guid>
+			</item>
+		
+			<item>
+				<title>Top AVEP features in Oct'13 release&#58; 2. Webhooks</title>
+				<description>&lt;p itemprop=&quot;description&quot;&gt;
+&lt;img style=&quot;float:left; margin-right:15px; margin-bottom:5px;&quot; src=&quot;/resources/img/blog/2013-10-03-top-avep-features-oct13-2-webhooks/webhooks.png&quot; alt=&quot;Webhooks&quot; itemprop=&quot;image&quot; /&gt;
+Number two in our list of top features this new AirVantage Enterprise Platform version is the added support of &lt;strong&gt;webhooks&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;Webhooks are a very simple (some would say &lt;a href=&quot;http://blog.iron.io/2013/09/7-reasons-webhooks-are-magic.html&quot; target=&quot;_blank&quot;&gt;magic&lt;/a&gt;!) way of pushing events to an external application. &lt;br /&gt;
+In an AVEP context, it means that you can notify an external application of an event that occured in AirVantage.&lt;/p&gt;
+
+&lt;p&gt;As of today, you can associate a webhook to an Alert Rule. It will be called when the condition specified in the rule is met, allowing you to notify a 3rd party app immediately for e.g. logging the alert, create an entry in a Google Calendar, etc.&lt;/p&gt;
+
+&lt;p&gt;Note that this feature is provided in &lt;strong&gt;beta&lt;/strong&gt;, and we are looking forward to hearing from you in order to improve it. Please use the “Feedback” button from the AirVantage UI or ping us on &lt;a href=&quot;https://twitter.com/AirVantage&quot; target=&quot;_blank&quot;&gt;Twitter&lt;/a&gt; if you have suggestions.&lt;/p&gt;
+
+&lt;p&gt;See you tomorrow to talk about the #1 feature that we are very excited to unveil!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 03 Oct 2013 23:21:37 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-2-webhooks</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-2-webhooks</guid>
+			</item>
+		
+			<item>
+				<title>Top AVEP features in Oct'13 release&#58; 3. Application views</title>
+				<description>&lt;p itemprop=&quot;description&quot;&gt;
+When you manage applications in AirVantage, normally you would rely on a generic user interface for displaying the details of your application, i.e. see the data that your application has sent to the server and be able to update the application settings. This user interface comes in handy to have an overview of your app details, but what if you could actually provide your own view for displaying/editing these details?
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/resources/img/blog/2013-10-03-top-avep-features-oct13-3-application-views/application-view-eclo.png&quot; data-lightbox=&quot;imageset&quot; title=&quot;Example of an Application View for eclo&quot;&gt;&lt;img style=&quot;float:left;margin-right:1.5em;position:relative;&quot; width=&quot;250&quot; src=&quot;/resources/img/blog/2013-10-03-top-avep-features-oct13-3-application-views/application-view-eclo.png&quot; alt=&quot;Example of an Application View for eclo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We have added &lt;strong&gt;Application Views&lt;/strong&gt; to allow you to associate your own web view to a specific embedded application.
+Your application view will rely on OAuth to authentify against AirVantage, and will be able to use APIs for retrieving data, editing settings, etc. &lt;/p&gt;
+
+&lt;p&gt;Read more on &lt;a href=&quot;https://doc.airvantage.net/display/USERGUIDE/UI+changes+in+13.4#UIchangesin13.4-ApplicationViews&quot;&gt;how to configure an Application View&lt;/a&gt; in the AirVantage User Guide.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 03 Oct 2013 11:00:37 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-3-application-views</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/10/03/top-avep-features-oct13-3-application-views</guid>
+			</item>
+		
+			<item>
+				<title>Top AVEP features in Oct'13 release&#58; 4. System troubleshooting</title>
+				<description>&lt;p itemprop=&quot;description&quot;&gt;
+&lt;img style=&quot;float:left; margin-right:15px; margin-bottom:15px;&quot; src=&quot;/resources/img/blog/2013-10-02-top-avep-features-oct13-4-troubleshooting/troubleshooting-multimeter.jpg&quot; alt=&quot;Troubleshooting a problem&quot; itemprop=&quot;image&quot; /&gt;
+We all know too well how annoying it can be to have an embedded M2M application that seems to be working OK, but for which you cannot manage to retrieve the actual data that it supposed to be sending.
+&lt;/p&gt;
+
+&lt;p&gt;There are several reasons why you may have such a problem and usually what you are interested in is knowing whether the data has actually reached AirVantage M2M Cloud or has been stuck before due to a bug in your embedded application, a problem with the network, …&lt;/p&gt;
+
+&lt;p&gt;This is why we have worked on making it much easier to display detailed system information right from the Monitor activity. &lt;/p&gt;
+
+&lt;h3 id=&quot;new-timeline-view&quot;&gt;New Timeline View&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;/resources/img/blog/2013-10-02-top-avep-features-oct13-4-troubleshooting/timeline.png&quot; data-lightbox=&quot;imageset&quot; title=&quot;Timeline View&quot;&gt;&lt;img style=&quot;float:right;margin-left:15px;position:relative;&quot; width=&quot;250&quot; src=&quot;/resources/img/blog/2013-10-02-top-avep-features-oct13-4-troubleshooting/timeline.png&quot; alt=&quot;Timeline View&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;When you are browsing the details of a system in the Monitor activity, you have access to a new &lt;strong&gt;Timeline View&lt;/strong&gt; that displays, in a very visual way, all the history of all the exchanges between your embedded system and the server.&lt;/p&gt;
+
+&lt;p&gt;It is now very easy to see if a communication actually happened when it should have, and to see all its details (data that has been sent, with which protocol, etc.) by just clicking on the corresponding entry in the list of events.&lt;/p&gt;
+
+&lt;h3 id=&quot;new-data-history-view&quot;&gt;New Data History View&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;/resources/img/blog/2013-10-02-top-avep-features-oct13-4-troubleshooting/data-history.png&quot; data-lightbox=&quot;imageset&quot; title=&quot;Data History View&quot;&gt;&lt;img style=&quot;float:left;margin-right:15px;position:relative;&quot; width=&quot;250&quot; src=&quot;/resources/img/blog/2013-10-02-top-avep-features-oct13-4-troubleshooting/data-history.png&quot; alt=&quot;Data History View&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You are probably aware of the &lt;em&gt;aggregated data&lt;/em&gt; API that allows you to retrieve consolidated data history for a specific system when you want, for example, the average temperature of your refrigerator, on an hourly basis, for the last 30 days. This API is pretty simple to use, but sometimes what you want is just very quickly troubleshoot a system on the field, and it’d be convenient to be able to display historical data right from the AirVantage Enterprise Platform. Well, guess what? We’ve added just that!&lt;/p&gt;
+
+&lt;p&gt;You can now access a &lt;strong&gt;Data History View&lt;/strong&gt; from a system’s details. This view allows you to create your own charts, for the data you’re interested in (applicative data, or device-related data such as RSSI, bandwidth consumption, …), with the aggregation function(s) of your choice (average, minimum, maximum, etc.).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;font-size:0.8em;&quot;&gt;
+Photo Credit: &lt;a href=&quot;http://www.flickr.com/photos/44124348109@N01/197768962/&quot;&gt;jurvetson&lt;/a&gt; via &lt;a href=&quot;http://compfight.com&quot;&gt;Compfight&lt;/a&gt; &lt;a href=&quot;http://creativecommons.org/licenses/by/2.0/&quot;&gt;cc&lt;/a&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Wed, 02 Oct 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/10/02/top-avep-features-oct13-4-troubleshooting</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/10/02/top-avep-features-oct13-4-troubleshooting</guid>
+			</item>
+		
+			<item>
+				<title>Top AVEP features in Oct'13 release&#58; 5. Alerts</title>
+				<description>&lt;p itemprop=&quot;description&quot;&gt;
+At the end of this week we will update &lt;a href=&quot;https://na.airvantage.net&quot; target=&quot;_blank&quot;&gt;AirVantage M2M Cloud&lt;/a&gt;! &lt;br /&gt;
+We are all very excited and thought it would be nice to use this opportunity for walking you through what we think are the most noteworthy features of AirVantage Enterprise Platform in particular.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;float:left; margin-right:15px;&quot; src=&quot;/resources/img/blog/2013-10-01-top-avep-features-oct13-5-alerts/sw-icon-alertRule.png&quot; alt=&quot;alert-rule-icon&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You may already be familiar with the notion of Alert Rules that you can configure in AVEP for triggering an alert when a specific condition is met for a system. This is how you can for example receive an e-mail when the temperature of a monitored refrigerator reaches a critical threshold, or when a system has stopped communicating for too long.&lt;/p&gt;
+
+&lt;p&gt;We’ve improved several aspects of Alerts in this new release:&lt;/p&gt;
+
+&lt;h3 id=&quot;alert-notifications&quot;&gt;Alert notifications&lt;/h3&gt;
+
+&lt;p&gt;From now on, you will receive an alert only the first time a condition is met, which will avoid flooding your inbox or your 3rd party app unnecessarily. Of course, the reception of alerts for a given rule is re-enabled whenever the current alert is acknowledged (via the UI, the &lt;code&gt;/acknowledge&lt;/code&gt; API on a specific alert, or by creating an &lt;code&gt;alerts/acknowledge&lt;/code&gt; operation for your company).&lt;/p&gt;
+
+&lt;h3 id=&quot;quickly-browse-pending-notifications&quot;&gt;Quickly browse pending notifications&lt;/h3&gt;
+
+&lt;p&gt;The alert popup now not only allows you to get an overview of the last alert notifications that haven’t been acknowledged yet, but it can also take you directly to the list of all the alerts that occured for your company.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/resources/img/blog/2013-10-01-top-avep-features-oct13-5-alerts/alert-popup.png&quot; alt=&quot;alert details&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This might look like a very small detail, but it’s because of details like this that we think AirVantage M2M Cloud really makes one’s life easier when it comes to managing thousands of devices!&lt;/p&gt;
+</description>
+				<pubDate>Tue, 01 Oct 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/10/01/top-avep-features-oct13-5-alerts</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/10/01/top-avep-features-oct13-5-alerts</guid>
+			</item>
+		
+			<item>
+				<title>Setting up an AirVantage persistence service for openHAB</title>
+				<description>&lt;center style=&quot;margin-bottom: 2em; /*margin-top: 1em;*/&quot;&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/aHqghpPgJQs&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;&lt;img style=&quot;float:left; margin-right:15px;&quot; src=&quot;/resources/img/blog/2013-08-08-openhab-with-airvantage/openHAB_Logo.png&quot; itemprop=&quot;image&quot; /&gt;
+&lt;a href=&quot;https://code.google.com/p/openhab/&quot;&gt;openHAB&lt;/a&gt; is a Java/OSGi-based open-source project that aims at providing a universal integration platform for all things around home automation.&lt;/p&gt;
+
+&lt;p&gt;It’s a project I’ve been following from a distance for the last couple years and that I find particularly impressive, both in terms of features it exposes to the end user and in terms of architecture and design, being in my opinion a brilliant example of how one can use OSGi to build a modular application.&lt;/p&gt;
+
+&lt;h2 id=&quot;openhab-in-a-nutshell&quot;&gt;openHAB in a nutshell&lt;/h2&gt;
+
+&lt;p&gt;DISCLAIMER: I am by no means an openHAB expert! :-)&lt;/p&gt;
+
+&lt;p&gt;Anyone playing with openHAB for a few minutes will understand the gist of it. In a nutshell, it allows to bind logical representations of physical objects (that send events and may be actionable) with each other via an event bus. The way objects will eventually interact with each other can be expressed using a rules engine, and it is also possible to build very fancy UIs by binding widgets on the physical “items”. Last but not least, openHAB is not only able to orchestrate the physical objects on the fly, but it can also be configured with persistence rules for e.g logging some events, plotting them on charts, or store them in an online service. You get it: why not adding the capability to persist data in &lt;a href=&quot;http://airvantage.net&quot;&gt;AirVantage&lt;/a&gt;?&lt;/p&gt;
+
+&lt;h2 id=&quot;openhab-persistence-services&quot;&gt;openHAB persistence services&lt;/h2&gt;
+
+&lt;p&gt;Implementing a new persistence provider for openHAB is actually rather straightforward: you simply need to register a &lt;code&gt;PersistenceService&lt;/code&gt; implementation that will be in charge of storing (i.e. logging, POSTing to a REST API, …) items. The items you wish to store are described in a persistence rules file which is, again, rather straightforward:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;Strategies {
+  everyMinute : &quot;0 * * * * ?&quot;
+}
+
+Items {
+  // log all temperatures every minute
+  Temperature* -&amp;gt; &quot;temperatures&quot; : strategy = everyMinute
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;airvantage-persistence-service&quot;&gt;AirVantage persistence service&lt;/h2&gt;
+
+&lt;p&gt;The idea here is to provision a system on AirVantage that is configured for REST communications, and a good start is definitely to follow the &lt;a href=&quot;http://airvantage.github.io/tutorials/2013/07/05/rest-for-devices/&quot;&gt;dedicated tutorial&lt;/a&gt;. When your system is properly configured, next step is to add an AirVantage persistence bundle to your openHAB setup, and to propertly configure it.&lt;/p&gt;
+
+&lt;p&gt;I have &lt;a href=&quot;https://github.com/kartben/org.openhab.persistence.airvantage&quot;&gt;put on GitHub&lt;/a&gt; the source code of a bundle corresponding to the AirVantage persistence provider that I wrote. You can install it very simply by following the &lt;a href=&quot;https://code.google.com/p/openhab/wiki/Addons&quot;&gt;instructions&lt;/a&gt; on openHAB, for the JAR that you can download &lt;a href=&quot;https://kartben.github.com/org.openhab.persistence.airvantage/org.openhab.persistence.airvantage-1.3.0-SNAPSHOT.jar&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add to your openHAB configuration the two following lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# The serial number of the system you created in AirVantage
+airvantage:systemId=OHAB49258684236
+# The password you configured for this system's REST communication channel
+airvantage:systemPassword=secret
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then, you will need to create an &lt;code&gt;airvantage.persist&lt;/code&gt; file in your &lt;code&gt;persist/&lt;/code&gt; folder for indicating what items you want to synchronize with AirVantage. For each item, you will want to set the path of the variable as indicated in your model. An example of such a file could be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Strategies {
+  default = everyChange 
+}
+
+Items {
+  Temperature_GF_Corridor -&amp;gt; &quot;demohouse.gf.corridor.temperature&quot;
+  Temperature_GF_Toilet -&amp;gt; &quot;demohouse.gf.toilet.temperature&quot;
+
+  Temperature_FF_Bath -&amp;gt; &quot;demohouse.ff.bathroom.temperature&quot;
+  Heating_FF_Bath -&amp;gt; &quot;demohouse.ff.bathroom.heating&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With very little effort, you should be able to do something very similar, and therefore enable server-side consolidation of all your home automation data for years, and use the AirVantage API to display graphs and the like.&lt;/p&gt;
+
+&lt;p&gt;Please comment below if you give this work a try, and also feel free to fork the GitHub repo if you feel like this could be improved (and it certainly can!).&lt;/p&gt;
+</description>
+				<pubDate>Thu, 08 Aug 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/08/08/openhab-with-airvantage</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/08/08/openhab-with-airvantage</guid>
+			</item>
+		
+			<item>
+				<title>M2M data visualisation with D3 and AirVantage</title>
+				<description>&lt;p&gt;&lt;a href=&quot;http://d3js.org/&quot;&gt;D3.js&lt;/a&gt; (Data Driven Document) is a JavaScript library that helps creating meaningful visuals for complex datasets. The &lt;a href=&quot;https://github.com/mbostock/d3/wiki/Gallery&quot;&gt;gallery&lt;/a&gt; gives a wide overview of D3’s capabilities.&lt;/p&gt;
+
+&lt;p&gt;AirVantage, since version 13.3, provides a set of REST APIs focused on systems’ data. More specifically, it provides an API for getting aggregated data that enables the use of consolidation functions on historical datasets.&lt;/p&gt;
+
+&lt;p&gt;The &lt;span style=&quot;font-family: 'aruallight';&quot;&gt;eclo&lt;/span&gt; developer kit comes with a small web app that provides a basic graph (click &lt;a href=&quot;http://airvantage.github.io/devkit/app/&quot;&gt;here&lt;/a&gt; and then go to “History”) on top of these aggregated data thanks to D3. In this article we will see how this graph is built.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/resources/img/blog/2013-07-31-Airvantage-D3/graphineclo.png&quot; alt=&quot;graph in eclo&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-historical-aggregated-datapoints-api&quot;&gt;The historical aggregated datapoints API&lt;/h2&gt;
+
+&lt;h3 id=&quot;aggregated-data&quot;&gt;Aggregated Data&lt;/h3&gt;
+
+&lt;p&gt;Among the new data API provided by AirVantage, the aggregated datapoints is especially interesting. Indeed, AirVantage now provides some pre-treatments on numerical data sent by systems: it does the heavy lifting of aggregating large datasets on specific time windows through a set of consolidation functions. Let’s take an example. &lt;/p&gt;
+
+&lt;p&gt;Say we have a system on the field monitoring a greenhouse. It is sending to AirVantage the temperature measured by a probe every five minutes. The company operating this remote monitoring solution would like to work on some statistics and get the min and max for this temperature, for each day of the past month. This requires to retrieve all the data sent by the system, create a time window for each day and compute the min and max values for all these windows. &lt;/p&gt;
+
+&lt;p&gt;It require some infrastructure (database, etc) and can quickly become tedius, especially if you want to setup a lightweight client (web or mobile app) or if you have to deal with large numbers of datapoints. Since these kinds of computation are really common, AirVantage now provides a dedicated API.&lt;/p&gt;
+
+&lt;h3 id=&quot;airvantage-api&quot;&gt;AirVantage API&lt;/h3&gt;
+
+&lt;p&gt;As for all the REST APIs of AirVantage, you first have to get an access token through one of the OAuth 2 workflow provided. Once this is done, you can use the following URL on the AirVantage domain: &lt;code&gt;/api/v1/systems/{uid}/data/{data}/aggregated&lt;/code&gt; (you need to use the AirVantage uid of the system you want to request and the path of the data sent by your sytem). The query has the following parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;from&lt;/code&gt; and &lt;code&gt;to&lt;/code&gt;: timestamps of the time window&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;interval&lt;/code&gt;: interval of time inside the time window on which data are consolidated (hour, day, …)&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;fn&lt;/code&gt;: the consolidation function used (mean, min, max, standard deviation, sum, sum of square, number of datapoints)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is an example URL that requests the mean value of temperature each hour between Jully 8th and 10th 2013 on a specific system (the live demo of &lt;span style=&quot;font-family: 'aruallight';&quot;&gt;eclo&lt;/span&gt;): &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-http&quot;&gt;http://edge.m2mop.net/api/v1/systems/f7d1eee04d0b4dc6af901cbdaacc83cd/data/greenhouse.data.temperature/aggregated?fn=mean&amp;amp;from=1373234400000&amp;amp;to=1373407200000&amp;amp;interval=1hour&amp;amp;access_token=...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The API will return an array of datapoints (an object with two fields: the value of the data at some point in time and the related timestamp) in JSON:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;[{&quot;value&quot;:25.591057284789755,&quot;timestamp&quot;:1373270400000},
+ {&quot;value&quot;:26.079035574977755,&quot;timestamp&quot;:1373274000000},
+ {&quot;value&quot;:26.345342803261424,&quot;timestamp&quot;:1373277600000}, 
+ ...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As this dataset is already valid javascript we can directly use it with D3 to create the corresponding graph.&lt;/p&gt;
+
+&lt;h2 id=&quot;basic-graph-with-d3&quot;&gt;Basic graph with D3&lt;/h2&gt;
+
+&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;/h3&gt;
+
+&lt;p&gt;In this example we will use the historical aggregated data API on a specific system. In order to do that, the following steps are required (please refer to the appropriate doc):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;An &lt;a href=&quot;https://na.airvantage.net&quot; target=&quot;_blank&quot;&gt;AirVantage account&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Create an &lt;a href=&quot;https://doc.airvantage.net/display/USERGUIDE/Use+AirVantage+API&quot; target=&quot;_blank&quot;&gt;API client&lt;/a&gt; in order to use the REST API&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://doc.airvantage.net/display/USERGUIDE/Connect+your+device&quot; target=&quot;_blank&quot;&gt;Register a system&lt;/a&gt; that will send numerical value periodically&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;html&quot;&gt;HTML&lt;/h3&gt;
+
+&lt;p&gt;You first have to modify your HTML file (here index.html):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Include the D3 library in your HTML file.&lt;/li&gt;
+  &lt;li&gt;And of course your own JS file (here aggregatedgraph.js next to index.html, that will contain the code to generate the graph. &lt;/li&gt;
+  &lt;li&gt;Add a div with a specific class. This class will be used by your D3 code as an anchor to generate the SVG for the graph.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;html&amp;gt;
+   &amp;lt;head&amp;gt;
+      &amp;lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&amp;gt;&amp;lt;/script&amp;gt;
+      &amp;lt;script src=&quot;aggregatedgraph.js&quot; charset=&quot;utf-8&quot;&amp;gt;&amp;lt;/script&amp;gt;
+   &amp;lt;head/&amp;gt;
+   &amp;lt;body&amp;gt;
+      &amp;lt;div class='graph'&amp;gt;&amp;lt;/div&amp;gt;     
+   &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;Javascript&lt;/h3&gt;
+
+&lt;p&gt;You can now create the aggregatedgraph.js file.&lt;/p&gt;
+
+&lt;p&gt;You need first to setup global constants that will be used for the graph:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var width = 940; // Width of the SVG element
+var height = 400; // Height of the SVG element
+var margin = 40; // Margin that will be used inside the SVG element
+var plotRadius = 3; // Size of plots in the graph
+var username = &quot;eclo.demo@gmail.com&quot;; // AirVantage user
+var password = &quot;eclo-live2013!&quot;; // AirVantage password
+var clientid = &quot;eabea6f63e8346ceb8c4016f8e0f2740&quot;; // Client id registered in AirVantage
+var clientsecret = &quot;54f40d77bbe348cb9e8b274fa25625ba&quot;; // Secret key associated to the client
+var systemuid = &quot;f7d1eee04d0b4dc6af901cbdaacc83cd&quot;; // The UID of the register system in AirVantage
+var dataname = &quot;greenhouse.data.temperature&quot;; // The data path of the system
+var airvantage = &quot;http://edge.m2mop.net&quot;; //AirVantage platform used
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you can create global variables that will be shared by the various functions of your code&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var svg; // The variable that hold the svg element
+var grid; // The SVG group that contains the axis of the graph
+var graph; // The SVG group that contains the graph itself
+var token; // The OAuth token used by AirVantage REST API
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;av-rest-api&quot;&gt;AV REST API&lt;/h3&gt;
+
+&lt;p&gt;You can now deal with AirVantage REST API (here we use the d3 json function that runs an http GET on the provided URL and handle the JSON response to the given callback).
+ * First a function to manage authenetication and token recovery. This function can execute a callback once the token has been recovered.
+ * Then a function to call the agregated historical data API and let the calback handle the data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// Creation of the URL to request the token
+
+// Recover the AirVantage token and then call the callback to trigger events as soon as the token
+function getToken(clbk){
+   var tokenURL = airvantage
+      + &quot;/api/oauth/token&quot;
+      + &quot;?grant_type=password&quot;
+      + &quot;&amp;amp;username=&quot; + username
+      + &quot;&amp;amp;password=&quot; + password
+      + &quot;&amp;amp;client_id=&quot; + clientid
+      + &quot;&amp;amp;client_secret=&quot; + clientsecret;
+   
+   d3.json(tokenURL, function(data){token = data.access_token; clbk()})
+}
+
+function getData(clbk){
+   var dataURL = airvantage
+      + &quot;/api/v1/systems/&quot; + systemuid
+      + &quot;/data/&quot; + dataname
+      + &quot;/aggregated&quot;
+      + &quot;?interval=1hour&quot;
+      + &quot;&amp;amp;size=500&quot;
+      + &quot;&amp;amp;access_token=&quot; + token;
+    
+   d3.json(dataURL, clbk)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;d3-graph&quot;&gt;D3 graph&lt;/h3&gt;
+
+&lt;p&gt;A first function is dedicated to the creation of the static elements of the SVG graph.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function init(){
+
+    // Creation of the svg element
+    svg = d3.select(&quot;.graph&quot;) // Select the HTML element of &quot;graph&quot; class
+        .append(&quot;svg&quot;) // Add an SVG element
+        .attr(&quot;width&quot;, width) // Set attributes
+        .attr(&quot;height&quot;, height);
+
+    // Creation of a group that will contain the axis of the graph
+    // The group is translated from the value of the margin
+    grid = svg.append(&quot;g&quot;)
+        .attr(&quot;transform&quot;, &quot;translate(&quot;+margin+&quot; &quot;+margin+&quot;)&quot;)
+        
+    // Creation of a group that will contain the data of the graph
+    graph = svg.append(&quot;g&quot;)
+        .attr(&quot;transform&quot;, &quot;translate(&quot;+margin+&quot; &quot;+margin+&quot;)&quot;)
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is time to tackle the core of the application: tracing and updating the graph with a new dataset.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function plot(dataset){
+    
+    // Remove null value from the dataset
+    var dataset = dataset.filter(function(data){return data.value != null})
+    
+    // Creation of a scale function that will map data value to vertical position
+    // It takes as domain the min and max of the values
+    var value_scale = d3.scale.linear()
+        .domain([d3.min(dataset, function(i){return i.value}) * .8, 
+                 d3.max(dataset, function(i){return i.value}) * 1.2])
+        .range([height-2*margin, margin])
+        
+    // Creation of the vertical axis constructor based on the value scale function
+    // The axis will be automaticaly  adaped to the domain of the scale function
+    var value_axis = d3.svg.axis().scale(value_scale).orient(&quot;left&quot;);
+
+    // Extract the time domain from the timestamps dataset
+    var time_extent = d3.extent(dataset, function(d){return d.timestamp});
+    
+    // Creation of a scale function for time 
+    var time_scale = d3.time.scale().domain(time_extent).range([0, width-2*margin]);
+    
+    // Creation of the horizontal axis constructor
+    var time_axis = d3.svg.axis().scale(time_scale);
+
+    // Discard the old axis before ading the new version 
+    // (in case the time and value domains have changed)
+    grid.selectAll(&quot;.axis&quot;)
+      .remove()
+
+    // Creation the horizontal axis 
+    // (it need to be translated down as in SVG the origin is on top left corner)
+    grid.append(&quot;g&quot;)
+      .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (height-2*margin) + &quot;)&quot;)
+      .attr(&quot;class&quot;, &quot;axis&quot;)
+      .call(time_axis);
+
+    // Creation of the vertical axis
+    grid.append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;axis&quot;)
+      .call(value_axis);
+
+    // Select all the existing elements of the plot of the graph in case of update
+    // Associate the new dataset to these elemnts
+    // The Timesamp of the element is used as an identifier
+    var g = graph.selectAll('.temperature').data(dataset, function(t){return t.timestamp})
+
+    // Use of the enter function to create plots associated to new elements of the dataset
+    // (the ones with new timestamp)
+    // The plot is positionned according to is timestamp and value thanks to the scales function
+    g.enter()
+      .append('circle')
+      .attr('class', 'temperature')
+      .attr(&quot;cx&quot;, function(d){return time_scale(d.timestamp)})
+      .attr(&quot;cy&quot;, function(d){return value_scale(d.value)})
+      .attr(&quot;r&quot;, plotRadius+margin)
+      .style(&quot;fill&quot;, &quot;#333333&quot;)
+      .style(&quot;opacity&quot;, &quot;0&quot;)
+
+    // Create an animation for all existing plots thanks to the transition function.
+    // For the one added through enter, it changes the opacity and the radius.
+    // For the one already in the dataset, it changes position in the newly created time and value scales.
+    g.transition()
+      .duration(500)
+      .attr(&quot;cx&quot;, function(d){return time_scale(d.timestamp)})
+      .attr(&quot;cy&quot;, function(d){return value_scale(d.value)})
+      .attr(&quot;r&quot;, plotRadius)
+      .style(&quot;opacity&quot;, &quot;1&quot;)
+
+    // Remove the plot that are no longer in the dataset thanks to the exit function
+    g.exit()
+      .remove()
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;bootstrap&quot;&gt;Bootstrap&lt;/h3&gt;
+
+&lt;p&gt;And last but not least, the entry point of the script. This function will be executed once the page has been fully loaded, and will init the whole application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;window.onload = function(){
+    // Call init function
+    init()
+    // Recover the access token
+    // Then the dataset and plot it
+    getToken(function(){getData(plot)})
+    // Add an action on the svg element:
+    // On a mouse click the a new dataset is recovered and plot.
+    svg.on('click', function(){getData(plot)})
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;going-further&quot;&gt;Going Further&lt;/h2&gt;
+
+&lt;p&gt;In order to get closer to a real app, it would be good to rely on a web framework that will enable to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integrate this SVG visualization in a more complex web application (including the styling of the SVG elements using CSS)&lt;/li&gt;
+  &lt;li&gt;Manage REST calls properly (store auth token, use appropriate OAuth workflow, manage connection error, …)&lt;/li&gt;
+  &lt;li&gt;Work on user interaction (login, request of data, …)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the &lt;span style=&quot;font-family: 'aruallight';&quot;&gt;eclo&lt;/span&gt; example, we used &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; but many others are available.&lt;/p&gt;
+
+&lt;p&gt;Moreover, the AirVantage API is not limited to aggregated data: last value and historical raw datapoints are also available, as long as many other ways to interact with your systems on the field. &lt;/p&gt;
+
+&lt;p&gt;This, combined to the almost limitless possibilities of D3, let you imagine complex visualization and interaction UI for your own solutions and customers. &lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 31 Jul 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/07/31/Airvantage-D3</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/07/31/Airvantage-D3</guid>
+			</item>
+		
+			<item>
+				<title>“AirVantage &lt;3 open source” goes live!</title>
+				<description>&lt;p&gt;&lt;img style=&quot;float:left; margin-right:15px;&quot; src=&quot;/resources/img/blog/2013-07-25-announcing-airvantage-opensource/luv.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At AirVantage, we have a passion for open source!&lt;/p&gt;
+
+&lt;p&gt;We co-founded the &lt;a href=&quot;http://m2m.eclipse.org&quot;&gt;Eclipse M2M Working Group&lt;/a&gt; with the objective of building a community of developers and an ecosystem of open source projects that make it simpler to build M2M solutions.&lt;/p&gt;
+
+&lt;p&gt;This website is a way for you to learn more about the features of AirVantage, and tinker with open source projects that we love and that we think you will too!&lt;/p&gt;
+
+&lt;p&gt;Well… enough talking, let me give you a tour of what we have in store for you!&lt;/p&gt;
+
+&lt;h2 id=&quot;a-cool-developer-kit&quot;&gt;A cool developer kit&lt;/h2&gt;
+
+&lt;p&gt;If you want to evaluate AirVantage and you are not sure yet what kind of physical objects you would like to connect to it –or maybe you simply don’t have these objects at hand just yet– you might want to have a look at our &lt;span style=&quot;font-family: 'aruallight';&quot;&gt;eclo&lt;/span&gt; developer kit.&lt;br /&gt;
+Check the &lt;a href=&quot;http://airvantage.github.io/devkit&quot;&gt;dedicated page&lt;/a&gt; to learn more, see a live demo, and order your very own greenhouse kit!&lt;/p&gt;
+
+&lt;h2 id=&quot;api-examples&quot;&gt;API Examples&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://na.airvantage.net&quot;&gt;AirVantage M2M Cloud&lt;/a&gt; provides a rich set of API for managing your devices on the field. We are delivering &lt;a href=&quot;http://airvantage.github.io/api&quot;&gt;open source examples&lt;/a&gt; helping you to access AirVantage API from your language of choice, including the OAuth authentication process.&lt;/p&gt;
+
+&lt;h2 id=&quot;tutorials&quot;&gt;Tutorials&lt;/h2&gt;
+
+&lt;p&gt;Our &lt;a href=&quot;http://airvantage.github.io/tutorials&quot;&gt;tutorials&lt;/a&gt; give you the opportunity to go in depth on specific topics, with detailed explanations and, again, open source code that you can use to get started even quicker.&lt;/p&gt;
+
+&lt;h2 id=&quot;cool-projects&quot;&gt;Cool projects&lt;/h2&gt;
+
+&lt;p&gt;When we are not working hard on making AirVantage the coolest M2M platform, we also hack on some cool projects of our own and guess what… they are open source too!&lt;br /&gt;
+Don’t wait any longer to go &lt;a href=&quot;http://airvantage.github.io/projects&quot;&gt;check out&lt;/a&gt; the great projects we have already. &lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 25 Jul 2013 00:00:00 +0200</pubDate>
+				<link>http://airvantage.github.io/blog/2013/07/25/announcing-airvantage-opensource</link>
+				<guid isPermaLink="true">http://airvantage.github.io/blog/2013/07/25/announcing-airvantage-opensource</guid>
+			</item>
+		
+	</channel>
+</rss>
