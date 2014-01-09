@@ -126,6 +126,10 @@ p {
 	font-size: 26px;
 }
 
+.author {
+	font-size: 0.8em;
+}
+
 ul li, ol li{
 	font-size: 18px;
 	margin-left: 0em;
@@ -141,9 +145,13 @@ ul li  {
 	margin-left: 2em;
 }
 
+#post a:hover {
+	border-bottom: 1px rgb(229,59,48) dotted;
+}
+
 #page-navigation {
 	font-size: 0.8em;
-	float: right;
+	/*float: right;*/
 	position: relative;
 	text-align: right;
 }
