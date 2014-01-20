@@ -28,6 +28,18 @@ Host is up.
 Nmap done: 256 IP addresses (2 hosts up) scanned in 2.02 seconds
 ~~~
 
+This command shows us an unique Raspberry Pi available at `192.168.2.6`.
+
+## Connect to Raspberry Pi
+
+Connect to the Raspberry Pi we just find is simple.
+
+~~~sh
+$ ssh 192.168.2.6
+~~~
+
+Now, we are ready to perform some work.
+
 ## Define your data
 
 First of all, to be able to send and receive data, we have to explain our data to AirVantage. Here is my description, you just need to change the __type__ value with a unique identifier for your application and the __name__ and __revision__ with the appropriate value for your use case.
@@ -72,7 +84,7 @@ The application we are about to code needs access to AirVantage's platform to be
     1. __Subscriptions__: So far, you do not need one.
     1. __Applications__: Provide your data description.
         1. Click on __+__ and select the _.zip_ file we just created and _"start"_ the upload.
-    1. Click on __&#128274;__ which just appeared, then define your __REST__ password.
+    1. Click on <img src="/resources/img/tutorials/lock.png"/> which just appeared, then define your __REST__ password.
     1. Check _"I want to activate my system after creating it"_.
     1. Click on _"Create"_.
 
@@ -113,7 +125,7 @@ from time import time
 # Parse arguments
 parser = ArgumentParser(description="Using RESTful AirVantage.")
 parser.add_argument("identifier",
-  help="Your identifier, like a trimmed a MAC address.")
+  help="Your identifier, defined on AirVantage, here a trimmed a MAC address.")
 parser.add_argument("password", help="REST password.")
 args = parser.parse_args()
 
@@ -121,12 +133,13 @@ args = parser.parse_args()
 # Sending data to AirVantage
 #
 timestamp = int( time() )
+# +1 and +2 are here to avoid aving several data points at the same time
 data = [
   {
     "machine.temperature": [
       { "value" : "23.2", "timestamp" : timestamp },
-      { "value" : "24.5", "timestamp" : timestamp },
-      { "value" : "22.9", "timestamp" : timestamp }
+      { "value" : "24.5", "timestamp" : timestamp + 1 },
+      { "value" : "22.9", "timestamp" : timestamp + 2 }
     ]
   },
   {
