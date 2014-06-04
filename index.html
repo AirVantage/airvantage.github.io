@@ -1,34 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>AirVantage ♡ Open Source</title>
-<!--     <meta name="description" content="AirVantage ♡ Open Source" /> -->
+
+  <head>
+    
+    <title>AirVantage &lt;3 OpenSource</title>
     <meta name="robots" content="index, follow" />
-
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
-    <script src="/resources/js/main.js" type="text/javascript"></script>
-
-    <!-- flexslider -->
-    <link type="text/css" rel="stylesheet" href="/resources/css/flexslider.css" />
-    <script type="text/javascript" src="/resources/js/jquery.flexslider-min.js"></script>
-
-    <link href="/resources/css/misc_icons.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/resources/css/airvantage.github.io.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/resources/css/pygments/default.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <!-- lightbox2 -->
-    <script type="text/javascript" src="/resources/js/lightbox-2.6.min.js"></script>
-    <link href="/resources/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <!-- highlight syntax -->
-    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 
     <!-- GA tracker -->
     <script type="text/javascript">
@@ -43,451 +25,199 @@
     </script>
     <!-- end GA tracker -->
 
-</head>
-<body itemscope itemtype="http://schema.org/WebPage">
-     <div class="wrapper">
-        <div id="top">
-            <header>
-                <h1><a title="back to top" href="/#introduction">Sierra Wireless - AirVantage</a></h1>
-                <nav  class="navlink" >
-                    <a href="/#features"><i class="icon-github"></i> Repositories</a>
-                    <a href="/devkit" >Dev. kit</a>
-                    <a href="/#who">Who we are</a>
-                    <a href="/blog" >Blog</a>
-                    <a href="http://developer.sierrawireless.com" target="_blank"><span style="font-family: 'swop_icons' ; font-size:5em; line-height:0em; vertical-align:-0.2em;">L</span></a>
+  </head>
 
-                    <!-- Twitter follow us buton -->
-                    <div style="display : inline-table;margin-top : 6px;">
+  <body style="padding-top: 70px;">
+    <div class="container">
 
-                      <a href="https://twitter.com/airvantage" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow @airvantage</a>
-                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-                    </div>
-
-                    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
-                    <div style="display: inline-table;margin-top: 5px;">
-                      <div class="g-plusone" data-size="medium"></div>
-                    </div>
-                    <!-- Placez cette ballise après la dernière balise Bouton +1. -->
-                    <script type="text/javascript">
-                      window.___gcfg = {lang: 'fr'};
-
-                      (function() {
-                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                        po.src = 'https://apis.google.com/js/plusone.js';
-                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                      })();
-                    </script>
-
-
-                </nav>
-            </header>
+        <div class="jumbotron">
+          <h1>AirVantage &lt;3 OpenSource</h1>
+          <p><a href="https://eu.airvantage.net" target="_blank">AirVantage</a> is built by people who are passionate about open source. <br/>
+        We use and contribute to open-source projects, and we think it is key to enabling the development of IoT applications.<br/>
+        We lead the <a href="http://iot.eclipse.org/" target="_blank">Eclipse IoT Working Group</a> initiative at the Eclipse Foundation. </p>
         </div>
-        
-          <div id="introduction" itemprop="headline">
-	<img src="resources/img/banner.png" class="banner" itemprop="primaryImageOfPage"/>
-    <a href="https://eu.airvantage.net" target="_blank">AirVantage</a> is built by people who are passionate about open source. <br/>
-    We use and contribute to open-source projects, and we think it is key to enabling the development of M2M applications.<br/>
-    We lead the <a href="http://m2m.eclipse.org/" target="_blank">Eclipse M2M Industry Working Group</a> initiative at the Eclipse Foundation. 
-</div>
-<div id="features">
-	<div class="bullet"></div>
-	<h2>Repositories</h2>
-    <h3></h3>
-    <div style="margin-left: 10%">
-    	<div class="feature repo first">
-            <a href="/tutorials">
-            	<center><span class="testicon darkgrey"><i class="icon-library repo-icon"></i></span></center>
-                <h4>Tutorials</h4>
-            </a>
-            Get started with AirVantage by following one of our detailed tutorials
+
+        <div class="text-center">
+            <a class="btn btn-default" href="#api" role="button">API Libraries</a>
+            <a class="btn btn-default" href="#examples" role="button">Examples</a>
+            <a class="btn btn-default" href="#projects" role="button">Projects</a>
+            <a class="btn btn-default" href="#experiments" role="button">Experiments</a>
         </div>
-        <div class="feature repo">
-        	<a href="/api">
-                <center><a href="/api"><span class="testicon darkgrey"><i class="icon-cog repo-icon"></i></span></center>
-                <h4>API examples</h4>
-            </a>
-            We provide examples to get you up to speed with the AirVantage API in no time with your language of choice 
+
+        <h2 id="api">API Libraries</h2>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/airvantage-api-nodejs">Node.js</a></h4> 
+                    <p>A Node.js example for AirVantage API (thanks <a href="https://twitter.com/kveday">Mahmut Bulut</a>!).</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/airvantage-api-clojure">Clojure</a></h4>
+                    <p>An example of using the Airvantage REST API in Clojure.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/airvantage-api-golang">Go</a></h4>
+                    <p>A simple OAuth2 + JSon client in Go for gathering the list of gateway from AirVantage.</p>
+                </div>
+            </div>
         </div>
-    	<div class="feature repo">
-        	<a href="/projects">
-                <center><span class="testicon darkgrey"><i class="icon-rocket repo-icon" style="text-indent: -6px;"></i></span></center>
-                <h4>Featured projects</h4>
-            </a>
-            What is cool with M2M is that one can build all sorts of fun projects. We are too, and we are sharing some of these projects with the community.
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/airvantage-api-ruby">Ruby</a></h4>
+                    <p>This example will help you access AirVantage API from Ruby.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="http://developer.sierrawireless.com/Resources/Resources/AirVantage/Educational_Documentation/Tutorial_AirVantage4_AWS_PHP_Sample.aspx">PHP</a></h4>
+                    <p>AWS Web Server Sample in PHP using AirVantage API.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/airvantage-api-java">Java</a></h4>
+                    <p>This example will help you access AirVantage API from Java.
+It uses the <a href="https://github.com/fernandezpablo85/scribe-java">Scribe</a> library for OAuth authentication.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/bmiegemolle/airvantage-api-shell">Shell</a></h4>
+                    <p>This project aims to provides a light and flexible Shell script that enables to interact with AirVantage M2M Cloud API in command-line.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="examples">Examples</h2>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/dsciamma/airvantage-android-template">Android template</a></h4>
+                    <p>This template provides a basic <span class="badge">Android</span> application with one screen to be logged in using AirVantage credentials. It implements OAuth Authorization code flow and use application preferences to store the token to have the session between several application usages or if the phone reboots.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/AirVantage/sampleapp-eclo-watch">Eclo Watch</a></h4>
+                    <p>eclo watch is sample <span class="badge">node.js</span> application that aims to show how to use AirVantage to create an added value service on top of it. This sample application make use of some of the REST API provided to build a custom UI that fits a specific domain.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/msangoi/av-phone">AV Phone</a></h4>
+                    <p>An <span class="badge">Android</span> application to monitor the state of the phone and send this state periodically to the AirVantage platform.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/dsciamma/airvantage-universe">AirVantage Universe</a></h4>
+                    <p>Universe demonstrates how easy it is to create an IoT application using AirVantage, <span class="badge">Android</span> <span class="badge">Facebook</span> <span class="badge">Parse.com</span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/aleos-mqtt">Push Aleos data using ALEOS AF+MQTT</a></h4>
+                    <p>Push ALEOS data using <span class="badge">MQTT</span> + <span class="badge">ALEOS AF</span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/mihini-greenhouse-demo">Mihini Greenhouse</a></h4>
+                    <p><span class="badge">Arduino</span> <span class="badge">Mihini</span> <span class="badge">Corona</span> </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="projects">Projects</h2>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/leshan">Leshan</a></h4>
+                    <p>Leshan is a OMA Lightweight M2M <span class="badge">LWM2M</span> server implementation written in <span class="badge">Java</span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="http://www.eclipse.org/koneki/ldt/">LDT</a></h4>
+                    <p>LDT is about providing <span class="badge">Lua</span> developers with an IDE based on <span class="badge">Eclipse</span> providing the user experience developers expect from any other tool dedicated to a static programming language.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 id="experiments">Experiments</h2>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/KINFOO/niko_niko">niko-niko</a></h4>
+                    <p>A web application in <span class="badge">django</span> available for one vote over three smileys in order to know their mood.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/bmiegemolle/git-build-data-plugin">Git Build Data Plugin</a></h4>
+                    <p>A <span class="badge">Jenkins</span> plugins enables to show Git build data in different places, like in job list columns or job details.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/dsciamma/airvantage-export-crossfilter">AirVantage Export Crossfilter</a></h4>
+                    <p><span class="badge">Analyze</span> the CSV of your export operations done in AirVantage. The application is available <a href="http://dsciamma.github.io/airvantage-export-crossfilter/">here</a>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/rdouyere/hbase-munin">hbase-munin</a></h4>
+                    <p>Simple munin plugin scripts written in <span class="badge">python</span> which extract information from HMaster & RegionServer web pages and format them for <span class="badge">Munin</span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/rdouyere/taukari">taukari</a></h4>
+                    <p>Rustic <span class="badge">data mining</span> toolbox</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/moxy">Moxy</a></h4>
+                    <p>A <span class="badge">MQTT</span> proxy written in <span class="badge">Go</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/sebz/netatmo2AirVantage">netatmo2AirVantage</a></h4>
+                    <p>Synchronize your <span class="badge">Netatmo</span> urban weather station data with Sierra Wireless AirVantage M2M Cloud.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/avsnmp">avsnmp</a></h4>
+                    <p><span class="badge">SNMP</span> to AirVantage client - written in <span class="badge">Go</span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="https://github.com/jvermillard/av-teleinfo">av-teleinfo</a></h4>
+                    <p>Push EDF power meter <span class="badge">teleinfo</span> protocol to AirVantage - written in <span class="badge">Go</span></p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div id="who">
-	<div class="bullet"></div>
-	<h2>Who we are</h2>
-    <h3></h3>
-    <div style="margin-left: 10%" id="authors">
-        
-        <div class="author_vcard" id="kartben" style="background: url('https://secure.gravatar.com/avatar/6a9709b2e69ab3bb3bf786acb6323366?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Benjamin Cabé</div>
-
-
-            
-            
-
-            
-            <div class="blog_link" style="float:left">
-                <a href="/authors/kartben/page1" class="link">Blog <span class="red">►</span></a>
-            </div>
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/kartben" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/kartben" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/112837264176638481892" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="sebz" style="background: url('https://secure.gravatar.com/avatar/6e0f84a522cf43154299fdf2798c659d?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Sébastien Moran</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/sebz" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/sebz" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/109240335417844065572" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="gaetan" style="background: url('https://secure.gravatar.com/avatar/2d6cc32e710c17a641a5c87266322438?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Gaétan Morice</div>
-
-
-            
-            
-
-            
-            <div class="blog_link" style="float:left">
-                <a href="/authors/gaetan/page1" class="link">Blog <span class="red">►</span></a>
-            </div>
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/gmorice" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/gaetanmorice" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/102428174039559035920" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="vrmvrm" style="background: url('https://secure.gravatar.com/avatar/cf8a296ad8ebdf41f76d75f50470ecf0?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Julien Vermillard</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/vrmvrm" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/jvermillard" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/108450532433051005595" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="dsciamma" style="background: url('https://secure.gravatar.com/avatar/14d36b6a2ea4a6e0271559aba29b9326?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">David Sciamma</div>
-
-
-            
-            
-
-            
-            <div class="blog_link" style="float:left">
-                <a href="/authors/dsciamma/page1" class="link">Blog <span class="red">►</span></a>
-            </div>
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/dsciamma" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/103703984790295374608" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="thibs" style="background: url('https://secure.gravatar.com/avatar/a9dc4900710f1892704aa76992bd2fcb?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Thibault Cantegrel</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/thibs" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/thibs0" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/117950456018736297877" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="kinfoo" style="background: url('https://secure.gravatar.com/avatar/3aba2f30d036a8e61c02f78d0a6ce083?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Kévin Kin-Foo</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/KevinKINFOO" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/KINFOO" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/113195961024728684158" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="lbarthelemy" style="background: url('https://secure.gravatar.com/avatar/723dac40c3f64f1cd87ef3ced1f4a9b4?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Laurent Barthélémy</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="phtrivier" style="background: url('https://secure.gravatar.com/avatar/b8efdf0b5e92a9e758386990822f0be8?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Pierre-Henri Trivier</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/phtrivier" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/116209387043423638740" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="fab13n" style="background: url('https://secure.gravatar.com/avatar/?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Fabien Fleutot</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                <div class="twitter">
-                    <a href="https://twitter.com/fab13n" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="github">
-                    <a href="https://github.com/fab13n" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/102120943143860413606" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-        <div class="author_vcard" id="bmiegemolle" style="background: url('https://secure.gravatar.com/avatar/498ac9ed4dbfea38917b0dc6a6229dc7?s=200')" itemscope itemtype="http://schema.org/Person">
-            <div class="name" itemprop="name">Bernard Miegemolle</div>
-
-
-            
-            
-
-            
-
-
-            <div class="social">
-                
-                
-                <div class="github">
-                    <a href="https://github.com/bmiegemolle" target="_blank">
-                        <i class="icon-github"></i>
-                    </a>
-                </div>
-                
-                
-                <div class="gplus">
-                    <a href="https://plus.google.com/118442765196290372370" target="_blank">
-                        <i class="icon-gplus"></i>
-                    </a>
-                </div>
-                
-            </div>
-        </div>                
-        
-    </div>
-</div>
-        
-    </div>
-</body>
+  </body>
 </html>
