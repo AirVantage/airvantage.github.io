@@ -56,13 +56,13 @@ Open the created file to start coding an example using the following snippets.
 
 ### Intialize the MQTT channel:
 
-At first, we need to create a MQTT client instance with the right congfiguration.
+At first, we need to create a MQTT client instance with the right configuration.
 
 ~~~ js
 var mqtt = require('mqtt');
 
 var port = 1883;
-var server = "tcp://na.airvantage.net";
+var server = "na.airvantage.net";
 
 var serialnumber = "3713BBBK7777"; //serialnumber
 var password = "1234";
